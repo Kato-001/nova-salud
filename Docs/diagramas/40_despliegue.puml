@@ -11,11 +11,11 @@ cloud "Internet" as NET
 
 node "Vercel · región gru1 (São Paulo)\n<<plataforma serverless>>" as VER {
   node "CDN / Edge\n<<servidor web>>" as CDN {
-    artifact "public/assets\n(app.css, componentes.css,\napp.js, citas.js)" as ASSETS
+    artifact "Frontend/public/assets\n(app.css, componentes.css,\napp.js, citas.js)" as ASSETS
   }
   node "Función serverless\nPHP 8.3 (vercel-php)\n<<entorno de ejecución>>" as FN {
     artifact "api/index.php\n(controlador frontal)" as FRONT
-    artifact "app/\n(controllers, services,\nmodels, views, core)" as APP
+    artifact "Bakend/app + Frontend/views\n(controllers, services, models,\ncore y pantallas)" as APP
   }
 }
 

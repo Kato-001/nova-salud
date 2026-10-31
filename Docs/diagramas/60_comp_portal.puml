@@ -2,20 +2,20 @@
 !include estilo.iuml
 title Componentes del Portal del paciente
 left to right direction
-package "Presentación (app/views)" {
+package "Presentación (Frontend/views)" {
   component "Portal/inicio.php" as vIni
   component "Portal/reservar.php" as vRes
   component "Portal/citas.php" as vCit
   component "Portal/perfil.php" as vPer
   component "Portal/historial.php" as vHis
 }
-package "Control (app/controllers)" {
+package "Control (Bakend/app/controllers)" {
   component "PortalController" as cPor
 }
-package "Lógica de negocio (app/services · app/core)" {
+package "Lógica de negocio (Bakend/app/services · core)" {
   component "CitaService" as sCit
 }
-package "Acceso a datos (app/models)" {
+package "Acceso a datos (Bakend/app/models)" {
   component "Paciente" as mPac
   component "Cita" as mCit
   component "Consulta" as mCon

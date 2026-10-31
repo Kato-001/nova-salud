@@ -1,0 +1,87 @@
+' Estilo de los diagramas con la apariencia de Enterprise Architect (Sparx Systems):
+' marco con etiqueta de tipo, elementos con degradado, sombras y tipografía Calibri.
+skinparam shadowing true
+skinparam defaultFontName "Calibri"
+skinparam defaultFontSize 12
+skinparam defaultFontColor #1A1A1A
+skinparam backgroundColor #FFFFFF
+skinparam roundCorner 6
+skinparam ArrowColor #3C3C3C
+skinparam ArrowThickness 1
+skinparam ArrowFontSize 11
+skinparam ArrowFontColor #1A1A1A
+skinparam TitleFontSize 14
+skinparam TitleFontStyle bold
+
+' Marco del diagrama (pestaña "uc", "class", "sd"…)
+skinparam FrameBorderColor #000000
+skinparam FrameFontStyle bold
+
+' Casos de uso y actores
+skinparam UsecaseBackgroundColor #F2F7FD/#C9DCF2
+skinparam UsecaseBorderColor #4F7DB3
+skinparam UsecaseFontStyle bold
+skinparam ActorBackgroundColor #FFF7E6/#F8DDA9
+skinparam ActorBorderColor #8A6A3A
+skinparam ActorFontStyle bold
+
+' Clases, paquetes y notas (amarillo característico de EA)
+skinparam ClassBackgroundColor #FFFFF2/#FDF1BE
+skinparam ClassBorderColor #9C7F2C
+skinparam ClassHeaderBackgroundColor #FFFFF2/#FDF1BE
+skinparam ClassFontStyle bold
+skinparam ClassAttributeFontSize 11
+skinparam StereotypeFontColor #5A5A5A
+skinparam PackageBackgroundColor #FFFFF2/#FDF1BE
+skinparam PackageBorderColor #9C7F2C
+skinparam PackageFontStyle bold
+skinparam RectangleBackgroundColor #FFFFFF
+skinparam RectangleBorderColor #6E6E6E
+skinparam NoteBackgroundColor #FFFFCC
+skinparam NoteBorderColor #A0A0A0
+skinparam EntityBackgroundColor #FFFFF2/#FDF1BE
+skinparam EntityBorderColor #9C7F2C
+skinparam BoundaryBackgroundColor #FFFFF2/#FDF1BE
+skinparam BoundaryBorderColor #9C7F2C
+skinparam ControlBackgroundColor #FFFFF2/#FDF1BE
+skinparam ControlBorderColor #9C7F2C
+
+' Secuencia y comunicación
+skinparam ParticipantBackgroundColor #FFFFF2/#FDF1BE
+skinparam ParticipantBorderColor #9C7F2C
+skinparam ParticipantFontStyle bold
+skinparam SequenceLifeLineBorderColor #6E6E6E
+skinparam SequenceLifeLineBackgroundColor #FFFFFF
+skinparam SequenceGroupBorderColor #3C3C3C
+skinparam SequenceGroupHeaderFontStyle bold
+skinparam SequenceGroupBackgroundColor #FFFFFF
+skinparam SequenceGroupBodyBackgroundColor transparent
+skinparam SequenceBoxBorderColor #9C7F2C
+skinparam DatabaseBackgroundColor #FFFFF2/#FDF1BE
+skinparam DatabaseBorderColor #9C7F2C
+
+' Actividades y estados
+skinparam ActivityBackgroundColor #F2F7FD/#C9DCF2
+skinparam ActivityBorderColor #4F7DB3
+skinparam ActivityDiamondBackgroundColor #FFFFF2/#FDF1BE
+skinparam ActivityDiamondBorderColor #9C7F2C
+skinparam ActivityStartColor #000000
+skinparam ActivityEndColor #000000
+skinparam ActivityBarColor #000000
+skinparam SwimlaneTitleFontStyle bold
+skinparam SwimlaneBorderColor #6E6E6E
+skinparam StateBackgroundColor #F2F7FD/#C9DCF2
+skinparam StateBorderColor #4F7DB3
+skinparam StateFontStyle bold
+
+' Componentes y despliegue
+skinparam ComponentBackgroundColor #FFFFF2/#FDF1BE
+skinparam ComponentBorderColor #9C7F2C
+skinparam ComponentFontStyle bold
+skinparam NodeBackgroundColor #F7F4EC/#E3DAC2
+skinparam NodeBorderColor #7D6A43
+skinparam NodeFontStyle bold
+skinparam ArtifactBackgroundColor #FFFFFF/#EFEFEF
+skinparam ArtifactBorderColor #6E6E6E
+skinparam CloudBackgroundColor #F5F5F5
+skinparam CloudBorderColor #6E6E6E

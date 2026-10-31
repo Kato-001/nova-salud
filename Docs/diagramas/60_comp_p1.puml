@@ -2,7 +2,7 @@
 !include estilo.iuml
 title Componentes del paquete P1 Seguridad y acceso
 left to right direction
-package "Presentación (app/views)" {
+package "Presentación (Frontend/views)" {
   component "login.php" as vLogin
   component "recuperar.php\nrecuperar_codigo.php" as vRec
   component "usuarios/*.php" as vUsu
@@ -10,7 +10,7 @@ package "Presentación (app/views)" {
   component "configuracion/index.php" as vConf
   component "bitacora/index.php" as vBit
 }
-package "Control (app/controllers)" {
+package "Control (Bakend/app/controllers)" {
   component "AuthController" as cAuth
   component "RecuperacionController" as cRec
   component "UsuarioController" as cUsu
@@ -18,11 +18,11 @@ package "Control (app/controllers)" {
   component "ConfiguracionController" as cConf
   component "BitacoraController" as cBit
 }
-package "Lógica de negocio (app/services · app/core)" {
+package "Lógica de negocio (Bakend/app/services · core)" {
   component "Auth · Session" as sAuth
   component "Mailer (SMTP)" as sMail
 }
-package "Acceso a datos (app/models)" {
+package "Acceso a datos (Bakend/app/models)" {
   component "Usuario" as mUsu
   component "Recuperacion" as mRec
   component "Rol" as mRol

@@ -2,16 +2,16 @@
 !include estilo.iuml
 title Componentes del paquete P3 Gestión de pacientes
 left to right direction
-package "Presentación (app/views)" {
+package "Presentación (Frontend/views)" {
   component "pacientes/index.php" as vLis
   component "pacientes/form.php\npacientes/ver.php" as vFic
   component "registro.php" as vReg
 }
-package "Control (app/controllers)" {
+package "Control (Bakend/app/controllers)" {
   component "PacienteController" as cPac
   component "AuthController\n(registro)" as cAuth
 }
-package "Acceso a datos (app/models)" {
+package "Acceso a datos (Bakend/app/models)" {
   component "Paciente" as mPac
   component "Usuario" as mUsu
 }

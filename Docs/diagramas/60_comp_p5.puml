@@ -2,17 +2,17 @@
 !include estilo.iuml
 title Componentes del paquete P5 Atención médica
 left to right direction
-package "Presentación (app/views)" {
+package "Presentación (Frontend/views)" {
   component "consulta.php" as vCon
   component "estudios/index.php" as vEst
   component "estudios/resultado.php" as vRes
   component "estudios/catalogo.php" as vCat
 }
-package "Control (app/controllers)" {
+package "Control (Bakend/app/controllers)" {
   component "AtencionController" as cAte
   component "EstudioController" as cEst
 }
-package "Acceso a datos (app/models)" {
+package "Acceso a datos (Bakend/app/models)" {
   component "Consulta" as mCon
   component "Estudio" as mEst
   component "Cita" as mCit

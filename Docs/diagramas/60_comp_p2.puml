@@ -2,17 +2,17 @@
 !include estilo.iuml
 title Componentes del paquete P2 Gestión médica
 left to right direction
-package "Presentación (app/views)" {
+package "Presentación (Frontend/views)" {
   component "especialidades/index.php" as vEsp
   component "medicos/index.php\nmedicos/form.php\nmedicos/ver.php" as vMed
   component "horarios/index.php" as vHor
 }
-package "Control (app/controllers)" {
+package "Control (Bakend/app/controllers)" {
   component "EspecialidadController" as cEsp
   component "MedicoController" as cMed
   component "HorarioController" as cHor
 }
-package "Acceso a datos (app/models)" {
+package "Acceso a datos (Bakend/app/models)" {
   component "Especialidad" as mEsp
   component "Medico" as mMed
   component "Horario" as mHor

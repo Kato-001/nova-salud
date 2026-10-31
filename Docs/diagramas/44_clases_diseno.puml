@@ -3,7 +3,7 @@
 title Diagrama de clases de diseño · Núcleo y módulo de citas
 skinparam classAttributeIconSize 0
 
-package "app/core" {
+package "Bakend/app/core" {
   class Router {
     - rutas : array
     + get(ruta, accion) : Router
@@ -45,7 +45,7 @@ package "app/core" {
   class AppException
 }
 
-package "app/controllers" {
+package "Bakend/app/controllers" {
   abstract class Controlador {
     # vista(vista, datos) : void
     # intentar(operacion, datos) : bool
@@ -64,7 +64,7 @@ package "app/controllers" {
   }
 }
 
-package "app/services" {
+package "Bakend/app/services" {
   class CitaService {
     + {static} TRANSICIONES : array
     + {static} programar(datos) : array
@@ -79,7 +79,7 @@ package "app/services" {
   }
 }
 
-package "app/models" {
+package "Bakend/app/models" {
   class Cita {
     + {static} buscar(id) : ?array
     + {static} listar(filtros) : array

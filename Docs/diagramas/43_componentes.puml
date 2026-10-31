@@ -1,7 +1,6 @@
 @startuml 43_componentes
 !include estilo.iuml
 title Diagrama de componentes · Subsistemas de NovaSol Salud
-left to right direction
 
 component "Navegador\n(HTML + app.js + citas.js)" as NAV
 component "Controlador frontal\napi/index.php" as FRONT

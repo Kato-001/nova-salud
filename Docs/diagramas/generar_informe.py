@@ -309,7 +309,7 @@ def componentes(nombre, titulo, capas, enlaces, tablas):
     escribir(nombre, '\n'.join(c))
 
 
-V, K, S, M = 'Presentación (app/views)', 'Control (app/controllers)', 'Lógica de negocio (app/services · app/core)', 'Acceso a datos (app/models)'
+V, K, S, M = 'Presentación (Frontend/views)', 'Control (Bakend/app/controllers)', 'Lógica de negocio (Bakend/app/services · core)', 'Acceso a datos (Bakend/app/models)'
 
 componentes('60_comp_p1', 'Componentes del paquete P1 Seguridad y acceso', [
     (V, [('vLogin', 'login.php'), ('vRec', 'recuperar.php\\nrecuperar_codigo.php'), ('vUsu', 'usuarios/*.php'),

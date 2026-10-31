@@ -2,22 +2,22 @@
 !include estilo.iuml
 title Componentes del paquete P4 Gestión de citas
 left to right direction
-package "Presentación (app/views)" {
+package "Presentación (Frontend/views)" {
   component "citas/nueva.php\n+ citas.js" as vNue
   component "citas/index.php\ncitas/ver.php" as vVer
   component "citas/reprogramar.php" as vRep
   component "agenda/index.php" as vAge
 }
-package "Control (app/controllers)" {
+package "Control (Bakend/app/controllers)" {
   component "CitaController" as cCit
   component "ApiController (JSON)" as cApi
   component "AgendaController" as cAge
 }
-package "Lógica de negocio (app/services · app/core)" {
+package "Lógica de negocio (Bakend/app/services · core)" {
   component "CitaService" as sCit
   component "Disponibilidad" as sDis
 }
-package "Acceso a datos (app/models)" {
+package "Acceso a datos (Bakend/app/models)" {
   component "Cita" as mCit
   component "Horario" as mHor
   component "Notificacion" as mNot

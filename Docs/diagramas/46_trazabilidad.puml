@@ -23,7 +23,7 @@ package "Modelo de\ndespliegue" as MDE {
   database "Supabase\n(PostgreSQL)" as ND
 }
 package "Implementación" as IMP {
-  artifact "app/ (código PHP)" as A1
+  artifact "Bakend/ y Frontend/ (código PHP)" as A1
   artifact "Bakend/database/*.sql" as A2
 }
 

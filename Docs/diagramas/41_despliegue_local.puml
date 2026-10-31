@@ -9,7 +9,7 @@ node "PC del usuario\n<<dispositivo>>" {
 node "Servidor local\n<<Windows / Linux>>" {
   node "Apache 2.4 + PHP 8\n<<servidor web>>" as AP {
     artifact ".htaccess\n(reescritura de URL)" as HT
-    artifact "api/index.php + app/" as APP
+    artifact "api/index.php + Bakend/ + Frontend/" as APP
   }
   database "PostgreSQL 14+\nbase novasol_salud" as DB
 }

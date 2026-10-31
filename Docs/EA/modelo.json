@@ -1,0 +1,1463 @@
+{
+ "actores": [
+  "Administrador",
+  "Recepcionista",
+  "Médico",
+  "Paciente"
+ ],
+ "ciclos": [
+  {
+   "nombre": "Ciclo I",
+   "casos": [
+    {
+     "id": 1,
+     "nombre": "Iniciar sesión",
+     "paquete": "P1 Seguridad y acceso"
+    },
+    {
+     "id": 2,
+     "nombre": "Gestionar roles y permisos",
+     "paquete": "P1 Seguridad y acceso"
+    },
+    {
+     "id": 3,
+     "nombre": "Gestionar usuarios",
+     "paquete": "P1 Seguridad y acceso"
+    },
+    {
+     "id": 4,
+     "nombre": "Gestionar especialidades",
+     "paquete": "P2 Gestión médica"
+    },
+    {
+     "id": 5,
+     "nombre": "Gestionar médicos",
+     "paquete": "P2 Gestión médica"
+    },
+    {
+     "id": 6,
+     "nombre": "Gestionar horarios",
+     "paquete": "P2 Gestión médica"
+    },
+    {
+     "id": 7,
+     "nombre": "Gestionar pacientes",
+     "paquete": "P3 Gestión de pacientes"
+    }
+   ],
+   "usa": [
+    {
+     "actor": "Administrador",
+     "cu": 1
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 1
+    },
+    {
+     "actor": "Médico",
+     "cu": 1
+    },
+    {
+     "actor": "Paciente",
+     "cu": 1
+    },
+    {
+     "actor": "Administrador",
+     "cu": 2
+    },
+    {
+     "actor": "Administrador",
+     "cu": 3
+    },
+    {
+     "actor": "Administrador",
+     "cu": 4
+    },
+    {
+     "actor": "Administrador",
+     "cu": 5
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 5
+    },
+    {
+     "actor": "Administrador",
+     "cu": 6
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 7
+    },
+    {
+     "actor": "Administrador",
+     "cu": 7
+    }
+   ],
+   "relaciones": []
+  },
+  {
+   "nombre": "Ciclo II",
+   "casos": [
+    {
+     "id": 8,
+     "nombre": "Registrarse como paciente",
+     "paquete": "P3 Gestión de pacientes"
+    },
+    {
+     "id": 9,
+     "nombre": "Consultar disponibilidad",
+     "paquete": "P4 Gestión de citas"
+    },
+    {
+     "id": 10,
+     "nombre": "Reservar ficha",
+     "paquete": "P4 Gestión de citas"
+    },
+    {
+     "id": 11,
+     "nombre": "Reprogramar cita",
+     "paquete": "P4 Gestión de citas"
+    },
+    {
+     "id": 12,
+     "nombre": "Cancelar cita",
+     "paquete": "P4 Gestión de citas"
+    },
+    {
+     "id": 13,
+     "nombre": "Registrar asistencia",
+     "paquete": "P4 Gestión de citas"
+    },
+    {
+     "id": 14,
+     "nombre": "Consultar agenda médica",
+     "paquete": "P4 Gestión de citas"
+    },
+    {
+     "id": 15,
+     "nombre": "Registrar consulta médica",
+     "paquete": "P5 Atención médica"
+    },
+    {
+     "id": 16,
+     "nombre": "Gestionar historial clínico",
+     "paquete": "P5 Atención médica"
+    },
+    {
+     "id": 17,
+     "nombre": "Registrar tratamiento",
+     "paquete": "P5 Atención médica"
+    },
+    {
+     "id": 18,
+     "nombre": "Gestionar estudios médicos",
+     "paquete": "P5 Atención médica"
+    },
+    {
+     "id": 19,
+     "nombre": "Consultar historial y resultados",
+     "paquete": "P5 Atención médica"
+    },
+    {
+     "id": 20,
+     "nombre": "Generar reportes",
+     "paquete": "P6 Reportes"
+    }
+   ],
+   "usa": [
+    {
+     "actor": "Paciente",
+     "cu": 8
+    },
+    {
+     "actor": "Paciente",
+     "cu": 9
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 9
+    },
+    {
+     "actor": "Paciente",
+     "cu": 10
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 10
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 11
+    },
+    {
+     "actor": "Paciente",
+     "cu": 12
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 12
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 13
+    },
+    {
+     "actor": "Médico",
+     "cu": 13
+    },
+    {
+     "actor": "Médico",
+     "cu": 14
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 14
+    },
+    {
+     "actor": "Médico",
+     "cu": 15
+    },
+    {
+     "actor": "Médico",
+     "cu": 16
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 16
+    },
+    {
+     "actor": "Médico",
+     "cu": 17
+    },
+    {
+     "actor": "Médico",
+     "cu": 18
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 18
+    },
+    {
+     "actor": "Paciente",
+     "cu": 19
+    },
+    {
+     "actor": "Administrador",
+     "cu": 20
+    },
+    {
+     "actor": "Recepcionista",
+     "cu": 20
+    },
+    {
+     "actor": "Administrador",
+     "cu": 14
+    }
+   ],
+   "relaciones": [
+    {
+     "origen": 10,
+     "destino": 9,
+     "tipo": "include"
+    },
+    {
+     "origen": 11,
+     "destino": 9,
+     "tipo": "include"
+    },
+    {
+     "origen": 17,
+     "destino": 15,
+     "tipo": "extend"
+    },
+    {
+     "origen": 18,
+     "destino": 15,
+     "tipo": "extend"
+    }
+   ]
+  }
+ ],
+ "paquetes": [
+  "P1 Seguridad y acceso",
+  "P2 Gestión médica",
+  "P3 Gestión de pacientes",
+  "P4 Gestión de citas",
+  "P5 Atención médica",
+  "P6 Reportes",
+  "Portal del paciente"
+ ],
+ "dependencias": [
+  {
+   "de": "Portal del paciente",
+   "a": "P4 Gestión de citas"
+  },
+  {
+   "de": "Portal del paciente",
+   "a": "P3 Gestión de pacientes"
+  },
+  {
+   "de": "Portal del paciente",
+   "a": "P5 Atención médica"
+  },
+  {
+   "de": "P6 Reportes",
+   "a": "P4 Gestión de citas"
+  },
+  {
+   "de": "P6 Reportes",
+   "a": "P3 Gestión de pacientes"
+  },
+  {
+   "de": "P5 Atención médica",
+   "a": "P4 Gestión de citas"
+  },
+  {
+   "de": "P5 Atención médica",
+   "a": "P3 Gestión de pacientes"
+  },
+  {
+   "de": "P4 Gestión de citas",
+   "a": "P3 Gestión de pacientes"
+  },
+  {
+   "de": "P4 Gestión de citas",
+   "a": "P2 Gestión médica"
+  },
+  {
+   "de": "P2 Gestión médica",
+   "a": "P1 Seguridad y acceso"
+  },
+  {
+   "de": "P3 Gestión de pacientes",
+   "a": "P1 Seguridad y acceso"
+  },
+  {
+   "de": "P4 Gestión de citas",
+   "a": "P1 Seguridad y acceso"
+  },
+  {
+   "de": "P5 Atención médica",
+   "a": "P1 Seguridad y acceso"
+  },
+  {
+   "de": "P6 Reportes",
+   "a": "P1 Seguridad y acceso"
+  }
+ ],
+ "dominio": {
+  "clases": [
+   {
+    "nombre": "Paciente",
+    "atributos": [
+     {
+      "nombre": "ci",
+      "tipo": ""
+     },
+     {
+      "nombre": "nombres",
+      "tipo": ""
+     },
+     {
+      "nombre": "apellidos",
+      "tipo": ""
+     },
+     {
+      "nombre": "fechaNacimiento",
+      "tipo": ""
+     },
+     {
+      "nombre": "sexo",
+      "tipo": ""
+     },
+     {
+      "nombre": "teléfono",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "HistoriaClinica",
+    "atributos": [
+     {
+      "nombre": "antecedentes",
+      "tipo": ""
+     },
+     {
+      "nombre": "alergias",
+      "tipo": ""
+     },
+     {
+      "nombre": "enfermedadesCrónicas",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "ContactoEmergencia",
+    "atributos": [
+     {
+      "nombre": "nombre",
+      "tipo": ""
+     },
+     {
+      "nombre": "parentesco",
+      "tipo": ""
+     },
+     {
+      "nombre": "teléfono",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "Medico",
+    "atributos": [
+     {
+      "nombre": "registroProfesional",
+      "tipo": ""
+     },
+     {
+      "nombre": "nombres",
+      "tipo": ""
+     },
+     {
+      "nombre": "apellidos",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "Especialidad",
+    "atributos": [
+     {
+      "nombre": "nombre",
+      "tipo": ""
+     },
+     {
+      "nombre": "descripción",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "Horario",
+    "atributos": [
+     {
+      "nombre": "díaSemana",
+      "tipo": ""
+     },
+     {
+      "nombre": "horaInicio",
+      "tipo": ""
+     },
+     {
+      "nombre": "horaFin",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "BloqueoAgenda",
+    "atributos": [
+     {
+      "nombre": "fecha",
+      "tipo": ""
+     },
+     {
+      "nombre": "tipo",
+      "tipo": ""
+     },
+     {
+      "nombre": "motivo",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "Cita",
+    "atributos": [
+     {
+      "nombre": "fecha",
+      "tipo": ""
+     },
+     {
+      "nombre": "horaInicio",
+      "tipo": ""
+     },
+     {
+      "nombre": "horaFin",
+      "tipo": ""
+     },
+     {
+      "nombre": "modalidad",
+      "tipo": ""
+     },
+     {
+      "nombre": "motivo",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "EstadoCita",
+    "atributos": [
+     {
+      "nombre": "nombre",
+      "tipo": ""
+     },
+     {
+      "nombre": "ocupaHorario",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "HistorialCita",
+    "atributos": [
+     {
+      "nombre": "acción",
+      "tipo": ""
+     },
+     {
+      "nombre": "motivo",
+      "tipo": ""
+     },
+     {
+      "nombre": "fecha",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "Consulta",
+    "atributos": [
+     {
+      "nombre": "diagnóstico",
+      "tipo": ""
+     },
+     {
+      "nombre": "signosVitales",
+      "tipo": ""
+     },
+     {
+      "nombre": "observaciones",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "Tratamiento",
+    "atributos": [
+     {
+      "nombre": "dosis",
+      "tipo": ""
+     },
+     {
+      "nombre": "frecuencia",
+      "tipo": ""
+     },
+     {
+      "nombre": "duración",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "Medicamento",
+    "atributos": [
+     {
+      "nombre": "nombre",
+      "tipo": ""
+     },
+     {
+      "nombre": "presentación",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "Estudio",
+    "atributos": [
+     {
+      "nombre": "indicaciones",
+      "tipo": ""
+     },
+     {
+      "nombre": "estado",
+      "tipo": ""
+     },
+     {
+      "nombre": "resultado",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "CatalogoEstudio",
+    "atributos": [
+     {
+      "nombre": "nombre",
+      "tipo": ""
+     },
+     {
+      "nombre": "categoría",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "Usuario",
+    "atributos": [
+     {
+      "nombre": "usuario",
+      "tipo": ""
+     },
+     {
+      "nombre": "correo",
+      "tipo": ""
+     },
+     {
+      "nombre": "contraseña",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "Rol",
+    "atributos": [
+     {
+      "nombre": "nombre",
+      "tipo": ""
+     }
+    ]
+   },
+   {
+    "nombre": "Recepcionista",
+    "atributos": []
+   },
+   {
+    "nombre": "Administrador",
+    "atributos": []
+   }
+  ],
+  "relaciones": [
+   {
+    "a": "Paciente",
+    "card_a": "1",
+    "b": "HistoriaClinica",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": "tiene"
+   },
+   {
+    "a": "Paciente",
+    "card_a": "1",
+    "b": "ContactoEmergencia",
+    "card_b": "0..*",
+    "composicion": false,
+    "nombre": "registra"
+   },
+   {
+    "a": "Paciente",
+    "card_a": "1",
+    "b": "Cita",
+    "card_b": "0..*",
+    "composicion": false,
+    "nombre": "solicita"
+   },
+   {
+    "a": "Medico",
+    "card_a": "1..*",
+    "b": "Especialidad",
+    "card_b": "1..*",
+    "composicion": false,
+    "nombre": "atiende"
+   },
+   {
+    "a": "Medico",
+    "card_a": "1",
+    "b": "Horario",
+    "card_b": "1..*",
+    "composicion": false,
+    "nombre": "trabaja en"
+   },
+   {
+    "a": "Medico",
+    "card_a": "1",
+    "b": "BloqueoAgenda",
+    "card_b": "0..*",
+    "composicion": false,
+    "nombre": "no atiende en"
+   },
+   {
+    "a": "Medico",
+    "card_a": "1",
+    "b": "Cita",
+    "card_b": "0..*",
+    "composicion": false,
+    "nombre": "atiende"
+   },
+   {
+    "a": "Cita",
+    "card_a": "0..*",
+    "b": "Especialidad",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": "de"
+   },
+   {
+    "a": "Cita",
+    "card_a": "0..*",
+    "b": "EstadoCita",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": "está en"
+   },
+   {
+    "a": "Cita",
+    "card_a": "1",
+    "b": "HistorialCita",
+    "card_b": "1..*",
+    "composicion": false,
+    "nombre": "registra cambios"
+   },
+   {
+    "a": "Cita",
+    "card_a": "1",
+    "b": "Consulta",
+    "card_b": "0..1",
+    "composicion": false,
+    "nombre": "genera"
+   },
+   {
+    "a": "Consulta",
+    "card_a": "1",
+    "b": "Tratamiento",
+    "card_b": "0..*",
+    "composicion": false,
+    "nombre": "indica"
+   },
+   {
+    "a": "Tratamiento",
+    "card_a": "0..*",
+    "b": "Medicamento",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": "usa"
+   },
+   {
+    "a": "Consulta",
+    "card_a": "1",
+    "b": "Estudio",
+    "card_b": "0..*",
+    "composicion": false,
+    "nombre": "solicita"
+   },
+   {
+    "a": "Estudio",
+    "card_a": "0..*",
+    "b": "CatalogoEstudio",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": "es de tipo"
+   },
+   {
+    "a": "Recepcionista",
+    "card_a": "1",
+    "b": "Cita",
+    "card_b": "0..*",
+    "composicion": false,
+    "nombre": "programa"
+   },
+   {
+    "a": "Usuario",
+    "card_a": "0..*",
+    "b": "Rol",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": "tiene"
+   },
+   {
+    "a": "Usuario",
+    "card_a": "0..1",
+    "b": "Paciente",
+    "card_b": "0..1",
+    "composicion": false,
+    "nombre": "accede como"
+   },
+   {
+    "a": "Usuario",
+    "card_a": "0..1",
+    "b": "Medico",
+    "card_b": "0..1",
+    "composicion": false,
+    "nombre": "accede como"
+   }
+  ]
+ },
+ "persistentes": {
+  "clases": [
+   {
+    "nombre": "Rol",
+    "atributos": [
+     {
+      "nombre": "idRol",
+      "tipo": "int"
+     },
+     {
+      "nombre": "nombre",
+      "tipo": "String"
+     },
+     {
+      "nombre": "descripcion",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "Permiso",
+    "atributos": [
+     {
+      "nombre": "idPermiso",
+      "tipo": "int"
+     },
+     {
+      "nombre": "codigo",
+      "tipo": "String"
+     },
+     {
+      "nombre": "nombre",
+      "tipo": "String"
+     },
+     {
+      "nombre": "modulo",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "Usuario",
+    "atributos": [
+     {
+      "nombre": "idUsuario",
+      "tipo": "int"
+     },
+     {
+      "nombre": "nombre",
+      "tipo": "String"
+     },
+     {
+      "nombre": "username",
+      "tipo": "String"
+     },
+     {
+      "nombre": "email",
+      "tipo": "String"
+     },
+     {
+      "nombre": "password",
+      "tipo": "String"
+     },
+     {
+      "nombre": "estado",
+      "tipo": "String"
+     },
+     {
+      "nombre": "ultimoAcceso",
+      "tipo": "DateTime"
+     }
+    ]
+   },
+   {
+    "nombre": "Bitacora",
+    "atributos": [
+     {
+      "nombre": "idBitacora",
+      "tipo": "int"
+     },
+     {
+      "nombre": "accion",
+      "tipo": "String"
+     },
+     {
+      "nombre": "modulo",
+      "tipo": "String"
+     },
+     {
+      "nombre": "descripcion",
+      "tipo": "String"
+     },
+     {
+      "nombre": "ip",
+      "tipo": "String"
+     },
+     {
+      "nombre": "fecha",
+      "tipo": "DateTime"
+     }
+    ]
+   },
+   {
+    "nombre": "Especialidad",
+    "atributos": [
+     {
+      "nombre": "idEspecialidad",
+      "tipo": "int"
+     },
+     {
+      "nombre": "nombre",
+      "tipo": "String"
+     },
+     {
+      "nombre": "descripcion",
+      "tipo": "String"
+     },
+     {
+      "nombre": "estado",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "Medico",
+    "atributos": [
+     {
+      "nombre": "idMedico",
+      "tipo": "int"
+     },
+     {
+      "nombre": "codigo",
+      "tipo": "String"
+     },
+     {
+      "nombre": "registroProfesional",
+      "tipo": "String"
+     },
+     {
+      "nombre": "nombres",
+      "tipo": "String"
+     },
+     {
+      "nombre": "apellidos",
+      "tipo": "String"
+     },
+     {
+      "nombre": "telefono",
+      "tipo": "String"
+     },
+     {
+      "nombre": "estado",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "Horario",
+    "atributos": [
+     {
+      "nombre": "idHorario",
+      "tipo": "int"
+     },
+     {
+      "nombre": "diaSemana",
+      "tipo": "int"
+     },
+     {
+      "nombre": "horaInicio",
+      "tipo": "Time"
+     },
+     {
+      "nombre": "horaFin",
+      "tipo": "Time"
+     },
+     {
+      "nombre": "estado",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "BloqueoAgenda",
+    "atributos": [
+     {
+      "nombre": "idBloqueo",
+      "tipo": "int"
+     },
+     {
+      "nombre": "fecha",
+      "tipo": "Date"
+     },
+     {
+      "nombre": "horaInicio",
+      "tipo": "Time"
+     },
+     {
+      "nombre": "horaFin",
+      "tipo": "Time"
+     },
+     {
+      "nombre": "tipo",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "Paciente",
+    "atributos": [
+     {
+      "nombre": "idPaciente",
+      "tipo": "int"
+     },
+     {
+      "nombre": "codigo",
+      "tipo": "String"
+     },
+     {
+      "nombre": "ci",
+      "tipo": "String"
+     },
+     {
+      "nombre": "nombres",
+      "tipo": "String"
+     },
+     {
+      "nombre": "apellidos",
+      "tipo": "String"
+     },
+     {
+      "nombre": "fechaNacimiento",
+      "tipo": "Date"
+     },
+     {
+      "nombre": "sexo",
+      "tipo": "char"
+     },
+     {
+      "nombre": "telefono",
+      "tipo": "String"
+     },
+     {
+      "nombre": "tipoSangre",
+      "tipo": "String"
+     },
+     {
+      "nombre": "estado",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "HistoriaClinica",
+    "atributos": [
+     {
+      "nombre": "idHistoria",
+      "tipo": "int"
+     },
+     {
+      "nombre": "numero",
+      "tipo": "String"
+     },
+     {
+      "nombre": "antecedentes",
+      "tipo": "String"
+     },
+     {
+      "nombre": "alergias",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "ContactoEmergencia",
+    "atributos": [
+     {
+      "nombre": "idContacto",
+      "tipo": "int"
+     },
+     {
+      "nombre": "nombre",
+      "tipo": "String"
+     },
+     {
+      "nombre": "parentesco",
+      "tipo": "String"
+     },
+     {
+      "nombre": "telefono",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "EstadoCita",
+    "atributos": [
+     {
+      "nombre": "codigo",
+      "tipo": "String"
+     },
+     {
+      "nombre": "nombre",
+      "tipo": "String"
+     },
+     {
+      "nombre": "ocupaHorario",
+      "tipo": "boolean"
+     }
+    ]
+   },
+   {
+    "nombre": "Cita",
+    "atributos": [
+     {
+      "nombre": "idCita",
+      "tipo": "int"
+     },
+     {
+      "nombre": "codigo",
+      "tipo": "String"
+     },
+     {
+      "nombre": "fecha",
+      "tipo": "Date"
+     },
+     {
+      "nombre": "horaInicio",
+      "tipo": "Time"
+     },
+     {
+      "nombre": "horaFin",
+      "tipo": "Time"
+     },
+     {
+      "nombre": "modalidad",
+      "tipo": "String"
+     },
+     {
+      "nombre": "motivo",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "HistorialCita",
+    "atributos": [
+     {
+      "nombre": "idHistorial",
+      "tipo": "int"
+     },
+     {
+      "nombre": "accion",
+      "tipo": "String"
+     },
+     {
+      "nombre": "fechaAnterior",
+      "tipo": "Date"
+     },
+     {
+      "nombre": "fechaNueva",
+      "tipo": "Date"
+     },
+     {
+      "nombre": "motivo",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "Notificacion",
+    "atributos": [
+     {
+      "nombre": "idNotificacion",
+      "tipo": "int"
+     },
+     {
+      "nombre": "tipo",
+      "tipo": "String"
+     },
+     {
+      "nombre": "canal",
+      "tipo": "String"
+     },
+     {
+      "nombre": "mensaje",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "Consulta",
+    "atributos": [
+     {
+      "nombre": "idConsulta",
+      "tipo": "int"
+     },
+     {
+      "nombre": "fechaHora",
+      "tipo": "DateTime"
+     },
+     {
+      "nombre": "peso",
+      "tipo": "decimal"
+     },
+     {
+      "nombre": "talla",
+      "tipo": "decimal"
+     },
+     {
+      "nombre": "diagnostico",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "Tratamiento",
+    "atributos": [
+     {
+      "nombre": "idTratamiento",
+      "tipo": "int"
+     },
+     {
+      "nombre": "dosis",
+      "tipo": "String"
+     },
+     {
+      "nombre": "frecuencia",
+      "tipo": "String"
+     },
+     {
+      "nombre": "duracion",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "Medicamento",
+    "atributos": [
+     {
+      "nombre": "idMedicamento",
+      "tipo": "int"
+     },
+     {
+      "nombre": "nombre",
+      "tipo": "String"
+     },
+     {
+      "nombre": "presentacion",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "Estudio",
+    "atributos": [
+     {
+      "nombre": "idEstudio",
+      "tipo": "int"
+     },
+     {
+      "nombre": "estado",
+      "tipo": "String"
+     },
+     {
+      "nombre": "fechaSolicitud",
+      "tipo": "DateTime"
+     },
+     {
+      "nombre": "resultado",
+      "tipo": "String"
+     }
+    ]
+   },
+   {
+    "nombre": "CatalogoEstudio",
+    "atributos": [
+     {
+      "nombre": "idCatalogo",
+      "tipo": "int"
+     },
+     {
+      "nombre": "nombre",
+      "tipo": "String"
+     },
+     {
+      "nombre": "categoria",
+      "tipo": "String"
+     }
+    ]
+   }
+  ],
+  "relaciones": [
+   {
+    "a": "Rol",
+    "card_a": "1..*",
+    "b": "Permiso",
+    "card_b": "1..*",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Usuario",
+    "card_a": "0..*",
+    "b": "Rol",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Usuario",
+    "card_a": "1",
+    "b": "Bitacora",
+    "card_b": "0..*",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Medico",
+    "card_a": "1",
+    "b": "Usuario",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Medico",
+    "card_a": "1..*",
+    "b": "Especialidad",
+    "card_b": "1..*",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Medico",
+    "card_a": "1",
+    "b": "Horario",
+    "card_b": "1..*",
+    "composicion": true,
+    "nombre": ""
+   },
+   {
+    "a": "Medico",
+    "card_a": "1",
+    "b": "BloqueoAgenda",
+    "card_b": "0..*",
+    "composicion": true,
+    "nombre": ""
+   },
+   {
+    "a": "Paciente",
+    "card_a": "0..1",
+    "b": "Usuario",
+    "card_b": "0..1",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Paciente",
+    "card_a": "1",
+    "b": "HistoriaClinica",
+    "card_b": "1",
+    "composicion": true,
+    "nombre": ""
+   },
+   {
+    "a": "Paciente",
+    "card_a": "1",
+    "b": "ContactoEmergencia",
+    "card_b": "0..*",
+    "composicion": true,
+    "nombre": ""
+   },
+   {
+    "a": "Cita",
+    "card_a": "0..*",
+    "b": "Paciente",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Cita",
+    "card_a": "0..*",
+    "b": "Medico",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Cita",
+    "card_a": "0..*",
+    "b": "Especialidad",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Cita",
+    "card_a": "0..*",
+    "b": "EstadoCita",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Cita",
+    "card_a": "1",
+    "b": "HistorialCita",
+    "card_b": "1..*",
+    "composicion": true,
+    "nombre": ""
+   },
+   {
+    "a": "Cita",
+    "card_a": "1",
+    "b": "Notificacion",
+    "card_b": "0..*",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Cita",
+    "card_a": "1",
+    "b": "Consulta",
+    "card_b": "0..1",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Consulta",
+    "card_a": "1",
+    "b": "Tratamiento",
+    "card_b": "0..*",
+    "composicion": true,
+    "nombre": ""
+   },
+   {
+    "a": "Tratamiento",
+    "card_a": "0..*",
+    "b": "Medicamento",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": ""
+   },
+   {
+    "a": "Consulta",
+    "card_a": "1",
+    "b": "Estudio",
+    "card_b": "0..*",
+    "composicion": true,
+    "nombre": ""
+   },
+   {
+    "a": "Estudio",
+    "card_a": "0..*",
+    "b": "CatalogoEstudio",
+    "card_b": "1",
+    "composicion": false,
+    "nombre": ""
+   }
+  ]
+ }
+}
