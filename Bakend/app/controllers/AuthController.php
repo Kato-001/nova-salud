@@ -7,11 +7,6 @@ declare(strict_types=1);
 
 final class AuthController extends Controlador
 {
-    public function inicio(): void
-    {
-        redirect(Auth::usuario() ? Auth::inicio() : '/login');
-    }
-
     public function formulario(): void
     {
         if (Auth::usuario()) {
@@ -39,7 +34,7 @@ final class AuthController extends Controlador
             flash('error', $e->getMessage());
             redirect('/login');
         }
-        redirect(Auth::inicio());
+        redirect(Auth::destino());
     }
 
     public function salir(): void
@@ -86,6 +81,6 @@ final class AuthController extends Controlador
         }
         Auth::intentar(trim($d['username']), $d['password']);
         flash('ok', '¡Bienvenido! Su cuenta fue creada. Ya puede reservar su primera cita.');
-        redirect('/portal');
+        redirect(Auth::destino());
     }
 }

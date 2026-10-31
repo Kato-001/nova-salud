@@ -44,6 +44,7 @@ $titulo = 'Ingresar';
 
     <section class="auth-side">
         <div class="auth-box anim">
+            <a href="/" class="faint" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;margin-bottom:18px"><?= icono('izquierda', 14) ?> Volver al inicio</a>
             <div class="brand" style="padding:0">
                 <div class="brand-logo"><?= icono('cruz', 22) ?></div>
                 <div><strong>NovaSol Salud</strong><small>Sistema de gestión de citas médicas</small></div>

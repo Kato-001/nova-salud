@@ -495,7 +495,7 @@ flowchart LR
         NAV["Navegador web<br/>HTML5 · CSS3 · JavaScript"]
     end
     subgraph VER["«nodo» Vercel · región gru1 (São Paulo)"]
-        CDN["CDN<br/>/public/assets (CSS, JS, íconos)"]
+        CDN["CDN<br/>Frontend/public/assets (CSS, JS, íconos)"]
         FN["Función serverless<br/>PHP 8.3 · vercel-php<br/>api/index.php"]
     end
     subgraph SUP["«nodo» Supabase · sa-east-1 (São Paulo)"]
@@ -515,21 +515,21 @@ flowchart LR
 ```mermaid
 flowchart TB
     subgraph PRES["📦 Presentación"]
-        VIEWS["app/views<br/>P1…P6 · Portal · layouts · partials"]
-        ASSETS["public/assets<br/>app.css · componentes.css · app.js · citas.js"]
+        VIEWS["Frontend/views<br/>P1…P6 · Portal · layouts · partials"]
+        ASSETS["Frontend/public/assets<br/>app.css · componentes.css · app.js · citas.js"]
     end
     subgraph CTRL["📦 Control"]
         FRONT["api/index.php<br/>controlador frontal y rutas"]
-        CONTROLLERS["app/controllers<br/>Auth, Usuario, Rol, Medico, Horario,<br/>Paciente, Cita, Agenda, Atencion, Reporte, Portal, Api"]
+        CONTROLLERS["Bakend/app/controllers<br/>Auth, Usuario, Rol, Medico, Horario,<br/>Paciente, Cita, Agenda, Atencion, Reporte, Portal, Api"]
     end
     subgraph NEG["📦 Lógica de negocio"]
-        SERV["app/services<br/>CitaService · Disponibilidad"]
+        SERV["Bakend/app/services<br/>CitaService · Disponibilidad"]
     end
     subgraph DAT["📦 Acceso a datos"]
-        MODELS["app/models<br/>Usuario, Rol, Paciente, Medico, Horario,<br/>Cita, Consulta, Notificacion, Reporte, Bitacora"]
+        MODELS["Bakend/app/models<br/>Usuario, Rol, Paciente, Medico, Horario,<br/>Cita, Consulta, Notificacion, Reporte, Bitacora"]
     end
     subgraph CORE["📦 Núcleo"]
-        CORECLS["app/core<br/>Router · Auth · Session · Csrf · Validator · View · Database (PDO)"]
+        CORECLS["Bakend/app/core<br/>Router · Auth · Session · Csrf · Validator · View · Database (PDO)"]
     end
     BD[("PostgreSQL")]
 
@@ -709,10 +709,10 @@ flowchart LR
 
 | Caso de uso | Clases de análisis | Clases de diseño (archivos) | Nodo |
 |---|---|---|---|
-| CU1 Iniciar sesión | IU_Login, CtrlSesion, Usuario, Rol | `views/P1_SeguridadAcceso/login.php`, `AuthController`, `core/Auth`, `core/Session`, `models/Bitacora` | Vercel · Supabase |
-| CU7 Gestionar pacientes | IU_Pacientes, CtrlPaciente, Paciente | `views/P3_GestionPacientes/pacientes/*`, `PacienteController`, `models/Paciente` | Vercel · Supabase |
-| CU9 Consultar disponibilidad | IU_ProgramarCita, CtrlDisponibilidad, Horario, Cita | `services/Disponibilidad`, `ApiController::disponibilidad`, `public/assets/js/citas.js` | Vercel · Supabase |
-| CU10 Reservar ficha | IU_ProgramarCita, CtrlCita, Cita, HistorialCita | `views/P4_GestionCitas/citas/nueva.php`, `CitaController`, `services/CitaService::programar`, trigger `validar_cita`, `EXCLUDE cita_sin_cruce_medico` | Vercel · Supabase |
+| CU1 Iniciar sesión | IU_Login, CtrlSesion, Usuario, Rol | `Frontend/views/P1_SeguridadAcceso/login.php`, `AuthController`, `core/Auth`, `core/Session`, `models/Bitacora` | Vercel · Supabase |
+| CU7 Gestionar pacientes | IU_Pacientes, CtrlPaciente, Paciente | `Frontend/views/P3_GestionPacientes/pacientes/*`, `PacienteController`, `models/Paciente` | Vercel · Supabase |
+| CU9 Consultar disponibilidad | IU_ProgramarCita, CtrlDisponibilidad, Horario, Cita | `services/Disponibilidad`, `ApiController::disponibilidad`, `Frontend/public/assets/js/citas.js` | Vercel · Supabase |
+| CU10 Reservar ficha | IU_ProgramarCita, CtrlCita, Cita, HistorialCita | `Frontend/views/P4_GestionCitas/citas/nueva.php`, `CitaController`, `services/CitaService::programar`, trigger `validar_cita`, `EXCLUDE cita_sin_cruce_medico` | Vercel · Supabase |
 | CU11 Reprogramar | IU_Reprogramar, CtrlCita | `citas/reprogramar.php`, `CitaService::reprogramar` | Vercel · Supabase |
 | CU12 Cancelar | IU_DetalleCita, CtrlCita | `citas/ver.php`, `CitaService::cancelar` | Vercel · Supabase |
 | CU14 Agenda | IU_Agenda, CtrlDisponibilidad | `views/P4_GestionCitas/agenda/index.php`, `AgendaController` | Vercel · Supabase |
@@ -736,16 +736,17 @@ flowchart LR
 Navegador ──HTTP──▶ api/index.php (controlador frontal + rutas)
                          │
                          ▼
-               app/core  ── Router · Auth · Csrf · Session · Validator · View · Database (PDO)
+          Bakend/app/core  ── Router · Auth · Csrf · Session · Validator · View · Database (PDO)
                          │
         ┌────────────────┼──────────────────┐
         ▼                ▼                  ▼
- app/controllers   app/services       app/views
+ Bakend/app/       Bakend/app/        Frontend/views
+ controllers       services
  (reciben la       (reglas de          (plantillas PHP
   petición,         negocio: citas,     por paquete P1…P6
   validan)          disponibilidad)     y portal)
         │                │
-        └──────▶ app/models (acceso a datos con SQL parametrizado)
+        └──────▶ Bakend/app/models (acceso a datos con SQL parametrizado)
                          │
                          ▼
                 PostgreSQL (esquema "clinica": tablas, restricciones y triggers)
@@ -849,7 +850,7 @@ Navegador ──HTTP──▶ api/index.php (controlador frontal + rutas)
      php -S localhost:8000 router.php
      ```
      Luego abra http://localhost:8000.
-   - **Apache (XAMPP/Laragon):** copie la carpeta en `htdocs` / `www`. El `.htaccess` envía todo a `api/index.php` y bloquea el acceso a `app/`, `.env` y los scripts SQL.
+   - **Apache (XAMPP/Laragon):** copie la carpeta en `htdocs` / `www`. El `.htaccess` envía todo a `api/index.php` y bloquea el acceso a `Bakend/`, `Frontend/views`, `Docs/` y `.env`.
 
 ## Despliegue en Vercel
 
@@ -867,11 +868,13 @@ npx vercel env add SMTP_PASS production       # contraseña de aplicación de Gm
 npx vercel deploy --prod
 ```
 
-- **Archivos estáticos:** las rutas `/assets/*` se sirven desde `public/`.
+- **Archivos estáticos:** las rutas `/assets/*` se sirven desde `Frontend/public/`.
 - **Rutas:** todo lo demás pasa por `api/index.php`.
 - **Pooler de Supabase:** se usa en modo transacción, por eso `PDO::ATTR_EMULATE_PREPARES` está activo.
 
 ## Cuentas de prueba
+
+Página pública: **https://novasol-salud.vercel.app** (especialidades, médicos con sus horarios y botón para reservar; al reservar se pide iniciar sesión como paciente y luego se vuelve directo a la reserva con el médico ya elegido).
 
 Página de ingreso: **https://novasol-salud.vercel.app/login**. Se puede entrar con el **usuario** o con el **correo**; los pacientes también pueden usar su **CI**.
 
@@ -934,22 +937,28 @@ Pruebas mínimas del enunciado, ejecutadas contra el sistema:
 
 ```
 novasol-salud/
-├── api/index.php              # Controlador frontal y tabla de rutas
-├── app/
-│   ├── bootstrap.php          # Arranque: entorno, errores, autoload, sesión
-│   ├── core/                  # Router, Auth, Csrf, Session, Validator, View, Database…
-│   ├── controllers/           # Un controlador por caso de uso o módulo
-│   ├── models/                # Acceso a datos (SQL parametrizado)
-│   ├── services/              # CitaService (reglas de citas) y Disponibilidad
-│   └── views/                 # P1_SeguridadAcceso … P6_Reportes, Portal, layouts, partials
-├── public/assets/             # CSS (diseño y animaciones) y JS (validación y asistente de citas)
-├── Bakend/database/           # Scripts SQL de PostgreSQL
-├── Docs/                      # Documentación Word/PDF, diagramas UML, capturas y códigos QR
-├── router.php                 # Enrutador para `php -S`
-├── .htaccess                  # Reglas para Apache (XAMPP)
+├── Bakend/                    # Lo que el usuario NO ve
+│   ├── app/
+│   │   ├── bootstrap.php      # Arranque: entorno, errores, carga de clases, sesión
+│   │   ├── core/              # Router, Auth, Csrf, Session, Validator, View, Database, Mailer…
+│   │   ├── controllers/       # Un controlador por caso de uso o módulo (incluye la página pública)
+│   │   ├── models/            # Acceso a datos (SQL parametrizado)
+│   │   └── services/          # CitaService (reglas de citas) y Disponibilidad
+│   └── database/              # Scripts SQL 01 a 06 de PostgreSQL
+├── Frontend/                  # Lo que el usuario SÍ ve
+│   ├── views/                 # Pantallas: Publico, P1_SeguridadAcceso … P6_Reportes, Portal, layouts, partials
+│   └── public/                # Lo que el navegador descarga tal cual: CSS, JS e ícono
+├── Docs/                      # Informe Word/PDF, diagramas UML, capturas, QR y guion de presentación
+├── api/index.php              # Entrada de todas las peticiones y tabla de rutas (Vercel exige api/ en la raíz)
+├── router.php                 # Servidor local `php -S` (solo sirve Frontend/public)
+├── .htaccess                  # Apache (XAMPP/Laragon): bloquea Bakend, Docs y Frontend/views
 ├── vercel.json                # Despliegue en Vercel
 └── .env.example               # Plantilla de configuración
 ```
+
+- **Bakend** decide *qué* pasa: permisos, reglas de negocio y base de datos. **Frontend** decide *cómo se ve*.
+- `Frontend/public` es la única carpeta que el navegador puede abrir directamente; el resto queda protegido.
+- Los casos de uso no son una carpeta: cada uno se reparte entre su controlador (Bakend) y sus pantallas (Frontend), y se documenta en Docs.
 
 ---
 

@@ -21,7 +21,7 @@ function url(string $ruta = '/', array $params = []): string
 /** Ruta de un recurso estático con versión para evitar caché vieja. */
 function asset(string $ruta): string
 {
-    $archivo = BASE_PATH . '/public/' . $ruta;
+    $archivo = PUBLIC_PATH . '/' . $ruta;
     $version = is_file($archivo) ? substr((string) filemtime($archivo), -6) : '1';
     return '/' . $ruta . '?v=' . $version;
 }

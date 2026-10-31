@@ -9,8 +9,10 @@
 
 declare(strict_types=1);
 
-define('BASE_PATH', dirname(__DIR__));
-define('APP_PATH', __DIR__);
+define('BASE_PATH', dirname(__DIR__, 2));             // raíz del proyecto
+define('APP_PATH', __DIR__);                          // Bakend/app: lo que el usuario no ve
+define('VIEWS_PATH', BASE_PATH . '/Frontend/views');  // pantallas
+define('PUBLIC_PATH', BASE_PATH . '/Frontend/public'); // CSS, JS e imágenes
 
 date_default_timezone_set('America/La_Paz');
 mb_internal_encoding('UTF-8');

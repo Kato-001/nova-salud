@@ -39,6 +39,9 @@ final class PortalController extends Controlador
         $this->vista('Portal/reservar', [
             'p'              => $p,
             'especialidades' => Especialidad::todas(true),
+            // Desde la página pública se llega con la especialidad y el médico ya elegidos
+            'preEspecialidad' => entrada_int('especialidad'),
+            'preMedico'       => entrada_int('medico'),
             'duracion'       => (int) config('DURACION_CITA_MINUTOS', '30'),
             'maxDias'        => (int) config('DIAS_MAX_RESERVA', '60'),
         ]);

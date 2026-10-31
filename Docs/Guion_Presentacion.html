@@ -132,6 +132,16 @@
 </div>
 
 <div class="tarjeta paso">
+  <h3>Paso 0.5 · Página pública <span class="tiempo">1 min</span></h3>
+  <ol class="pasos">
+    <li>Abrir <code>novasol-salud.vercel.app</code> <b>sin iniciar sesión</b>: se ve la portada de la clínica, las especialidades y los médicos con sus horarios.</li>
+    <li>Pulsar <b>«Reservar con Dra. Vargas»</b>: el sistema pide iniciar sesión como paciente.</li>
+    <li>Ingresar con <code>jperez</code>: el sistema vuelve <b>directo a la reserva</b> con Pediatría y la Dra. Vargas ya elegidas.</li>
+  </ol>
+  <div class="decir">«El paciente primero conoce la clínica: especialidades, médicos y horarios. Solo cuando quiere reservar inicia sesión o crea su cuenta, y el sistema lo lleva de vuelta a la reserva que eligió.»</div>
+</div>
+
+<div class="tarjeta paso">
   <h3>Paso 1 · Inicio de sesión (CU1) <span class="tiempo">1 min</span></h3>
   <ol class="pasos">
     <li>Abrir <code>/login</code> y escribir <code>admin</code> con una contraseña equivocada → mensaje «Usuario o contraseña incorrectos».</li>
@@ -276,16 +286,15 @@ Lo pide el enunciado y, además, PostgreSQL tiene las restricciones de exclusió
 <h3>Programación y seguridad</h3>
 <details><summary>¿Qué arquitectura usaron?</summary>
 Cliente-servidor en capas con MVC: <b>vistas</b> (pantallas), <b>controladores</b> (reciben la petición y revisan permisos), <b>servicios</b> (reglas de negocio, como CitaService y Disponibilidad) y <b>modelos</b> (acceso a datos con PDO). Toda petición entra por un controlador frontal, <code>api/index.php</code>.</details>
-<details><summary>¿Por qué las carpetas se llaman api, app, public y Bakend, y no Backend y Frontend?</summary>
-Porque es una arquitectura <b>MVC en PHP</b>: el mismo servidor arma las pantallas y atiende la base de datos, no son dos programas separados.
+<details><summary>¿Cómo está organizado el proyecto? ¿Qué hay en Bakend y en Frontend?</summary>
+Es una arquitectura <b>MVC en PHP</b> organizada en tres carpetas principales:
 <ul>
-  <li><code>api/</code>: <code>index.php</code>, la puerta de entrada de todas las peticiones. Vercel exige que esta carpeta se llame <code>api</code> para ejecutar PHP.</li>
-  <li><code>app/</code>: el <b>backend</b> (controladores, modelos, servicios y el núcleo de seguridad) y las <b>vistas</b> (pantallas) organizadas por paquete, de P1 a P6 y Portal.</li>
-  <li><code>public/</code>: el <b>frontend</b> estático (CSS y JavaScript).</li>
-  <li><code>Bakend/database/</code>: los scripts SQL 01 a 06 de PostgreSQL.</li>
+  <li><code>Bakend/</code>: lo que el usuario <b>no ve</b>. En <code>Bakend/app</code> están los controladores, modelos, servicios y el núcleo de seguridad (sesiones, permisos, CSRF, conexión PDO); en <code>Bakend/database</code>, los scripts SQL 01 a 06.</li>
+  <li><code>Frontend/</code>: lo que el usuario <b>sí ve</b>. En <code>Frontend/views</code> están las pantallas por paquete (Publico, P1 a P6 y Portal); en <code>Frontend/public</code>, el CSS, el JavaScript y el ícono.</li>
   <li><code>Docs/</code>: el informe, los diagramas, las capturas y este guion.</li>
+  <li>En la raíz quedan <code>api/index.php</code> (la puerta de entrada; Vercel exige la carpeta <code>api</code>), <code>router.php</code>, <code>.htaccess</code> y <code>vercel.json</code>, que hacen arrancar la página en local, en XAMPP y en la nube.</li>
 </ul>
-Es decir, sí hay backend y frontend, solo que con los nombres de MVC. Las carpetas «Backend/Frontend» se usan cuando el frontend es otro programa (por ejemplo React) que consume una API.</details>
+<b>Bakend</b> decide <i>qué</i> pasa (permisos, reglas y base de datos) y <b>Frontend</b> decide <i>cómo se ve</i>. <code>Frontend/public</code> es la única carpeta que el navegador puede abrir directamente; las demás están protegidas. Los casos de uso no son una carpeta: cada uno se reparte entre su controlador y sus pantallas.</details>
 <details><summary>¿Cómo se conecta PHP con PostgreSQL? ¿Qué es la inyección SQL?</summary>
 Con <b>PDO</b> y el controlador <code>pdo_pgsql</code>. Todas las consultas son <b>parametrizadas</b>: los datos del usuario se envían aparte (por ejemplo <code>:ci</code>) y nunca se pegan al texto SQL. Así se evita la inyección SQL, que es cuando alguien escribe código SQL en un formulario para modificar la consulta.</details>
 <details><summary>¿Cómo guardan las contraseñas?</summary>

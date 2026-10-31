@@ -1,10 +1,11 @@
 <?php
 /**
  * Portal · Reservar cita (búsqueda de médico por especialidad y disponibilidad)
- * @var array $p @var array $especialidades @var int $duracion @var int $maxDias
+ * @var array $p @var array $especialidades @var ?int $preEspecialidad @var ?int $preMedico @var int $duracion @var int $maxDias
  */
 $titulo = 'Reservar cita';
 $scripts = ['citas.js'];
+$espSel = old('idespecialidad', (string) ($preEspecialidad ?? ''));
 ?>
 <div class="page-head">
     <div>
@@ -14,7 +15,7 @@ $scripts = ['citas.js'];
     </div>
 </div>
 
-<form method="post" action="/portal/reservar" id="form-cita" data-modo="portal" data-max-dias="<?= $maxDias ?>">
+<form method="post" action="/portal/reservar" id="form-cita" data-modo="portal" data-max-dias="<?= $maxDias ?>" data-pre-medico="<?= e(old('idmedico', (string) ($preMedico ?? ''))) ?>">
     <?= csrf_field() ?>
     <div class="steps anim">
         <div class="step done" data-step="1"><b>1</b> Sus datos</div>
@@ -29,7 +30,7 @@ $scripts = ['citas.js'];
                 <label class="field"><span>Especialidad *</span>
                     <select class="select" name="idespecialidad" required autofocus>
                         <option value="">¿Qué especialidad necesita?</option>
-                        <?php foreach ($especialidades as $esp): ?><option value="<?= $esp['idespecialidad'] ?>" <?= old('idespecialidad') === (string) $esp['idespecialidad'] ? 'selected' : '' ?>><?= e($esp['nombre']) ?></option><?php endforeach; ?>
+                        <?php foreach ($especialidades as $esp): ?><option value="<?= $esp['idespecialidad'] ?>" <?= $espSel === (string) $esp['idespecialidad'] ? 'selected' : '' ?>><?= e($esp['nombre']) ?></option><?php endforeach; ?>
                     </select></label>
                 <label class="field"><span>Médico *</span>
                     <select class="select" name="idmedico" required disabled><option value="">Primero elija la especialidad</option></select></label>

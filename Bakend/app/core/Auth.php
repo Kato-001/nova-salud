@@ -117,7 +117,13 @@ final class Auth
             if (es_ajax()) {
                 json_response(['ok' => false, 'error' => 'Sesión expirada'], 401);
             }
-            flash('error', 'Inicie sesión para continuar.');
+            // Recuerda la página pedida para volver a ella después de ingresar
+            if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET') {
+                $_SESSION['_destino'] = (string) ($_SERVER['REQUEST_URI'] ?? '/');
+            }
+            flash('error', str_starts_with((string) ($_SERVER['REQUEST_URI'] ?? ''), '/portal')
+                ? 'Inicie sesión como paciente para continuar. ¿No tiene cuenta? Regístrese gratis.'
+                : 'Inicie sesión para continuar.');
             redirect('/login');
         }
         if ($permisos && !self::puede(...$permisos)) {
@@ -129,6 +135,20 @@ final class Auth
             exit;
         }
         return $u;
+    }
+
+    /**
+     * Página a la que se va después de ingresar: la que se pidió antes del login
+     * (solo rutas internas y del portal si es paciente) o el inicio según el rol.
+     */
+    public static function destino(): string
+    {
+        $d = (string) ($_SESSION['_destino'] ?? '');
+        unset($_SESSION['_destino']);
+        $interna = $d !== '' && $d[0] === '/' && !str_starts_with($d, '//') && !str_contains($d, '\\');
+        $esPortal = str_starts_with($d, '/portal');
+        $paciente = self::inicio() === '/portal';
+        return $interna && $esPortal === $paciente ? $d : self::inicio();
     }
 
     /** Página de inicio según el rol. */

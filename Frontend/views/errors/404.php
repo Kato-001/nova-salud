@@ -9,7 +9,7 @@ $titulo = 'Página no encontrada';
         <p>La página que busca no existe o fue movida.</p>
         <div class="row" style="justify-content:center">
             <a href="javascript:history.back()" class="btn btn-outline">Volver</a>
-            <a href="/" class="btn btn-primary">Ir al inicio</a>
+            <a href="<?= Auth::usuario() ? Auth::inicio() : '/' ?>" class="btn btn-primary">Ir al inicio</a>
         </div>
     </div>
 </div>

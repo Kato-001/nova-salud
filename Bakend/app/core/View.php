@@ -1,7 +1,7 @@
 <?php
 /**
  * Renderizado de vistas PHP dentro de un layout.
- * Separa la presentación (app/views) de la lógica (controladores y modelos).
+ * Separa la presentación (Frontend/views) de la lógica (Bakend/app).
  * Una vista puede definir $titulo y $scripts para que los use el layout.
  */
 
@@ -37,7 +37,7 @@ final class View
     /** @return array{0: string, 1: array} HTML y variables compartidas */
     private static function capturar(string $__vista, array $__datos): array
     {
-        $__archivo = APP_PATH . "/views/$__vista.php";
+        $__archivo = VIEWS_PATH . "/$__vista.php";
         if (!is_file($__archivo)) {
             throw new RuntimeException("Vista no encontrada: $__vista");
         }

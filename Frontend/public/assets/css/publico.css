@@ -1,0 +1,97 @@
+/* =====================================================================
+   NovaSol Salud · Página pública (portada, especialidades y médicos)
+   Usa los mismos colores y componentes del sistema (app.css).
+   ===================================================================== */
+.pub { background: var(--bg); }
+.pub-wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+.btn-lg { padding: 13px 22px; font-size: 15px; border-radius: 12px; }
+
+/* Barra superior */
+.pub-nav { position: sticky; top: 0; z-index: 40; background: var(--surface-glass); backdrop-filter: saturate(160%) blur(14px); border-bottom: 1px solid var(--border); }
+.pub-nav-in { display: flex; align-items: center; gap: 18px; height: 68px; }
+.pub-brand { padding: 0; color: inherit; text-decoration: none; }
+.pub-links { display: flex; gap: 4px; margin-left: auto; }
+.pub-links a { padding: 8px 12px; border-radius: 10px; color: var(--text-soft); font-weight: 600; font-size: 14px; text-decoration: none; transition: background .2s, color .2s; }
+.pub-links a:hover { background: var(--bg-sunken); color: var(--text); }
+.pub-acciones { display: flex; align-items: center; gap: 8px; }
+
+/* Portada */
+.pub-hero { position: relative; overflow: hidden; padding: 72px 0 80px; }
+.pub-hero .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .28; animation: flotar 14s ease-in-out infinite; pointer-events: none; }
+.pub-hero-in { position: relative; display: grid; grid-template-columns: 1.35fr 1fr; gap: 48px; align-items: center; }
+.pub-hero h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.08; letter-spacing: -0.035em; margin: 18px 0 16px; }
+.pub-hero h1 em { font-style: normal; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pub-hero p { color: var(--text-soft); font-size: 17px; max-width: 560px; }
+.pub-etiqueta { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; background: var(--primary-soft); color: var(--primary-strong); font-weight: 700; font-size: 13px; }
+:root[data-theme='dark'] .pub-etiqueta { color: var(--primary); }
+.pub-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.pub-nota { margin-top: 18px; font-size: 14px !important; }
+.pub-nota a, .pub-enlace { color: var(--primary-strong); font-weight: 700; }
+:root[data-theme='dark'] .pub-nota a, :root[data-theme='dark'] .pub-enlace { color: var(--primary); }
+.pub-cifras { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.pub-cifras div { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow); }
+.pub-cifras b { display: block; font-size: 30px; letter-spacing: -0.03em; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pub-cifras span { color: var(--text-soft); font-weight: 600; font-size: 14px; }
+
+/* Secciones */
+.pub-seccion { padding: 72px 0; }
+.pub-alterna { background: var(--bg-sunken); border-block: 1px solid var(--border); }
+.pub-titulo { text-align: center; max-width: 640px; margin: 0 auto 36px; }
+.pub-titulo h2 { font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -0.03em; margin: 14px 0 8px; }
+.pub-titulo p { color: var(--text-soft); }
+.pub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+
+/* Tarjetas */
+.pub-card { display: flex; flex-direction: column; gap: 10px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow-sm); transition: transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s, border-color .3s; }
+.pub-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--border-strong); }
+.pub-card h3 { margin: 0; font-size: 18px; letter-spacing: -0.02em; }
+.pub-card p { margin: 0; color: var(--text-soft); font-size: 14px; flex: 1; }
+.pub-icono { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: var(--primary-soft); color: var(--primary-strong); }
+:root[data-theme='dark'] .pub-icono { color: var(--primary); }
+.pub-card-pie { display: flex; align-items: center; justify-content: space-between; font-size: 14px; padding-top: 6px; border-top: 1px dashed var(--border); }
+.pub-enlace { display: inline-flex; align-items: center; gap: 4px; text-decoration: none; }
+
+/* Médicos */
+.pub-medico-cab { display: flex; gap: 14px; align-items: center; }
+.pub-avatar { flex: none; width: 58px; height: 58px; border-radius: 18px; display: grid; place-items: center; background: var(--grad); color: #fff; font-weight: 800; font-size: 20px; letter-spacing: .02em; }
+.pub-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.pub-chip { padding: 2px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 700; }
+.pub-horario { list-style: none; margin: 4px 0 6px; padding: 0; display: grid; gap: 6px; flex: 1; }
+.pub-horario li { display: flex; align-items: center; gap: 8px; color: var(--text-soft); font-size: 14px; }
+.pub-ancho { width: 100%; justify-content: center; }
+
+/* Pasos */
+.pub-pasos { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: paso; }
+.pub-pasos li { position: relative; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; counter-increment: paso; }
+.pub-pasos li::after { content: counter(paso); position: absolute; top: 16px; right: 18px; font-size: 34px; font-weight: 800; color: var(--border-strong); }
+.pub-pasos h3 { font-size: 16px; margin: 14px 0 6px; }
+.pub-pasos p { margin: 0; color: var(--text-soft); font-size: 14px; }
+.pub-final { margin-top: 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 28px; border-radius: var(--radius-lg); background: var(--bg-elev); border: 1px solid var(--border); box-shadow: var(--shadow); }
+.pub-final h3 { margin: 0 0 4px; font-size: 22px; }
+.pub-final p { margin: 0; color: var(--text-soft); }
+.pub-final .pub-cta { margin: 0; }
+
+/* Pie */
+.pub-pie { background: var(--bg-elev); border-top: 1px solid var(--border); padding-top: 44px; }
+.pub-pie-in { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+.pub-pie h4 { margin: 4px 0 12px; font-size: 15px; }
+.pub-pie p { display: flex; gap: 8px; align-items: center; color: var(--text-soft); font-size: 14px; margin: 0 0 8px; }
+.pub-legal { padding: 22px 20px; margin-top: 28px; border-top: 1px solid var(--border); color: var(--text-faint); font-size: 13px; text-align: center; }
+
+/* Celular y tableta */
+@media (max-width: 960px) {
+  .pub-links { display: none; }
+  .pub-acciones { margin-left: auto; }
+  .pub-hero-in { grid-template-columns: 1fr; }
+  .pub-pasos { grid-template-columns: 1fr 1fr; }
+  .pub-pie-in { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .pub-wrap { padding: 0 16px; }
+  .pub-solo-ancho, .pub-brand small { display: none; }
+  .pub-hero { padding: 44px 0 52px; }
+  .pub-pasos { grid-template-columns: 1fr; }
+  .pub-cta { width: 100%; }
+  .pub-cta .btn { flex: 1 1 170px; justify-content: center; white-space: nowrap; }
+  .pub-seccion { padding: 52px 0; }
+}

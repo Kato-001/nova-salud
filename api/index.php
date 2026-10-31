@@ -8,13 +8,15 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../app/bootstrap.php';
+require __DIR__ . '/../Bakend/app/bootstrap.php';
 
 $r = new Router();
 
 // --- P1 · Seguridad y acceso ------------------------------------------
-$r->get('/', [AuthController::class, 'inicio'])
-  ->get('/login', [AuthController::class, 'formulario'])
+// --- Página pública: especialidades, médicos y cómo reservar ------------
+$r->get('/', [PublicoController::class, 'inicio']);
+
+$r->get('/login', [AuthController::class, 'formulario'])
   ->post('/login', [AuthController::class, 'ingresar'])
   ->post('/salir', [AuthController::class, 'salir'])
   ->get('/recuperar', [RecuperacionController::class, 'formulario'])

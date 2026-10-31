@@ -2,13 +2,12 @@
 Options -Indexes
 RewriteEngine On
 
-# Archivos públicos (CSS, JS, íconos)
-RewriteRule ^assets/(.*)$ public/assets/$1 [L]
-RewriteRule ^favicon\.svg$ public/favicon.svg [L]
+# Archivos públicos (CSS, JS, imágenes, ícono): solo Frontend/public
+RewriteRule ^assets/(.*)$ Frontend/public/assets/$1 [END]
+RewriteRule ^favicon\.svg$ Frontend/public/favicon.svg [END]
 
-# Nunca exponer código, configuración ni scripts SQL
-RewriteRule ^(app|Bakend|Docs|frontend|\.env|\.git) - [F,L]
+# Nunca exponer código, pantallas sueltas, configuración ni scripts SQL
+RewriteRule ^(Bakend|Docs|Frontend|\.env|\.git) - [F,L]
 
 # El resto lo atiende PHP
-RewriteCond %{REQUEST_URI} !^/public/
-RewriteRule ^ api/index.php [L,QSA]
+RewriteRule ^ api/index.php [END,QSA]

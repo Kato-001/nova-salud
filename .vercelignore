@@ -1,9 +1,7 @@
 .env
 .git
-web
-frontend
 Docs
-Bakend
+Bakend/database
 node_modules
 *.log
 .env.local
