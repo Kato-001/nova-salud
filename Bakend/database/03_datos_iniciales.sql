@@ -273,3 +273,11 @@ from estudio e join consulta co on co.idconsulta = e.idconsulta
 join catalogoestudio ce on ce.idcatalogo = e.idcatalogo
 where e.estado = 'COMPLETADO';
 
+
+-- ---------------------------------------------------- Últimos accesos de demostración
+-- Simula que las cuentas de prueba ya ingresaron al sistema en los últimos días
+-- (el sistema actualiza este dato en cada inicio de sesión).
+update usuario u set ultimoacceso = now() - make_interval(hours => x.horas)
+from (values ('admin', 3), ('mrojas', 5), ('cmendoza', 20), ('pmolina', 26),
+             ('lvargas', 30), ('jperez', 44), ('rsuarez', 50), ('mlopez', 70)) as x(username, horas)
+where u.username = x.username;
