@@ -1,5 +1,6 @@
 @startuml 27_vista_p1
 !include estilo.iuml
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
 title Vista del paquete P1 Seguridad y acceso
 skinparam packageStyle folder
 left to right direction

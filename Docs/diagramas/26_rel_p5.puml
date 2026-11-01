@@ -1,8 +1,17 @@
 @startuml 26_rel_p5
 !include estilo.iuml
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
 title Relación del paquete P5 Atención médica con sus casos de uso
 left to right direction
-folder "P5 Atención médica" as PK
+package "P5 ATENCIÓN MÉDICA" as PK {
+  skinparam rectangle<<oculto>> {
+    BackgroundColor transparent
+    BorderColor transparent
+    StereotypeFontSize 0
+    shadowing false
+  }
+  rectangle "<size:40>                                        </size>\n\n\n" <<oculto>> as X
+}
 usecase "CU15\nRegistrar consulta médica" as CU15
 PK ..> CU15 : <<include>>
 usecase "CU16\nGestionar historial clínico" as CU16

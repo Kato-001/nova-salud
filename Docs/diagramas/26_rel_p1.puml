@@ -1,8 +1,17 @@
 @startuml 26_rel_p1
 !include estilo.iuml
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
 title Relación del paquete P1 Seguridad y acceso con sus casos de uso
 left to right direction
-folder "P1 Seguridad y acceso" as PK
+package "P1 SEGURIDAD Y ACCESO" as PK {
+  skinparam rectangle<<oculto>> {
+    BackgroundColor transparent
+    BorderColor transparent
+    StereotypeFontSize 0
+    shadowing false
+  }
+  rectangle "<size:40>                                        </size>\n\n\n" <<oculto>> as X
+}
 usecase "CU1\nIniciar sesión" as CU1
 PK ..> CU1 : <<include>>
 usecase "CU2\nGestionar roles y permisos" as CU2

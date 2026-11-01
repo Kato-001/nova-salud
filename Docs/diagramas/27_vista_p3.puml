@@ -1,5 +1,6 @@
 @startuml 27_vista_p3
 !include estilo.iuml
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
 title Vista del paquete P3 Gestión de pacientes
 skinparam packageStyle folder
 left to right direction

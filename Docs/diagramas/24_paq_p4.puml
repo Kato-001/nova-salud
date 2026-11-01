@@ -1,7 +1,14 @@
 @startuml 24_paq_p4
 !include estilo.iuml
-title Paquete P4 Gestión de citas
-skinparam packageStyle folder
-package "P4 Gestión de citas" as PK {
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
+skinparam shadowing false
+package "P4 GESTIÓN DE CITAS" as PK {
+  skinparam rectangle<<oculto>> {
+    BackgroundColor transparent
+    BorderColor transparent
+    StereotypeFontSize 0
+    shadowing false
+  }
+  rectangle "<size:40>                                        </size>\n\n\n" <<oculto>> as X
 }
 @enduml

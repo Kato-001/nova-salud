@@ -1,8 +1,17 @@
 @startuml 26_rel_p4
 !include estilo.iuml
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
 title Relación del paquete P4 Gestión de citas con sus casos de uso
 left to right direction
-folder "P4 Gestión de citas" as PK
+package "P4 GESTIÓN DE CITAS" as PK {
+  skinparam rectangle<<oculto>> {
+    BackgroundColor transparent
+    BorderColor transparent
+    StereotypeFontSize 0
+    shadowing false
+  }
+  rectangle "<size:40>                                        </size>\n\n\n" <<oculto>> as X
+}
 usecase "CU9\nConsultar disponibilidad" as CU9
 PK ..> CU9 : <<include>>
 usecase "CU10\nReservar ficha" as CU10

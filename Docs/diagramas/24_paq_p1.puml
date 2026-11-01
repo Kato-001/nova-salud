@@ -1,7 +1,14 @@
 @startuml 24_paq_p1
 !include estilo.iuml
-title Paquete P1 Seguridad y acceso
-skinparam packageStyle folder
-package "P1 Seguridad y acceso" as PK {
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
+skinparam shadowing false
+package "P1 SEGURIDAD Y ACCESO" as PK {
+  skinparam rectangle<<oculto>> {
+    BackgroundColor transparent
+    BorderColor transparent
+    StereotypeFontSize 0
+    shadowing false
+  }
+  rectangle "<size:40>                                        </size>\n\n\n" <<oculto>> as X
 }
 @enduml

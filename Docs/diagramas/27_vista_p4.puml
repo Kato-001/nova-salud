@@ -1,5 +1,6 @@
 @startuml 27_vista_p4
 !include estilo.iuml
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
 title Vista del paquete P4 Gestión de citas
 skinparam packageStyle folder
 left to right direction

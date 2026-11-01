@@ -1,8 +1,17 @@
 @startuml 26_rel_p6
 !include estilo.iuml
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
 title Relación del paquete P6 Reportes con sus casos de uso
 left to right direction
-folder "P6 Reportes" as PK
+package "P6 REPORTES" as PK {
+  skinparam rectangle<<oculto>> {
+    BackgroundColor transparent
+    BorderColor transparent
+    StereotypeFontSize 0
+    shadowing false
+  }
+  rectangle "<size:40>                                        </size>\n\n\n" <<oculto>> as X
+}
 usecase "CU20\nGenerar reportes" as CU20
 PK ..> CU20 : <<include>>
 @enduml

@@ -1,8 +1,17 @@
 @startuml 26_rel_p3
 !include estilo.iuml
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
 title Relación del paquete P3 Gestión de pacientes con sus casos de uso
 left to right direction
-folder "P3 Gestión de pacientes" as PK
+package "P3 GESTIÓN DE PACIENTES" as PK {
+  skinparam rectangle<<oculto>> {
+    BackgroundColor transparent
+    BorderColor transparent
+    StereotypeFontSize 0
+    shadowing false
+  }
+  rectangle "<size:40>                                        </size>\n\n\n" <<oculto>> as X
+}
 usecase "CU7\nGestionar pacientes" as CU7
 PK ..> CU7 : <<include>>
 usecase "CU8\nRegistrarse como paciente" as CU8

@@ -1,7 +1,14 @@
 @startuml 24_paq_p3
 !include estilo.iuml
-title Paquete P3 Gestión de pacientes
-skinparam packageStyle folder
-package "P3 Gestión de pacientes" as PK {
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
+skinparam shadowing false
+package "P3 GESTIÓN DE PACIENTES" as PK {
+  skinparam rectangle<<oculto>> {
+    BackgroundColor transparent
+    BorderColor transparent
+    StereotypeFontSize 0
+    shadowing false
+  }
+  rectangle "<size:40>                                        </size>\n\n\n" <<oculto>> as X
 }
 @enduml

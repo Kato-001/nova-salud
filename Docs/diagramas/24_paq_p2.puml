@@ -1,7 +1,14 @@
 @startuml 24_paq_p2
 !include estilo.iuml
-title Paquete P2 Gestión médica
-skinparam packageStyle folder
-package "P2 Gestión médica" as PK {
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
+skinparam shadowing false
+package "P2 GESTIÓN MÉDICA" as PK {
+  skinparam rectangle<<oculto>> {
+    BackgroundColor transparent
+    BorderColor transparent
+    StereotypeFontSize 0
+    shadowing false
+  }
+  rectangle "<size:40>                                        </size>\n\n\n" <<oculto>> as X
 }
 @enduml

@@ -1,5 +1,6 @@
 @startuml 27_vista_p2
 !include estilo.iuml
+skinparam PackageBackgroundColor #FFF6B3/#FDE98A
 title Vista del paquete P2 Gestión médica
 skinparam packageStyle folder
 left to right direction

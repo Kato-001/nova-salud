@@ -102,7 +102,15 @@ def entidades(nombre):
     return [n.strip() for n in nombre.split('/')]
 
 
+# Elemento invisible que da al paquete vacío el tamaño de un paquete de EA
+VACIO = ('  skinparam rectangle<<oculto>> {{\n    BackgroundColor transparent\n    BorderColor transparent\n'
+         '    StereotypeFontSize 0\n    shadowing false\n  }}\n'
+         '  rectangle "<size:40>                                        </size>\\n\\n\\n" <<oculto>> as {n}')
+
+
 def guardar(nombre, lineas):
+    if nombre[:3] in ('24_', '26_', '27_'):   # amarillo de los paquetes de EA
+        lineas.insert(2, 'skinparam PackageBackgroundColor #FFF6B3/#FDE98A')
     (AQUI / f'{nombre}.puml').write_text('\n'.join(lineas) + '\n', encoding='utf-8')
 
 
@@ -125,11 +133,12 @@ for n, nombre in NOMBRES.items():
 # ------------------------------------------------------------------ 24, 26 y 27 · paquetes
 for clave, (nombre, cus) in PAQUETES.items():
     k = clave[1]
-    guardar(f'24_paq_p{k}', [f'@startuml 24_paq_p{k}', '!include estilo.iuml', f'title Paquete {nombre}',
-                             'skinparam packageStyle folder', f'package "{nombre}" as PK {{', '}', '@enduml'])
+    # Paquete como en Enterprise Architect: rectángulo amarillo con el nombre en la pestaña (sin marco)
+    guardar(f'24_paq_p{k}', [f'@startuml 24_paq_p{k}', '!include estilo.iuml', 'skinparam shadowing false',
+                             f'package "{nombre.upper()}" as PK {{', VACIO.format(n='X'), '}', '@enduml'])
 
     l = [f'@startuml 26_rel_p{k}', '!include estilo.iuml', f'title Relación del paquete {nombre} con sus casos de uso',
-         'left to right direction', f'folder "{nombre}" as PK']
+         'left to right direction', f'package "{nombre.upper()}" as PK {{', VACIO.format(n='X'), '}']
     for c in cus:
         l += [f'usecase "CU{c}\\n{NOMBRES[c]}" as CU{c}', f'PK ..> CU{c} : <<include>>']
     guardar(f'26_rel_p{k}', l + ['@enduml'])
