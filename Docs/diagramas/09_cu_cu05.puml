@@ -1,0 +1,10 @@
+@startuml 09_cu_cu05
+!include estilo.iuml
+title CU5 Gestionar médicos
+left to right direction
+actor "Administrador" as ADM
+actor "Recepcionista" as REC
+usecase "CU5 Gestionar médicos" as UC
+ADM -- UC
+REC -- UC
+@enduml

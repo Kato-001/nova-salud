@@ -1,0 +1,10 @@
+@startuml 09_cu_cu09
+!include estilo.iuml
+title CU9 Consultar disponibilidad
+left to right direction
+actor "Recepcionista" as REC
+actor "Paciente" as PAC
+usecase "CU9 Consultar disponibilidad" as UC
+REC -- UC
+PAC -- UC
+@enduml

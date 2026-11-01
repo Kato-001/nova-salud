@@ -1,0 +1,8 @@
+@startuml 09_cu_cu19
+!include estilo.iuml
+title CU19 Consultar historial y resultados
+left to right direction
+actor "Paciente" as PAC
+usecase "CU19 Consultar historial y resultados" as UC
+PAC -- UC
+@enduml

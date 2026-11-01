@@ -1,0 +1,7 @@
+@startuml 24_paq_p2
+!include estilo.iuml
+title Paquete P2 Gestión médica
+skinparam packageStyle folder
+package "P2 Gestión médica" as PK {
+}
+@enduml

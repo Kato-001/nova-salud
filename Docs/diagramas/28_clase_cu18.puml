@@ -1,0 +1,71 @@
+@startuml 28_clase_cu18
+!include estilo.iuml
+title Análisis de clases · CU18 Gestionar estudios médicos
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Médico" as MED
+actor "Recepcionista" as REC
+actor "Administrador" as ADM
+class "IU_Estudios" as IU <<form>> {
+  + idCatalogo: int
+  + indicaciones: String
+  + resultado: String
+  + archivoResultado: File
+  --
+  + mostrarInterfaz()
+  + solicitarEstudio()
+  + registrarResultado()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlEstudio" as C <<control>> {
+  - modeloEstudio: Estudio
+  - modeloNotificacion: Notificacion
+  --
+  + solicitar(consulta, estudio)
+  + registrarResultado(estudio, resultado)
+}
+class "CatalogoEstudio" as CE <<entity>> {
+  + idcatalogo: int
+  + nombre: String
+  + categoria: String
+  + descripcion: String
+  + estado: String
+  --
+  + listarActivos()
+}
+class "Estudio" as E <<entity>> {
+  + idestudio: int
+  + indicaciones: String
+  + estado: String
+  + fechasolicitud: DateTime
+  + fecharesultado: DateTime
+  + resultado: String
+  + archivoresultado: String
+  + idconsulta: int
+  + idcatalogo: int
+  --
+  + crear(SOLICITADO)
+  + actualizar(COMPLETADO)
+}
+class "Notificacion" as N <<entity>> {
+  + idnotificacion: int
+  + tipo: String
+  + canal: String
+  + mensaje: String
+  + programadapara: DateTime
+  + enviadaen: DateTime
+  + leidaen: DateTime
+  + idcita: int
+  + idestudio: int
+  --
+  + avisarResultado(paciente)
+}
+MED --> IU
+REC --> IU
+ADM --> IU
+IU "1" --> "0..*" CE
+IU "1" --> "1" C
+C "1" --> "0..*" E
+C "1" --> "0..*" N
+@enduml

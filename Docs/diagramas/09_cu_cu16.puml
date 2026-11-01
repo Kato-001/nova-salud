@@ -1,0 +1,12 @@
+@startuml 09_cu_cu16
+!include estilo.iuml
+title CU16 Gestionar historial clínico
+left to right direction
+actor "Médico" as MED
+actor "Recepcionista" as REC
+actor "Paciente" as PAC
+usecase "CU16 Gestionar historial clínico" as UC
+MED -- UC
+REC -- UC
+PAC -- UC
+@enduml

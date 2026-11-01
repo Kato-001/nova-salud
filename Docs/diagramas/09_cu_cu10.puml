@@ -1,0 +1,12 @@
+@startuml 09_cu_cu10
+!include estilo.iuml
+title CU10 Reservar ficha
+left to right direction
+actor "Recepcionista" as REC
+actor "Administrador" as ADM
+actor "Paciente" as PAC
+usecase "CU10 Reservar ficha" as UC
+REC -- UC
+ADM -- UC
+PAC -- UC
+@enduml

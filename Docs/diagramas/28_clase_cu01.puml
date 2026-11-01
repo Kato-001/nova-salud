@@ -1,0 +1,74 @@
+@startuml 28_clase_cu01
+!include estilo.iuml
+title Análisis de clases · CU1 Iniciar sesión
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Usuario" as USR
+class "IU_Login" as IU <<form>> {
+  + login: String
+  + clave: String
+  + recordar: boolean
+  --
+  + mostrarInterfaz()
+  + ingresar(login, clave)
+  + mostrarMenúSegúnRol()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlSesion" as C <<control>> {
+  - modeloBitacora: Bitacora
+  - modeloUsuario: Usuario
+  - modeloRol: Rol
+  - modeloPermiso: Permiso
+  --
+  + iniciarSesion(login, clave)
+}
+class "Usuario" as U <<entity>> {
+  + idusuario: int
+  + nombre: String
+  + username: String
+  + email: String
+  + password: String
+  + estado: String
+  + ultimoacceso: DateTime
+  + idrol: int
+  --
+  + buscar(login)
+  + verificarClave(hash)
+}
+class "Rol" as R <<entity>> {
+  + idrol: int
+  + nombre: String
+  + descripcion: String
+  --
+  + obtenerPermisos(idrol)
+}
+class "Permiso" as R1 <<entity>> {
+  + idpermiso: int
+  + codigo: String
+  + nombre: String
+  + modulo: String
+  --
+  + obtenerPermisos(idrol)
+}
+class "Bitacora" as B <<entity>> {
+  + idbitacora: int
+  + accion: String
+  + modulo: String
+  + tabla: String
+  + idregistro: int
+  + descripcion: String
+  + ip: String
+  + fecha: DateTime
+  + idusuario: int
+  --
+  + contarIntentosFallidos(ip)
+  + registrar(INICIAR_SESION)
+}
+USR --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" B
+C "1" --> "0..*" U
+C "1" --> "0..*" R
+C "1" --> "0..*" R1
+@enduml

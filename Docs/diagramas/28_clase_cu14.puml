@@ -1,0 +1,64 @@
+@startuml 28_clase_cu14
+!include estilo.iuml
+title Análisis de clases · CU14 Consultar agenda médica
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Médico" as MED
+actor "Recepcionista" as REC
+actor "Administrador" as ADM
+class "IU_Agenda" as IU <<form>> {
+  + fecha: Date
+  + idMedico: int
+  + estado: String
+  --
+  + mostrarInterfaz()
+  + elegirFecha(médico, estado)
+  + mostrarAgenda()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlAgenda" as C <<control>> {
+  - modeloMedico: Medico
+  - modeloCita: Cita
+  --
+  + agenda(fecha, médico, estado)
+}
+class "CtrlDisponibilidad" as D <<control>> {
+  --
+  + bloquesLibres()
+}
+class "Cita" as CI <<entity>> {
+  + idcita: int
+  + codigo: String
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + modalidad: String
+  + motivo: String
+  + fecharegistro: DateTime
+  + idpaciente: int
+  + …
+  --
+  + citasDelDía()
+}
+class "Medico" as M <<entity>> {
+  + idmedico: int
+  + codigo: String
+  + registroprofesional: String
+  + nombres: String
+  + apellidos: String
+  + telefono: String
+  + email: String
+  + estado: String
+  + idusuario: int
+  --
+  + médicoDeLaSesión()
+}
+MED --> IU
+REC --> IU
+ADM --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" M
+C "1" --> "0..*" CI
+C ..> D
+@enduml

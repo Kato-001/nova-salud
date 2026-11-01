@@ -1,0 +1,12 @@
+@startuml 09_cu_cu18
+!include estilo.iuml
+title CU18 Gestionar estudios médicos
+left to right direction
+actor "Médico" as MED
+actor "Recepcionista" as REC
+actor "Administrador" as ADM
+usecase "CU18 Gestionar estudios médicos" as UC
+MED -- UC
+REC -- UC
+ADM -- UC
+@enduml

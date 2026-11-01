@@ -1,0 +1,7 @@
+@startuml 24_paq_p6
+!include estilo.iuml
+title Paquete P6 Reportes
+skinparam packageStyle folder
+package "P6 Reportes" as PK {
+}
+@enduml

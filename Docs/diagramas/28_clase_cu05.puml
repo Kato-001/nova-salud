@@ -1,0 +1,67 @@
+@startuml 28_clase_cu05
+!include estilo.iuml
+title Análisis de clases · CU5 Gestionar médicos
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Administrador" as ADM
+actor "Recepcionista" as REC
+class "IU_Medicos" as IU <<form>> {
+  + codigo: String
+  + registroProfesional: String
+  + nombres: String
+  + apellidos: String
+  + telefono: String
+  + email: String
+  + especialidades: List<int>
+  --
+  + mostrarInterfaz()
+  + registrarMédico(datos, especialidades)
+  + mostrarMensaje(texto: String)
+}
+class "CtrlMedico" as C <<control>> {
+  - modeloUsuario: Usuario
+  - modeloMedico: Medico
+  - modeloMedicoEspecialidad: MedicoEspecialidad
+  --
+  + guardar(datos)
+}
+class "Medico" as M <<entity>> {
+  + idmedico: int
+  + codigo: String
+  + registroprofesional: String
+  + nombres: String
+  + apellidos: String
+  + telefono: String
+  + email: String
+  + estado: String
+  + idusuario: int
+  --
+  + crear()
+  + activar/desactivar()
+}
+class "Usuario" as U <<entity>> {
+  + idusuario: int
+  + nombre: String
+  + username: String
+  + email: String
+  + password: String
+  + estado: String
+  + ultimoacceso: DateTime
+  + idrol: int
+  --
+  + crearCuenta(rol MEDICO)
+}
+class "MedicoEspecialidad" as ME <<entity>> {
+  + idmedico: int
+  + idespecialidad: int
+  --
+  + asignarEspecialidades()
+}
+ADM --> IU
+REC --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" U
+C "1" --> "0..*" M
+C "1" --> "0..*" ME
+@enduml

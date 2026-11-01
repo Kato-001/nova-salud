@@ -1,0 +1,8 @@
+@startuml 09_cu_cu11
+!include estilo.iuml
+title CU11 Reprogramar cita
+left to right direction
+actor "Recepcionista" as REC
+usecase "CU11 Reprogramar cita" as UC
+REC -- UC
+@enduml

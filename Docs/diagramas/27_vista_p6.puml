@@ -1,0 +1,13 @@
+@startuml 27_vista_p6
+!include estilo.iuml
+title Vista del paquete P6 Reportes
+skinparam packageStyle folder
+left to right direction
+package "P6 Reportes" {
+  actor "Administrador" as ADM
+  actor "Recepcionista" as REC
+  usecase "CU20\nGenerar reportes" as CU20
+  ADM --> CU20
+  REC --> CU20
+}
+@enduml

@@ -1,0 +1,7 @@
+@startuml 24_paq_p5
+!include estilo.iuml
+title Paquete P5 Atención médica
+skinparam packageStyle folder
+package "P5 Atención médica" as PK {
+}
+@enduml

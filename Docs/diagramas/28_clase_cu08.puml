@@ -1,0 +1,74 @@
+@startuml 28_clase_cu08
+!include estilo.iuml
+title Análisis de clases · CU8 Registrarse como paciente
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Paciente" as PAC
+class "IU_Registro" as IU <<form>> {
+  + ci: String
+  + nombres: String
+  + apellidos: String
+  + fechaNacimiento: Date
+  + telefono: String
+  + email: String
+  + username: String
+  + clave: String
+  --
+  + mostrarInterfaz()
+  + completarFormulario(datos, cuenta)
+  + iniciarSesiónYMostrarPortal()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlRegistro" as C <<control>> {
+  - modeloPaciente: Paciente
+  - modeloUsuario: Usuario
+  - modeloHistoriaClinica: HistoriaClinica
+  --
+  + registrar(datos)
+}
+class "Usuario" as U <<entity>> {
+  + idusuario: int
+  + nombre: String
+  + username: String
+  + email: String
+  + password: String
+  + estado: String
+  + ultimoacceso: DateTime
+  + idrol: int
+  --
+  + crear(rol PACIENTE)
+}
+class "Paciente" as P <<entity>> {
+  + idpaciente: int
+  + codigo: String
+  + ci: String
+  + nombres: String
+  + apellidos: String
+  + fechanacimiento: Date
+  + sexo: String
+  + telefono: String
+  + email: String
+  + …
+  --
+  + existeCI()
+  + crear()
+}
+class "HistoriaClinica" as H <<entity>> {
+  + idhistoria: int
+  + numero: String
+  + antecedentespersonales: String
+  + antecedentesfamiliares: String
+  + alergias: String
+  + enfermedadescronicas: String
+  + medicacionhabitual: String
+  + idpaciente: int
+  --
+  + crear()
+}
+PAC --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" P
+C "1" --> "0..*" U
+C "1" --> "0..*" H
+@enduml

@@ -1,0 +1,92 @@
+@startuml 28_clase_cu20
+!include estilo.iuml
+title Análisis de clases · CU20 Generar reportes
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Administrador" as ADM
+actor "Recepcionista" as REC
+class "IU_Reportes" as IU <<form>> {
+  + tipo: String
+  + desde: Date
+  + hasta: Date
+  + idMedico: int
+  + idEspecialidad: int
+  + estado: String
+  --
+  + mostrarInterfaz()
+  + elegirTipoYPeríodo()
+  + mostrarTablaYTotales()
+  + exportarCSV()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlReporte" as C <<control>> {
+  - modeloCita: Cita
+  - modeloPaciente: Paciente
+  - modeloMedico: Medico
+  - modeloBitacora: Bitacora
+  --
+  + generar(tipo, desde, hasta, filtros)
+}
+class "Cita" as CI <<entity>> {
+  + idcita: int
+  + codigo: String
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + modalidad: String
+  + motivo: String
+  + fecharegistro: DateTime
+  + idpaciente: int
+  + …
+  --
+  + agrupar(fecha|médico|especialidad|estado)
+}
+class "Paciente" as P <<entity>> {
+  + idpaciente: int
+  + codigo: String
+  + ci: String
+  + nombres: String
+  + apellidos: String
+  + fechanacimiento: Date
+  + sexo: String
+  + telefono: String
+  + email: String
+  + …
+  --
+  + pacientesRegistrados()
+}
+class "Medico" as M <<entity>> {
+  + idmedico: int
+  + codigo: String
+  + registroprofesional: String
+  + nombres: String
+  + apellidos: String
+  + telefono: String
+  + email: String
+  + estado: String
+  + idusuario: int
+  --
+  + agendaDiaria()
+}
+class "Bitacora" as B <<entity>> {
+  + idbitacora: int
+  + accion: String
+  + modulo: String
+  + tabla: String
+  + idregistro: int
+  + descripcion: String
+  + ip: String
+  + fecha: DateTime
+  + idusuario: int
+  --
+  + registrar(EXPORTAR)
+}
+ADM --> IU
+REC --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" CI
+C "1" --> "0..*" P
+C "1" --> "0..*" M
+C "1" --> "0..*" B
+@enduml

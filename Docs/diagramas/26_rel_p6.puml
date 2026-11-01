@@ -1,0 +1,8 @@
+@startuml 26_rel_p6
+!include estilo.iuml
+title Relación del paquete P6 Reportes con sus casos de uso
+left to right direction
+folder "P6 Reportes" as PK
+usecase "CU20\nGenerar reportes" as CU20
+PK ..> CU20 : <<include>>
+@enduml

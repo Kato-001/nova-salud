@@ -1,0 +1,81 @@
+@startuml 28_clase_cu19
+!include estilo.iuml
+title Análisis de clases · CU19 Consultar historial y resultados
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Paciente" as PAC
+class "IU_PortalHistorial" as IU <<form>> {
+  + idPaciente: int
+  + filtro: String
+  --
+  + mostrarInterfaz()
+  + verMiHistorial()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlPortal" as C <<control>> {
+  - modeloConsulta: Consulta
+  - modeloTratamiento: Tratamiento
+  - modeloEstudio: Estudio
+  - modeloNotificacion: Notificacion
+  --
+  + historial(paciente de la sesión)
+}
+class "Consulta" as CO <<entity>> {
+  + idconsulta: int
+  + fechahora: DateTime
+  + motivo: String
+  + peso: Decimal
+  + talla: Decimal
+  + presionarterial: String
+  + temperatura: Decimal
+  + frecuenciacardiaca: int
+  + examenfisico: String
+  + …
+  --
+  + consultas()
+}
+class "Tratamiento" as T <<entity>> {
+  + idtratamiento: int
+  + dosis: String
+  + frecuencia: String
+  + duracion: String
+  + indicaciones: String
+  + idconsulta: int
+  + idmedicamento: int
+  --
+  + tratamientos()
+}
+class "Estudio" as E <<entity>> {
+  + idestudio: int
+  + indicaciones: String
+  + estado: String
+  + fechasolicitud: DateTime
+  + fecharesultado: DateTime
+  + resultado: String
+  + archivoresultado: String
+  + idconsulta: int
+  + idcatalogo: int
+  --
+  + estudiosConResultado()
+}
+class "Notificacion" as N <<entity>> {
+  + idnotificacion: int
+  + tipo: String
+  + canal: String
+  + mensaje: String
+  + programadapara: DateTime
+  + enviadaen: DateTime
+  + leidaen: DateTime
+  + idcita: int
+  + idestudio: int
+  --
+  + marcarLeídas()
+}
+PAC --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" CO
+C "1" --> "0..*" T
+C "1" --> "0..*" E
+C "1" --> "0..*" N
+@enduml

@@ -1,0 +1,16 @@
+@startuml 26_rel_p5
+!include estilo.iuml
+title Relación del paquete P5 Atención médica con sus casos de uso
+left to right direction
+folder "P5 Atención médica" as PK
+usecase "CU15\nRegistrar consulta médica" as CU15
+PK ..> CU15 : <<include>>
+usecase "CU16\nGestionar historial clínico" as CU16
+PK ..> CU16 : <<include>>
+usecase "CU17\nRegistrar tratamiento" as CU17
+PK ..> CU17 : <<include>>
+usecase "CU18\nGestionar estudios médicos" as CU18
+PK ..> CU18 : <<include>>
+usecase "CU19\nConsultar historial y resultados" as CU19
+PK ..> CU19 : <<include>>
+@enduml

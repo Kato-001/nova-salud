@@ -1,0 +1,7 @@
+@startuml 24_paq_p4
+!include estilo.iuml
+title Paquete P4 Gestión de citas
+skinparam packageStyle folder
+package "P4 Gestión de citas" as PK {
+}
+@enduml

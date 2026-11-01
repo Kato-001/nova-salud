@@ -1,0 +1,8 @@
+@startuml 09_cu_cu08
+!include estilo.iuml
+title CU8 Registrarse como paciente
+left to right direction
+actor "Paciente" as PAC
+usecase "CU8 Registrarse como paciente" as UC
+PAC -- UC
+@enduml

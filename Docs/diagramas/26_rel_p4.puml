@@ -1,0 +1,18 @@
+@startuml 26_rel_p4
+!include estilo.iuml
+title Relación del paquete P4 Gestión de citas con sus casos de uso
+left to right direction
+folder "P4 Gestión de citas" as PK
+usecase "CU9\nConsultar disponibilidad" as CU9
+PK ..> CU9 : <<include>>
+usecase "CU10\nReservar ficha" as CU10
+PK ..> CU10 : <<include>>
+usecase "CU11\nReprogramar cita" as CU11
+PK ..> CU11 : <<include>>
+usecase "CU12\nCancelar cita" as CU12
+PK ..> CU12 : <<include>>
+usecase "CU13\nRegistrar asistencia" as CU13
+PK ..> CU13 : <<include>>
+usecase "CU14\nConsultar agenda médica" as CU14
+PK ..> CU14 : <<include>>
+@enduml

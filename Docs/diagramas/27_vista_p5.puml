@@ -1,0 +1,26 @@
+@startuml 27_vista_p5
+!include estilo.iuml
+title Vista del paquete P5 Atención médica
+skinparam packageStyle folder
+left to right direction
+package "P5 Atención médica" {
+  actor "Administrador" as ADM
+  actor "Recepcionista" as REC
+  actor "Médico" as MED
+  actor "Paciente" as PAC
+  usecase "CU15\nRegistrar consulta médica" as CU15
+  usecase "CU16\nGestionar historial clínico" as CU16
+  usecase "CU17\nRegistrar tratamiento" as CU17
+  usecase "CU18\nGestionar estudios médicos" as CU18
+  usecase "CU19\nConsultar historial y resultados" as CU19
+  MED --> CU15
+  MED --> CU16
+  REC --> CU16
+  PAC --> CU16
+  MED --> CU17
+  MED --> CU18
+  REC --> CU18
+  ADM --> CU18
+  PAC --> CU19
+}
+@enduml

@@ -1,0 +1,7 @@
+@startuml 24_paq_p3
+!include estilo.iuml
+title Paquete P3 Gestión de pacientes
+skinparam packageStyle folder
+package "P3 Gestión de pacientes" as PK {
+}
+@enduml

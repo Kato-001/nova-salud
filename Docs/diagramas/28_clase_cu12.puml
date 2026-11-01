@@ -1,0 +1,74 @@
+@startuml 28_clase_cu12
+!include estilo.iuml
+title Análisis de clases · CU12 Cancelar cita
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Recepcionista" as REC
+actor "Paciente" as PAC
+class "IU_DetalleCita" as IU <<form>> {
+  + idCita: int
+  + motivoCancelacion: String
+  --
+  + mostrarInterfaz()
+  + cancelar(motivo)
+  + mostrarMensaje(texto: String)
+}
+class "CtrlCita" as C <<control>> {
+  - modeloCita: Cita
+  - modeloHistorialCita: HistorialCita
+  - modeloNotificacion: Notificacion
+  --
+  + cancelar(cita, motivo)
+}
+class "Cita" as CI <<entity>> {
+  + idcita: int
+  + codigo: String
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + modalidad: String
+  + motivo: String
+  + fecharegistro: DateTime
+  + idpaciente: int
+  + …
+  --
+  + obtener()
+  + validarEstado()
+  + cambiarEstado(CANCELADA)
+}
+class "HistorialCita" as HC <<entity>> {
+  + idhistorial: int
+  + accion: String
+  + fechaanterior: Date
+  + horaanterior: Time
+  + fechanueva: Date
+  + horanueva: Time
+  + motivo: String
+  + fecha: DateTime
+  + idcita: int
+  + …
+  --
+  + registrar(CANCELAR, motivo)
+}
+class "Notificacion" as N <<entity>> {
+  + idnotificacion: int
+  + tipo: String
+  + canal: String
+  + mensaje: String
+  + programadapara: DateTime
+  + enviadaen: DateTime
+  + leidaen: DateTime
+  + idcita: int
+  + idestudio: int
+  --
+  + descartarRecordatorios()
+  + avisar()
+}
+REC --> IU
+PAC --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" CI
+C "1" --> "0..*" HC
+C "1" --> "0..*" N
+@enduml

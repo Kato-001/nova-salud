@@ -1,0 +1,15 @@
+@startuml 09_cu_cu01
+!include estilo.iuml
+title CU1 Iniciar sesión
+actor "Usuario" as USR
+actor "Administrador" as ADM
+actor "Recepcionista" as REC
+actor "Médico" as MED
+actor "Paciente" as PAC
+usecase "CU1 Iniciar sesión" as UC
+USR -right- UC
+ADM -up-|> USR
+REC -up-|> USR
+MED -up-|> USR
+PAC -up-|> USR
+@enduml

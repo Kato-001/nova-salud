@@ -1,0 +1,12 @@
+@startuml 26_rel_p2
+!include estilo.iuml
+title Relación del paquete P2 Gestión médica con sus casos de uso
+left to right direction
+folder "P2 Gestión médica" as PK
+usecase "CU4\nGestionar especialidades" as CU4
+PK ..> CU4 : <<include>>
+usecase "CU5\nGestionar médicos" as CU5
+PK ..> CU5 : <<include>>
+usecase "CU6\nGestionar horarios" as CU6
+PK ..> CU6 : <<include>>
+@enduml

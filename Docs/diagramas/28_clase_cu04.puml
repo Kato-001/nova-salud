@@ -1,0 +1,35 @@
+@startuml 28_clase_cu04
+!include estilo.iuml
+title Análisis de clases · CU4 Gestionar especialidades
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Administrador" as ADM
+class "IU_Especialidades" as IU <<form>> {
+  + nombre: String
+  + descripcion: String
+  + estado: String
+  --
+  + mostrarInterfaz()
+  + registrar(nombre, descripción)
+  + mostrarMensaje(texto: String)
+}
+class "CtrlEspecialidad" as C <<control>> {
+  - modeloEspecialidad: Especialidad
+  --
+  + guardar(datos)
+}
+class "Especialidad" as E <<entity>> {
+  + idespecialidad: int
+  + nombre: String
+  + descripcion: String
+  + estado: String
+  --
+  + existeNombreNormalizado()
+  + crear()
+  + cambiarEstado()
+}
+ADM --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" E
+@enduml

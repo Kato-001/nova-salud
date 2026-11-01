@@ -1,0 +1,10 @@
+@startuml 09_cu_cu20
+!include estilo.iuml
+title CU20 Generar reportes
+left to right direction
+actor "Administrador" as ADM
+actor "Recepcionista" as REC
+usecase "CU20 Generar reportes" as UC
+ADM -- UC
+REC -- UC
+@enduml

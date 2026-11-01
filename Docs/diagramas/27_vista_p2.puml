@@ -1,0 +1,17 @@
+@startuml 27_vista_p2
+!include estilo.iuml
+title Vista del paquete P2 Gestión médica
+skinparam packageStyle folder
+left to right direction
+package "P2 Gestión médica" {
+  actor "Administrador" as ADM
+  actor "Recepcionista" as REC
+  usecase "CU4\nGestionar especialidades" as CU4
+  usecase "CU5\nGestionar médicos" as CU5
+  usecase "CU6\nGestionar horarios" as CU6
+  ADM --> CU4
+  ADM --> CU5
+  REC --> CU5
+  ADM --> CU6
+}
+@enduml

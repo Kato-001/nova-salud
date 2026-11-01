@@ -1,0 +1,91 @@
+@startuml 28_clase_cu09
+!include estilo.iuml
+title Análisis de clases · CU9 Consultar disponibilidad
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Recepcionista" as REC
+actor "Paciente" as PAC
+class "IU_ProgramarCita" as IU <<form>> {
+  + idEspecialidad: int
+  + idMedico: int
+  + fecha: Date
+  --
+  + mostrarInterfaz()
+  + elegirMédicoYFecha()
+  + mostrarBloquesLibres()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlDisponibilidad" as D <<control>> {
+  - modeloConfiguracion: Configuracion
+  - modeloMedico: Medico
+  - modeloHorario: Horario
+  - modeloBloqueoAgenda: BloqueoAgenda
+  - modeloCita: Cita
+  --
+  + bloques(médico, fecha)
+}
+class "Medico" as M <<entity>> {
+  + idmedico: int
+  + codigo: String
+  + registroprofesional: String
+  + nombres: String
+  + apellidos: String
+  + telefono: String
+  + email: String
+  + estado: String
+  + idusuario: int
+  --
+  + estáActivo()
+}
+class "Horario" as H <<entity>> {
+  + idhorario: int
+  + diasemana: int
+  + horainicio: Time
+  + horafin: Time
+  + estado: String
+  + idmedico: int
+  --
+  + horariosDelDía()
+}
+class "BloqueoAgenda" as BA <<entity>> {
+  + idbloqueo: int
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + tipo: String
+  + motivo: String
+  + idmedico: int
+  --
+  + bloqueos()
+}
+class "Cita" as CI <<entity>> {
+  + idcita: int
+  + codigo: String
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + modalidad: String
+  + motivo: String
+  + fecharegistro: DateTime
+  + idpaciente: int
+  + …
+  --
+  + citasQueOcupan()
+}
+class "Configuracion" as CF <<entity>> {
+  + clave: String
+  + valor: String
+  + descripcion: String
+  --
+  + duraciónCita()
+}
+REC --> IU
+PAC --> IU
+IU "1" --> "1" D
+D "1" --> "0..*" CF
+D "1" --> "0..*" M
+D "1" --> "0..*" H
+D "1" --> "0..*" BA
+D "1" --> "0..*" CI
+@enduml

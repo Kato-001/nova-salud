@@ -1,0 +1,8 @@
+@startuml 09_cu_cu17
+!include estilo.iuml
+title CU17 Registrar tratamiento
+left to right direction
+actor "Médico" as MED
+usecase "CU17 Registrar tratamiento" as UC
+MED -- UC
+@enduml

@@ -1,0 +1,91 @@
+@startuml 28_clase_cu15
+!include estilo.iuml
+title Análisis de clases · CU15 Registrar consulta médica
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Médico" as MED
+class "IU_Consulta" as IU <<form>> {
+  + idCita: int
+  + peso: Decimal
+  + talla: Decimal
+  + presionArterial: String
+  + temperatura: Decimal
+  + diagnostico: String
+  + observaciones: String
+  --
+  + mostrarInterfaz()
+  + registrarSignosYDiagnóstico()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlAtencion" as C <<control>> {
+  - modeloCita: Cita
+  - modeloConsulta: Consulta
+  - modeloHistorialCita: HistorialCita
+  - modeloHistoriaClinica: HistoriaClinica
+  --
+  + atender(cita, datos)
+}
+class "Cita" as CI <<entity>> {
+  + idcita: int
+  + codigo: String
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + modalidad: String
+  + motivo: String
+  + fecharegistro: DateTime
+  + idpaciente: int
+  + …
+  --
+  + esDelMédico()
+  + validarEstado()
+  + cambiarEstado(ATENDIDA)
+}
+class "Consulta" as CO <<entity>> {
+  + idconsulta: int
+  + fechahora: DateTime
+  + motivo: String
+  + peso: Decimal
+  + talla: Decimal
+  + presionarterial: String
+  + temperatura: Decimal
+  + frecuenciacardiaca: int
+  + examenfisico: String
+  + …
+  --
+  + crear()
+}
+class "HistorialCita" as HC <<entity>> {
+  + idhistorial: int
+  + accion: String
+  + fechaanterior: Date
+  + horaanterior: Time
+  + fechanueva: Date
+  + horanueva: Time
+  + motivo: String
+  + fecha: DateTime
+  + idcita: int
+  + …
+  --
+  + registrar(ATENDER)
+}
+class "HistoriaClinica" as P <<entity>> {
+  + idhistoria: int
+  + numero: String
+  + antecedentespersonales: String
+  + antecedentesfamiliares: String
+  + alergias: String
+  + enfermedadescronicas: String
+  + medicacionhabitual: String
+  + idpaciente: int
+  --
+  + consultarAntecedentes()
+}
+MED --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" CI
+C "1" --> "0..*" CO
+C "1" --> "0..*" HC
+C "1" --> "0..*" P
+@enduml

@@ -1,0 +1,7 @@
+@startuml 24_paq_p1
+!include estilo.iuml
+title Paquete P1 Seguridad y acceso
+skinparam packageStyle folder
+package "P1 Seguridad y acceso" as PK {
+}
+@enduml

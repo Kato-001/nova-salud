@@ -1,0 +1,52 @@
+@startuml 28_clase_cu02
+!include estilo.iuml
+title Análisis de clases · CU2 Gestionar roles y permisos
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Administrador" as ADM
+class "IU_Roles" as IU <<form>> {
+  + nombre: String
+  + descripcion: String
+  + permisos: List<int>
+  --
+  + mostrarInterfaz()
+  + registrarRol(nombre)
+  + marcarPermisos()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlRol" as C <<control>> {
+  - modeloRol: Rol
+  - modeloPermiso: Permiso
+  - modeloRolPermiso: RolPermiso
+  --
+  + crearRol(datos)
+  + asignarPermisos(idrol, permisos)
+}
+class "Rol" as R <<entity>> {
+  + idrol: int
+  + nombre: String
+  + descripcion: String
+  --
+  + crear()
+}
+class "Permiso" as P <<entity>> {
+  + idpermiso: int
+  + codigo: String
+  + nombre: String
+  + modulo: String
+  --
+  + listar()
+}
+class "RolPermiso" as RP <<entity>> {
+  + idrol: int
+  + idpermiso: int
+  --
+  + reemplazar(idrol, permisos)
+}
+ADM --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" R
+C "1" --> "0..*" P
+C "1" --> "0..*" RP
+@enduml

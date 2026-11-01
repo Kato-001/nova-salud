@@ -1,0 +1,8 @@
+@startuml 09_cu_cu04
+!include estilo.iuml
+title CU4 Gestionar especialidades
+left to right direction
+actor "Administrador" as ADM
+usecase "CU4 Gestionar especialidades" as UC
+ADM -- UC
+@enduml

@@ -1,0 +1,66 @@
+@startuml 28_clase_cu13
+!include estilo.iuml
+title Análisis de clases · CU13 Registrar asistencia
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Recepcionista" as REC
+actor "Médico" as MED
+class "IU_DetalleCita" as IU <<form>> {
+  + idCita: int
+  + nuevoEstado: String
+  --
+  + mostrarInterfaz()
+  + confirmar()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlCita" as C <<control>> {
+  - modeloEstadoCita: EstadoCita
+  - modeloCita: Cita
+  - modeloHistorialCita: HistorialCita
+  --
+  + cambiarEstado(cita, estado)
+}
+class "Cita" as CI <<entity>> {
+  + idcita: int
+  + codigo: String
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + modalidad: String
+  + motivo: String
+  + fecharegistro: DateTime
+  + idpaciente: int
+  + …
+  --
+  + actualizarEstado()
+}
+class "EstadoCita" as EC <<entity>> {
+  + codigo: String
+  + nombre: String
+  + descripcion: String
+  + ocupahorario: boolean
+  --
+  + transiciónPermitida()
+}
+class "HistorialCita" as HC <<entity>> {
+  + idhistorial: int
+  + accion: String
+  + fechaanterior: Date
+  + horaanterior: Time
+  + fechanueva: Date
+  + horanueva: Time
+  + motivo: String
+  + fecha: DateTime
+  + idcita: int
+  + …
+  --
+  + registrar(acción)
+}
+REC --> IU
+MED --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" EC
+C "1" --> "0..*" CI
+C "1" --> "0..*" HC
+@enduml

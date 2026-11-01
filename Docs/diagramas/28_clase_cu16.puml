@@ -1,0 +1,73 @@
+@startuml 28_clase_cu16
+!include estilo.iuml
+title Análisis de clases · CU16 Gestionar historial clínico
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Médico" as MED
+actor "Recepcionista" as REC
+actor "Paciente" as PAC
+class "IU_HistoriaClinica" as IU <<form>> {
+  + idPaciente: int
+  + antecedentesPersonales: String
+  + antecedentesFamiliares: String
+  + alergias: String
+  --
+  + mostrarInterfaz()
+  + verHistoria(paciente)
+  + actualizarAntecedentes()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlPaciente" as C <<control>> {
+  - modeloConsulta: Consulta
+  - modeloTratamiento: Tratamiento
+  - modeloHistoriaClinica: HistoriaClinica
+  --
+  + historia()
+  + actualizarHistoria()
+}
+class "HistoriaClinica" as H <<entity>> {
+  + idhistoria: int
+  + numero: String
+  + antecedentespersonales: String
+  + antecedentesfamiliares: String
+  + alergias: String
+  + enfermedadescronicas: String
+  + medicacionhabitual: String
+  + idpaciente: int
+  --
+  + actualizar()
+}
+class "Consulta" as CO <<entity>> {
+  + idconsulta: int
+  + fechahora: DateTime
+  + motivo: String
+  + peso: Decimal
+  + talla: Decimal
+  + presionarterial: String
+  + temperatura: Decimal
+  + frecuenciacardiaca: int
+  + examenfisico: String
+  + …
+  --
+  + consultas(paciente)
+}
+class "Tratamiento" as T <<entity>> {
+  + idtratamiento: int
+  + dosis: String
+  + frecuencia: String
+  + duracion: String
+  + indicaciones: String
+  + idconsulta: int
+  + idmedicamento: int
+  --
+  + tratamientos(consulta)
+}
+MED --> IU
+REC --> IU
+PAC --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" CO
+C "1" --> "0..*" T
+C "1" --> "0..*" H
+@enduml

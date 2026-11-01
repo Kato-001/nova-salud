@@ -1,0 +1,70 @@
+@startuml 28_clase_cu06
+!include estilo.iuml
+title Análisis de clases · CU6 Gestionar horarios
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Administrador" as ADM
+class "IU_Horarios" as IU <<form>> {
+  + idMedico: int
+  + diaSemana: int
+  + horaInicio: Time
+  + horaFin: Time
+  + fechaBloqueo: Date
+  + tipoBloqueo: String
+  --
+  + mostrarInterfaz()
+  + agregarHorario(día, inicio, fin)
+  + bloquearAgenda(fecha)
+  + mostrarMensaje(texto: String)
+}
+class "CtrlHorario" as C <<control>> {
+  - modeloHorario: Horario
+  - modeloBloqueoAgenda: BloqueoAgenda
+  - modeloCita: Cita
+  --
+  + guardar()
+  + bloquear()
+}
+class "Horario" as H <<entity>> {
+  + idhorario: int
+  + diasemana: int
+  + horainicio: Time
+  + horafin: Time
+  + estado: String
+  + idmedico: int
+  --
+  + seCruza()
+  + crear()
+}
+class "BloqueoAgenda" as BA <<entity>> {
+  + idbloqueo: int
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + tipo: String
+  + motivo: String
+  + idmedico: int
+  --
+  + crearBloqueo()
+}
+class "Cita" as CI <<entity>> {
+  + idcita: int
+  + codigo: String
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + modalidad: String
+  + motivo: String
+  + fecharegistro: DateTime
+  + idpaciente: int
+  + …
+  --
+  + citasEnBloqueo()
+}
+ADM --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" H
+C "1" --> "0..*" BA
+C "1" --> "0..*" CI
+@enduml

@@ -1,0 +1,12 @@
+@startuml 09_cu_cu14
+!include estilo.iuml
+title CU14 Consultar agenda médica
+left to right direction
+actor "Médico" as MED
+actor "Recepcionista" as REC
+actor "Administrador" as ADM
+usecase "CU14 Consultar agenda médica" as UC
+MED -- UC
+REC -- UC
+ADM -- UC
+@enduml

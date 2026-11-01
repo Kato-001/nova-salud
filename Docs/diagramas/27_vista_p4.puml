@@ -1,0 +1,31 @@
+@startuml 27_vista_p4
+!include estilo.iuml
+title Vista del paquete P4 Gestión de citas
+skinparam packageStyle folder
+left to right direction
+package "P4 Gestión de citas" {
+  actor "Administrador" as ADM
+  actor "Recepcionista" as REC
+  actor "Médico" as MED
+  actor "Paciente" as PAC
+  usecase "CU9\nConsultar disponibilidad" as CU9
+  usecase "CU10\nReservar ficha" as CU10
+  usecase "CU11\nReprogramar cita" as CU11
+  usecase "CU12\nCancelar cita" as CU12
+  usecase "CU13\nRegistrar asistencia" as CU13
+  usecase "CU14\nConsultar agenda médica" as CU14
+  REC --> CU9
+  PAC --> CU9
+  REC --> CU10
+  ADM --> CU10
+  PAC --> CU10
+  REC --> CU11
+  REC --> CU12
+  PAC --> CU12
+  REC --> CU13
+  MED --> CU13
+  MED --> CU14
+  REC --> CU14
+  ADM --> CU14
+}
+@enduml

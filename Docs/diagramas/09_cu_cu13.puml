@@ -1,0 +1,10 @@
+@startuml 09_cu_cu13
+!include estilo.iuml
+title CU13 Registrar asistencia
+left to right direction
+actor "Recepcionista" as REC
+actor "Médico" as MED
+usecase "CU13 Registrar asistencia" as UC
+REC -- UC
+MED -- UC
+@enduml

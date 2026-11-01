@@ -1,0 +1,63 @@
+@startuml 28_clase_cu17
+!include estilo.iuml
+title Análisis de clases · CU17 Registrar tratamiento
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Médico" as MED
+class "IU_Consulta" as IU <<form>> {
+  + idMedicamento: int
+  + dosis: String
+  + frecuencia: String
+  + duracion: String
+  + indicaciones: String
+  --
+  + mostrarInterfaz()
+  + agregarMedicamento(dosis, frecuencia, duración)
+  + mostrarMensaje(texto: String)
+}
+class "CtrlAtencion" as C <<control>> {
+  - modeloConsulta: Consulta
+  - modeloTratamiento: Tratamiento
+  --
+  + atender(cita, datos, tratamientos)
+}
+class "Medicamento" as MD <<entity>> {
+  + idmedicamento: int
+  + nombre: String
+  + presentacion: String
+  + estado: String
+  --
+  + listarActivos()
+}
+class "Tratamiento" as T <<entity>> {
+  + idtratamiento: int
+  + dosis: String
+  + frecuencia: String
+  + duracion: String
+  + indicaciones: String
+  + idconsulta: int
+  + idmedicamento: int
+  --
+  + crear()
+}
+class "Consulta" as CO <<entity>> {
+  + idconsulta: int
+  + fechahora: DateTime
+  + motivo: String
+  + peso: Decimal
+  + talla: Decimal
+  + presionarterial: String
+  + temperatura: Decimal
+  + frecuenciacardiaca: int
+  + examenfisico: String
+  + …
+  --
+  + crear()
+}
+MED --> IU
+IU "1" --> "0..*" MD
+IU "1" --> "1" C
+C "1" --> "0..*" CO
+C "1" --> "0..*" T
+@enduml

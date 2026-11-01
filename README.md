@@ -35,11 +35,11 @@ Caso de estudio: *Clínica Vida Salud*
 
 | Documento | Contenido |
 |---|---|
-| [📘 Informe final (PDF)](Docs/Informe_Final_NovaSolSalud_Grupo20.pdf) · [Word](Docs/Informe_Final_NovaSolSalud_Grupo20.docx) | Informe final en formato APA 7, con el Ciclo I (CU1–CU7) y el Ciclo II (CU8–CU20) separados: perfil, elementos del sistema, tecnología, costos, beneficios, clientes, modelo de dominio y de negocio, marco teórico, método de Ishikawa, captura de requisitos, análisis, diseño, diseño de datos (mapeo, normalización, tabla de volumen, 30 consultas SQL, procedimientos almacenados y triggers), implementación, conclusiones, bibliografía y anexos. 214 páginas, con tablas y fichas rediseñadas. |
+| [📘 Informe final (PDF)](Docs/Informe_Final_NovaSolSalud_Grupo20.pdf) · [Word](Docs/Informe_Final_NovaSolSalud_Grupo20.docx) | Informe final en formato APA 7, con el Ciclo I (CU1–CU7) y el Ciclo II (CU8–CU20) separados: perfil, elementos del sistema, tecnología, costos, beneficios, clientes, modelo de dominio y de negocio, marco teórico, método de Ishikawa, captura de requisitos, análisis, diseño, diseño de datos (mapeo, normalización, tabla de volumen, 30 consultas SQL, procedimientos almacenados y triggers), implementación, conclusiones, bibliografía y anexos. 270 páginas, con tablas y fichas rediseñadas, diccionario de datos por tabla y el análisis por paquete y por caso de uso. |
 | [📗 Informe anterior (PDF)](Docs/Informe_NovaSolSalud_Grupo20.pdf) | Primera versión del informe (121 páginas). |
 | [🎤 Guion de presentación (HTML)](Docs/Guion_Presentacion.html) | Guion paso a paso para la defensa, las 10 pruebas del enunciado, preguntas probables con sus respuestas y qué hacer si algo falla. Descargar y abrir en el navegador. |
 | [🧩 Modelo en Enterprise Architect](Docs/EA) | Proyecto `NovaSol_Salud.qea` (Enterprise Architect 17.2) con el modelo de dominio, actores y casos de uso por ciclo y paquete, paquetes de análisis y clases persistentes. Se regenera con `extraer_modelo.py` y `crear_modelo_ea.ps1`. |
-| [📐 Diagramas UML](Docs/diagramas) | Figuras con la notación y el estilo de Enterprise Architect (`python renderizar_ea.py`). 84 diagramas: negocio, Ishikawa, modelo de dominio, casos de uso (general, por ciclo y por paquete), prototipos, comunicación y secuencia de los 20 CU, clases de análisis por ciclo, estados, despliegue, paquetes, componentes (principal y por paquete), clases persistentes, modelo relacional y trazabilidad. Fuente `.puml` e imagen `.png`. |
+| [📐 Diagramas UML](Docs/diagramas) | Figuras con la notación y el estilo de Enterprise Architect (`python renderizar_ea.py`). 145 diagramas: negocio, Ishikawa por etapas, árbol de problemas, modelo de dominio, casos de uso (general, por ciclo y por paquete), prototipos, diagrama de casos de uso, comunicación, clases de análisis y secuencia de cada uno de los 20 CU, paquetes de análisis (relación con sus CU y vista con actores), clases de análisis por ciclo, estados, despliegue, paquetes, componentes (principal y por paquete), clases persistentes, modelo relacional y trazabilidad. Fuente `.puml` e imagen `.png`. |
 | [🖼️ Capturas de pantalla](Docs/capturas) | 53 pantallas del sistema funcionando, de cada rol. |
 | [📝 Diagrama de clases original](Docs/Diagrama%20de%20Clinica.svg) | Diagrama de clases del que parte la base de datos. |
 
@@ -158,7 +158,7 @@ Los permisos se asignan por rol desde **Administración → Roles y permisos** (
 
 Los artefactos siguen los flujos de trabajo del Proceso Unificado y describen **el sistema tal como está construido**. Cada diagrama se corresponde con archivos reales del repositorio (ver [Trazabilidad](#trazabilidad-trace)). Los diagramas de esta sección están escritos en Mermaid, que GitHub dibuja automáticamente.
 
-> **Versión UML completa:** los 84 diagramas en notación UML estándar (PlantUML) están en [`Docs/diagramas`](Docs/diagramas) y en el [informe final](Docs/Informe_Final_NovaSolSalud_Grupo20.pdf). Incluyen la descripción, el diagrama de comunicación y el diagrama de secuencia de **los 20 casos de uso**.
+> **Versión UML completa:** los 145 diagramas en notación UML estándar (PlantUML) están en [`Docs/diagramas`](Docs/diagramas) y en el [informe final](Docs/Informe_Final_NovaSolSalud_Grupo20.pdf). Incluyen la descripción, el diagrama de comunicación y el diagrama de secuencia de **los 20 casos de uso**.
 
 ### 1. Captura de requisitos
 

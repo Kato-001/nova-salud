@@ -1,0 +1,10 @@
+@startuml 26_rel_p3
+!include estilo.iuml
+title Relación del paquete P3 Gestión de pacientes con sus casos de uso
+left to right direction
+folder "P3 Gestión de pacientes" as PK
+usecase "CU7\nGestionar pacientes" as CU7
+PK ..> CU7 : <<include>>
+usecase "CU8\nRegistrarse como paciente" as CU8
+PK ..> CU8 : <<include>>
+@enduml

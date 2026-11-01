@@ -1,0 +1,82 @@
+@startuml 28_clase_cu07
+!include estilo.iuml
+title Análisis de clases · CU7 Gestionar pacientes
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Recepcionista" as REC
+actor "Administrador" as ADM
+class "IU_Pacientes" as IU <<form>> {
+  + busqueda: String
+  + ci: String
+  + nombres: String
+  + apellidos: String
+  + fechaNacimiento: Date
+  + sexo: String
+  + telefono: String
+  + email: String
+  --
+  + mostrarInterfaz()
+  + buscar(CI, nombre)
+  + registrar(datos)
+  + verHistorial()
+  + mostrarMensaje(texto: String)
+}
+class "CtrlPaciente" as C <<control>> {
+  - modeloPaciente: Paciente
+  - modeloHistoriaClinica: HistoriaClinica
+  - modeloCita: Cita
+  --
+  + buscar()
+  + guardar()
+  + historial()
+}
+class "Paciente" as P <<entity>> {
+  + idpaciente: int
+  + codigo: String
+  + ci: String
+  + nombres: String
+  + apellidos: String
+  + fechanacimiento: Date
+  + sexo: String
+  + telefono: String
+  + email: String
+  + …
+  --
+  + listar(filtros)
+  + existeCI()
+  + crear(código PAC-####)
+}
+class "HistoriaClinica" as H <<entity>> {
+  + idhistoria: int
+  + numero: String
+  + antecedentespersonales: String
+  + antecedentesfamiliares: String
+  + alergias: String
+  + enfermedadescronicas: String
+  + medicacionhabitual: String
+  + idpaciente: int
+  --
+  + crear(número HC)
+}
+class "Cita" as CI <<entity>> {
+  + idcita: int
+  + codigo: String
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + modalidad: String
+  + motivo: String
+  + fecharegistro: DateTime
+  + idpaciente: int
+  + …
+  --
+  + delPaciente()
+}
+REC --> IU
+ADM --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" P
+C "1" --> "0..*" H
+C "1" --> "0..*" CI
+@enduml

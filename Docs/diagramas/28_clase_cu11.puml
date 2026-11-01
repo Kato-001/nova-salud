@@ -1,0 +1,77 @@
+@startuml 28_clase_cu11
+!include estilo.iuml
+title Análisis de clases · CU11 Reprogramar cita
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Recepcionista" as REC
+class "IU_Reprogramar" as IU <<form>> {
+  + idCita: int
+  + nuevaFecha: Date
+  + nuevaHora: Time
+  + motivo: String
+  --
+  + mostrarInterfaz()
+  + elegirNuevaFechaHora(motivo)
+  + mostrarMensaje(texto: String)
+}
+class "CtrlCita" as C <<control>> {
+  - modeloCita: Cita
+  - modeloHistorialCita: HistorialCita
+  - modeloNotificacion: Notificacion
+  --
+  + reprogramar(cita, fecha, hora, motivo)
+}
+class "CtrlDisponibilidad" as D <<control>> {
+  --
+  + estaLibre(excluir cita)
+}
+class "Cita" as CI <<entity>> {
+  + idcita: int
+  + codigo: String
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + modalidad: String
+  + motivo: String
+  + fecharegistro: DateTime
+  + idpaciente: int
+  + …
+  --
+  + obtener()
+  + actualizar(fecha, hora)
+}
+class "HistorialCita" as HC <<entity>> {
+  + idhistorial: int
+  + accion: String
+  + fechaanterior: Date
+  + horaanterior: Time
+  + fechanueva: Date
+  + horanueva: Time
+  + motivo: String
+  + fecha: DateTime
+  + idcita: int
+  + …
+  --
+  + registrar(anterior → nueva)
+}
+class "Notificacion" as N <<entity>> {
+  + idnotificacion: int
+  + tipo: String
+  + canal: String
+  + mensaje: String
+  + programadapara: DateTime
+  + enviadaen: DateTime
+  + leidaen: DateTime
+  + idcita: int
+  + idestudio: int
+  --
+  + reemplazarRecordatorio()
+}
+REC --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" CI
+C ..> D
+C "1" --> "0..*" HC
+C "1" --> "0..*" N
+@enduml

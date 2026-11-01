@@ -1,0 +1,21 @@
+@startuml 27_vista_p1
+!include estilo.iuml
+title Vista del paquete P1 Seguridad y acceso
+skinparam packageStyle folder
+left to right direction
+package "P1 Seguridad y acceso" {
+  actor "Administrador" as ADM
+  actor "Recepcionista" as REC
+  actor "Médico" as MED
+  actor "Paciente" as PAC
+  usecase "CU1\nIniciar sesión" as CU1
+  usecase "CU2\nGestionar roles y permisos" as CU2
+  usecase "CU3\nGestionar usuarios" as CU3
+  ADM --> CU1
+  REC --> CU1
+  MED --> CU1
+  PAC --> CU1
+  ADM --> CU2
+  ADM --> CU3
+}
+@enduml

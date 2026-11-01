@@ -1,0 +1,69 @@
+@startuml 28_clase_cu03
+!include estilo.iuml
+title Análisis de clases · CU3 Gestionar usuarios
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Administrador" as ADM
+class "IU_Usuarios" as IU <<form>> {
+  + nombre: String
+  + username: String
+  + email: String
+  + idrol: int
+  + clave: String
+  + estado: String
+  --
+  + mostrarInterfaz()
+  + nuevoUsuario(datos)
+  + desactivar(id)
+  + mostrarMensaje(texto: String)
+}
+class "CtrlUsuario" as C <<control>> {
+  - modeloUsuario: Usuario
+  - modeloRol: Rol
+  - modeloBitacora: Bitacora
+  --
+  + guardar(datos)
+  + cambiarEstado(id)
+}
+class "Usuario" as U <<entity>> {
+  + idusuario: int
+  + nombre: String
+  + username: String
+  + email: String
+  + password: String
+  + estado: String
+  + ultimoacceso: DateTime
+  + idrol: int
+  --
+  + existeUsername/Email()
+  + crear(password_hash)
+  + actualizarEstado()
+}
+class "Rol" as R <<entity>> {
+  + idrol: int
+  + nombre: String
+  + descripcion: String
+  --
+  + validarRol()
+}
+class "Bitacora" as B <<entity>> {
+  + idbitacora: int
+  + accion: String
+  + modulo: String
+  + tabla: String
+  + idregistro: int
+  + descripcion: String
+  + ip: String
+  + fecha: DateTime
+  + idusuario: int
+  --
+  + registrar(CREAR)
+  + registrar(DESACTIVAR)
+}
+ADM --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" U
+C "1" --> "0..*" R
+C "1" --> "0..*" B
+@enduml

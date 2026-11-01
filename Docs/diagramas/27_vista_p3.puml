@@ -1,0 +1,16 @@
+@startuml 27_vista_p3
+!include estilo.iuml
+title Vista del paquete P3 Gestión de pacientes
+skinparam packageStyle folder
+left to right direction
+package "P3 Gestión de pacientes" {
+  actor "Administrador" as ADM
+  actor "Recepcionista" as REC
+  actor "Paciente" as PAC
+  usecase "CU7\nGestionar pacientes" as CU7
+  usecase "CU8\nRegistrarse como paciente" as CU8
+  REC --> CU7
+  ADM --> CU7
+  PAC --> CU8
+}
+@enduml

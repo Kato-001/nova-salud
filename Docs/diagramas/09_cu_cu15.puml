@@ -1,0 +1,8 @@
+@startuml 09_cu_cu15
+!include estilo.iuml
+title CU15 Registrar consulta médica
+left to right direction
+actor "Médico" as MED
+usecase "CU15 Registrar consulta médica" as UC
+MED -- UC
+@enduml

@@ -1,0 +1,10 @@
+@startuml 09_cu_cu12
+!include estilo.iuml
+title CU12 Cancelar cita
+left to right direction
+actor "Recepcionista" as REC
+actor "Paciente" as PAC
+usecase "CU12 Cancelar cita" as UC
+REC -- UC
+PAC -- UC
+@enduml

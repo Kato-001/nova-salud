@@ -1,0 +1,116 @@
+@startuml 28_clase_cu10
+!include estilo.iuml
+title Análisis de clases · CU10 Reservar ficha
+allowmixing
+hide circle
+skinparam classAttributeIconSize 0
+actor "Recepcionista" as REC
+actor "Administrador" as ADM
+actor "Paciente" as PAC
+class "IU_ProgramarCita" as IU <<form>> {
+  + idPaciente: int
+  + idEspecialidad: int
+  + idMedico: int
+  + fecha: Date
+  + horaInicio: Time
+  + motivo: String
+  --
+  + mostrarInterfaz()
+  + elegirPaciente()
+  + confirmar(fecha, hora)
+  + mostrarMensaje(texto: String)
+}
+class "CtrlCita" as C <<control>> {
+  - modeloPaciente: Paciente
+  - modeloMedico: Medico
+  - modeloCita: Cita
+  - modeloHistorialCita: HistorialCita
+  - modeloNotificacion: Notificacion
+  --
+  + buscarPaciente(q)
+  + programar(datos)
+}
+class "CtrlDisponibilidad" as D <<control>> {
+  --
+  + estaLibre(médico, fecha, hora)
+}
+class "Paciente" as P <<entity>> {
+  + idpaciente: int
+  + codigo: String
+  + ci: String
+  + nombres: String
+  + apellidos: String
+  + fechanacimiento: Date
+  + sexo: String
+  + telefono: String
+  + email: String
+  + …
+  --
+  + buscar()
+  + estáActivo()
+}
+class "Medico" as M <<entity>> {
+  + idmedico: int
+  + codigo: String
+  + registroprofesional: String
+  + nombres: String
+  + apellidos: String
+  + telefono: String
+  + email: String
+  + estado: String
+  + idusuario: int
+  --
+  + bloquear()
+}
+class "Cita" as CI <<entity>> {
+  + idcita: int
+  + codigo: String
+  + fecha: Date
+  + horainicio: Time
+  + horafin: Time
+  + modalidad: String
+  + motivo: String
+  + fecharegistro: DateTime
+  + idpaciente: int
+  + …
+  --
+  + crear(CM-####)
+}
+class "HistorialCita" as HC <<entity>> {
+  + idhistorial: int
+  + accion: String
+  + fechaanterior: Date
+  + horaanterior: Time
+  + fechanueva: Date
+  + horanueva: Time
+  + motivo: String
+  + fecha: DateTime
+  + idcita: int
+  + …
+  --
+  + registrar(PROGRAMAR)
+}
+class "Notificacion" as N <<entity>> {
+  + idnotificacion: int
+  + tipo: String
+  + canal: String
+  + mensaje: String
+  + programadapara: DateTime
+  + enviadaen: DateTime
+  + leidaen: DateTime
+  + idcita: int
+  + idestudio: int
+  --
+  + programarRecordatorio()
+}
+REC --> IU
+ADM --> IU
+PAC --> IU
+IU "1" --> "1" C
+C "1" --> "0..*" P
+C "1" --> "0..*" M
+C ..> D
+C "1" --> "0..*" CI
+C "1" --> "0..*" HC
+C "1" --> "0..*" N
+@enduml
