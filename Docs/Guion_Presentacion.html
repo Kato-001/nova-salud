@@ -129,8 +129,8 @@
 
 <div class="tarjeta paso">
   <h3>Paso 0 · Introducción <span class="tiempo">1 min</span></h3>
-  <div class="decir">«La Clínica Vida Salud programaba sus citas en cuadernos y hojas de cálculo, lo que provocaba citas duplicadas, pérdida de datos y ningún reporte. Con el método de Ishikawa vimos que la causa raíz era la falta de un sistema centralizado. Desarrollamos Nova Salud con PHP y PostgreSQL siguiendo el Proceso Unificado en dos ciclos: el Ciclo I construye la seguridad y los datos maestros, y el Ciclo II las citas, la atención médica, los reportes y el portal del paciente.»</div>
-  <p>Mostrar rápidamente el informe: índice, diagrama de Ishikawa y diagrama de casos de uso por ciclo.</p>
+  <div class="decir">«La Clínica Vida Salud programaba sus citas en cuadernos y hojas de cálculo, lo que provocaba citas duplicadas, pérdida de datos y ningún reporte. Con el modelo de negocio vimos que la causa raíz era la falta de un sistema centralizado. Desarrollamos Nova Salud con PHP y PostgreSQL siguiendo el Proceso Unificado en dos ciclos: el Ciclo I construye la seguridad y los datos maestros, y el Ciclo II las citas, la atención médica, los reportes y el portal del paciente.»</div>
+  <p>Mostrar rápidamente el informe: índice, modelo de negocio y diagrama de casos de uso por ciclo.</p>
 </div>
 
 <div class="tarjeta paso">
@@ -264,8 +264,6 @@ Porque los casos de uso de las citas dependen de datos que deben existir antes. 
 <b>«include»</b> es un comportamiento que siempre se ejecuta: reservar una ficha siempre consulta la disponibilidad (CU10 incluye a CU9). <b>«extend»</b> es opcional: el tratamiento (CU17) y los estudios (CU18) extienden la consulta (CU15), porque no siempre se indican.</details>
 <details><summary>¿Qué son las clases boundary, control y entity?</summary>
 Son los estereotipos de las clases de análisis. <b>Boundary</b> (interfaz) son las pantallas, como IU_ProgramarCita. <b>Control</b> coordina un caso de uso, como CtrlCita. <b>Entity</b> (entidad) es la información que se guarda, como Cita o Paciente.</details>
-<details><summary>¿Para qué sirvió el diagrama de Ishikawa?</summary>
-Para ordenar las causas del problema «programación deficiente de las citas» en 6 categorías: métodos y procesos, personal, tecnología, información y datos, pacientes y gestión administrativa. Mostró que la causa raíz es la falta de un sistema centralizado, y de cada causa salió una alternativa que se convirtió en un módulo del sistema.</details>
 <details><summary>¿Qué diferencia hay entre el modelo de dominio y el diagrama de clases?</summary>
 El modelo de dominio muestra los conceptos del negocio y sus relaciones, sin tipos de datos ni métodos. El diagrama de clases persistentes ya es de diseño: tiene atributos con tipos, multiplicidades y se mapea a las tablas.</details>
 <details><summary>¿Con qué herramientas hicieron los diagramas?</summary>
@@ -331,7 +329,7 @@ Es el registro de auditoría: guarda quién hizo qué, en qué módulo, desde qu
 <h2 id="reparto">8. Reparto entre los dos</h2>
 <div class="tabla"><table>
   <tr><th>Integrante</th><th>Parte sugerida</th></tr>
-  <tr><td>Sergio Estaca Paco</td><td>Introducción, Ishikawa y Ciclo I (pasos 0 a 3); preguntas de metodología.</td></tr>
+  <tr><td>Sergio Estaca Paco</td><td>Introducción, modelo de negocio y Ciclo I (pasos 0 a 3); preguntas de metodología.</td></tr>
   <tr><td>Frank Miguel Yerbales Molina</td><td>Ciclo II (pasos 4 a 7) y base de datos (paso 8); preguntas de base de datos.</td></tr>
 </table></div>
 <p class="sub">Sugerencia: el que no está hablando maneja la computadora. Ensayen al menos una vez completo con el cronómetro.</p>
