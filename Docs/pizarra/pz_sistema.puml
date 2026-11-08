@@ -1,0 +1,52 @@
+@startuml pz_sistema
+title Implementación de la arquitectura del sistema (ejemplo de la pizarra)
+skinparam shadowing false
+skinparam defaultFontName "Segoe UI"
+skinparam ranksep 40
+package "P1 Nomb1" as P1 {
+}
+package "P2 Nomb2" as P2 {
+}
+package "Pn Nombn" as Pn {
+}
+component "NombF" as F <<file>>
+component "Sistema Web\n(Gestión de Consultas Médicas)" as MAIN <<main>>
+component "NombL1" as L <<library>>
+package "B.D" {
+  component "PostgreSQL" as ENG <<engine>>
+  component "BDClinica.sql" as SQL <<script>>
+  component "THistorial" as T1 <<table>>
+  component "TPaciente" as T2 <<table>>
+  component "TMedico" as T3 <<table>>
+  component "TEspMed" as T4 <<table>>
+  component "THorario" as T5 <<table>>
+  component "TFicha" as T6 <<table>>
+}
+package "Reporte" {
+  component "Nombre" as PDF <<PDF>>
+  component "Nombre" as XLS <<MS Excel>>
+  component "RHorarioFichaGst" as R1 <<file>>
+  component "RPacientes" as R2 <<file>>
+  component "RHistorial" as R3 <<file>>
+  component "RConsultas" as R4 <<file>>
+}
+MAIN .up.> P1
+MAIN .up.> P2
+MAIN .up.> Pn
+F <.right. MAIN
+MAIN .right.> L
+MAIN ..> SQL
+ENG <.. SQL
+SQL ..> T1
+SQL ..> T2
+SQL ..> T3
+T1 -[hidden]down- T4
+T2 -[hidden]down- T5
+T3 -[hidden]down- T6
+MAIN ..> PDF
+MAIN ..> XLS
+R1 .up.> PDF
+R2 .up.> XLS
+R3 .up.> R1
+R4 .up.> R2
+@enduml
