@@ -71,7 +71,7 @@ final class ReporteController extends Controlador
         fwrite($out, "\xEF\xBB\xBF");   // BOM para que Excel respete las tildes
         $fila = fn(array $c) => fputcsv($out, $c, ';');
 
-        $fila([self::TIPOS[$tipo] . ' · ' . config('NOMBRE_CLINICA', 'NovaSol Salud')]);
+        $fila([self::TIPOS[$tipo] . ' · ' . config('NOMBRE_CLINICA', 'Nova Salud')]);
         $fila($tipo === 'agenda' ? ['Fecha', $f['dia']] : ['Período', $f['desde'], $f['hasta']]);
         $fila([]);
 

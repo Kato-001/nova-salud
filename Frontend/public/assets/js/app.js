@@ -1,5 +1,5 @@
 /* =====================================================================
-   NovaSol Salud · Interacción del lado del cliente
+   Nova Salud · Interacción del lado del cliente
    ---------------------------------------------------------------------
    - Tema claro/oscuro, menú móvil, toasts, modal de confirmación.
    - Validación de formularios (las mismas reglas se repiten en PHP).

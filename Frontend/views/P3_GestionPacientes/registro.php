@@ -7,7 +7,7 @@ $titulo = 'Crear cuenta de paciente';
         <div class="row-between mb anim">
             <a href="/" class="brand" style="padding:0" title="Volver al inicio">
                 <span class="brand-logo"><?= icono('cruz', 22) ?></span>
-                <span><strong>NovaSol Salud</strong><small><?= e(config('NOMBRE_CLINICA', 'Clínica Vida Salud')) ?></small></span>
+                <span><strong>Nova Salud</strong><small><?= e(config('NOMBRE_CLINICA', 'Clínica Vida Salud')) ?></small></span>
             </a>
             <a href="/login" class="btn btn-ghost"><?= icono('izquierda', 16) ?> Ya tengo cuenta</a>
         </div>

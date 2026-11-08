@@ -111,7 +111,7 @@ La división más habitual con el Proceso Unificado es construir primero la base
 
 ## Lista rápida antes de cada presentación
 - [ ] Índice de la documentación actualizado.
-- [ ] Demo abierta en https://novasol-salud.vercel.app y probada con las cuatro cuentas.
+- [ ] Demo abierta en https://nova-salud-clinica.vercel.app y probada con las cuatro cuentas.
 - [ ] Repositorio de GitHub actualizado y QR impreso en la carátula o en los anexos.
 - [ ] Diagramas exportados como imagen dentro del documento.
 - [ ] Capturas de las pruebas con el resultado esperado y el obtenido.

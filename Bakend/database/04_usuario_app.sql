@@ -1,5 +1,5 @@
 -- =====================================================================
--- NovaSol Salud · 04 · Usuario de base de datos de la aplicación PHP
+-- Nova Salud · 04 · Usuario de base de datos de la aplicación PHP
 -- ---------------------------------------------------------------------
 -- Reemplace CAMBIAR_CLAVE por una contraseña segura antes de ejecutarlo y
 -- use la misma en la variable DATABASE_URL (.env local o Vercel).

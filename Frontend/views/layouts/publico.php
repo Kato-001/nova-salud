@@ -11,7 +11,7 @@ $clinica = config('NOMBRE_CLINICA', 'Clínica Vida Salud');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= e($titulo ?? 'Inicio') ?> · NovaSol Salud</title>
+    <title><?= e($titulo ?? 'Inicio') ?> · Nova Salud</title>
     <meta name="description" content="<?= e($clinica) ?>: especialidades, médicos y reserva de citas en línea.">
     <meta name="theme-color" content="#0f766e">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -28,7 +28,7 @@ $clinica = config('NOMBRE_CLINICA', 'Clínica Vida Salud');
     <div class="pub-wrap pub-nav-in">
         <a href="/" class="brand pub-brand">
             <div class="brand-logo"><?= icono('cruz', 20) ?></div>
-            <div><strong>NovaSol Salud</strong><small><?= e($clinica) ?></small></div>
+            <div><strong>Nova Salud</strong><small><?= e($clinica) ?></small></div>
         </a>
         <nav class="pub-links" aria-label="Secciones">
             <a href="#especialidades">Especialidades</a>
@@ -55,7 +55,7 @@ $clinica = config('NOMBRE_CLINICA', 'Clínica Vida Salud');
         <div>
             <a href="/" class="brand pub-brand">
                 <div class="brand-logo"><?= icono('cruz', 20) ?></div>
-                <div><strong>NovaSol Salud</strong><small><?= e($clinica) ?></small></div>
+                <div><strong>Nova Salud</strong><small><?= e($clinica) ?></small></div>
             </a>
             <p>Atención ambulatoria en varias especialidades, con reserva de citas en línea y tu historial siempre disponible.</p>
         </div>
@@ -71,7 +71,7 @@ $clinica = config('NOMBRE_CLINICA', 'Clínica Vida Salud');
             <p><?= icono('correo', 15) ?> recepcion@vidasalud.com</p>
         </div>
     </div>
-    <div class="pub-wrap pub-legal">© <?= date('Y') ?> NovaSol Salud · Proyecto académico · Grupo 20 · UAGRM – FICCT</div>
+    <div class="pub-wrap pub-legal">© <?= date('Y') ?> Nova Salud · Proyecto académico · Grupo 20 · UAGRM – FICCT</div>
 </footer>
 <?= View::parcial('toasts') ?>
 <script src="<?= asset('assets/js/app.js') ?>" defer></script>

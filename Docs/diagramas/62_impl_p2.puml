@@ -1,0 +1,37 @@
+@startuml 62_impl_p2
+!include estilo.iuml
+title Implementación de la arquitectura del subsistema P2 Gestión médica
+skinparam nodesep 20
+skinparam ranksep 55
+package "Interfaz (Frontend/views)" {
+  component "especialidades/index.php" as v0 <<form>>
+  component "medicos/index.php\nmedicos/form.php" as v1 <<form>>
+  component "medicos/ver.php" as v2 <<report>>
+  component "horarios/index.php" as v3 <<form>>
+}
+package "Lógica (Bakend/app)" {
+  component "EspecialidadController" as c_EspecialidadController <<class>>
+  component "MedicoController" as c_MedicoController <<class>>
+  component "HorarioController" as c_HorarioController <<class>>
+}
+package "Datos (PostgreSQL · esquema clinica)" {
+  component "especialidad" as t_especialidad <<table>>
+  component "medico" as t_medico <<table>>
+  component "medicoespecialidad" as t_medicoespecialidad <<table>>
+  component "usuario" as t_usuario <<table>>
+  component "cita" as t_cita <<table>>
+  component "horario" as t_horario <<table>>
+  component "bloqueoagenda" as t_bloqueoagenda <<table>>
+}
+v0 ..> c_EspecialidadController
+c_EspecialidadController ..> t_especialidad
+v1 ..> c_MedicoController
+c_MedicoController ..> t_medico
+c_MedicoController ..> t_medicoespecialidad
+c_MedicoController ..> t_usuario
+v2 ..> c_MedicoController
+c_MedicoController ..> t_cita
+v3 ..> c_HorarioController
+c_HorarioController ..> t_horario
+c_HorarioController ..> t_bloqueoagenda
+@enduml

@@ -1,0 +1,37 @@
+@startuml 62_impl_portal
+!include estilo.iuml
+title Implementación de la arquitectura del subsistema Portal del paciente
+skinparam nodesep 20
+skinparam ranksep 55
+package "Interfaz (Frontend/views)" {
+  component "Portal/reservar.php" as v0 <<form>>
+  component "Portal/citas.php" as v1 <<report>>
+  component "Portal/perfil.php" as v2 <<form>>
+  component "Portal/historial.php" as v3 <<report>>
+}
+package "Lógica (Bakend/app)" {
+  component "PortalController" as c_PortalController <<class>>
+}
+package "Datos (PostgreSQL · esquema clinica)" {
+  component "cita" as t_cita <<table>>
+  component "notificacion" as t_notificacion <<table>>
+  component "paciente" as t_paciente <<table>>
+  component "historiaclinica" as t_historiaclinica <<table>>
+  component "contactoemergencia" as t_contactoemergencia <<table>>
+  component "consulta" as t_consulta <<table>>
+  component "tratamiento" as t_tratamiento <<table>>
+  component "estudio" as t_estudio <<table>>
+}
+v0 ..> c_PortalController
+c_PortalController ..> t_cita
+c_PortalController ..> t_notificacion
+v1 ..> c_PortalController
+v2 ..> c_PortalController
+c_PortalController ..> t_paciente
+c_PortalController ..> t_historiaclinica
+c_PortalController ..> t_contactoemergencia
+v3 ..> c_PortalController
+c_PortalController ..> t_consulta
+c_PortalController ..> t_tratamiento
+c_PortalController ..> t_estudio
+@enduml

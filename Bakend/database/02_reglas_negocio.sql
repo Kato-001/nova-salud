@@ -1,5 +1,5 @@
 -- =====================================================================
--- NovaSol Salud · 02 · Reglas de negocio en la base de datos
+-- Nova Salud · 02 · Reglas de negocio en la base de datos
 -- ---------------------------------------------------------------------
 -- La aplicación PHP valida todo antes de guardar; estos triggers son la
 -- última línea de defensa (RN04–RN08, RF08, RF10) por si algún dato llega

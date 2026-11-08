@@ -21,7 +21,7 @@ TIPOS = [
     (r'^0[126]_', 'act'), (r'^09_', 'uc'), (r'^2[4567]_', 'pkg'), (r'^03_', 'uc'), (r'^05_', 'class'), (r'^1[0-7]', 'uc'),
     (r'^2[15]', 'pkg'), (r'^22', 'class'), (r'^23_', 'stm'), (r'^30_', 'sd'),
     (r'^4[01]_', 'deployment'), (r'^42_', 'pkg'), (r'^4[34]_', 'cmp'), (r'^4[4567]_', 'class'),
-    (r'^50_', 'sd'), (r'^60_', 'cmp'),
+    (r'^50_', 'sd'), (r'^6[012]_', 'cmp'),
 ]
 SIN_CAMBIO = ('18_', '19_', '20_')   # prototipos de interfaz (Salt): se dejan como bocetos
 

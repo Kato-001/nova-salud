@@ -1,5 +1,5 @@
 /* =====================================================================
-   NovaSol Salud · Asistente para programar / reprogramar / reservar citas
+   Nova Salud · Asistente para programar / reprogramar / reservar citas
    ---------------------------------------------------------------------
    Paso a paso: paciente → especialidad → médico → fecha → hora.
    Solo se muestran los horarios que el servidor devuelve como libres

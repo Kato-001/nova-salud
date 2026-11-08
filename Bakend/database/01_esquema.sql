@@ -1,5 +1,5 @@
 -- =====================================================================
--- NovaSol Salud · Sistema Web de Gestión de Citas Médicas
+-- Nova Salud · Sistema Web de Gestión de Citas Médicas
 -- 01 · Esquema de la base de datos (PostgreSQL)
 -- ---------------------------------------------------------------------
 -- Todo vive en el esquema "clinica" (no expuesto por la API pública de Supabase).

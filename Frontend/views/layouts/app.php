@@ -58,7 +58,7 @@ $activo = function (string $destino) use ($ruta): bool {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= e($titulo ?? 'NovaSol Salud') ?> · <?= e(config('NOMBRE_CLINICA', 'NovaSol Salud')) ?></title>
+    <title><?= e($titulo ?? 'Nova Salud') ?> · <?= e(config('NOMBRE_CLINICA', 'Nova Salud')) ?></title>
     <meta name="theme-color" content="#0f766e">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +73,7 @@ $activo = function (string $destino) use ($ruta): bool {
     <aside class="sidebar" aria-label="Menú principal">
         <a href="<?= e(Auth::inicio()) ?>" class="brand">
             <span class="brand-logo"><?= icono('cruz', 22) ?></span>
-            <span><strong>NovaSol Salud</strong><small><?= e(config('NOMBRE_CLINICA', 'Citas médicas')) ?></small></span>
+            <span><strong>Nova Salud</strong><small><?= e(config('NOMBRE_CLINICA', 'Citas médicas')) ?></small></span>
         </a>
         <nav>
             <?php foreach ($menu as $grupo => $items):
@@ -109,7 +109,7 @@ $activo = function (string $destino) use ($ruta): bool {
     <div class="main">
         <header class="topbar">
             <button class="btn btn-ghost btn-icon menu-btn" data-menu aria-label="Abrir menú"><?= icono('menu', 20) ?></button>
-            <div class="crumbs"><?= e(config('NOMBRE_CLINICA', 'NovaSol Salud')) ?> / <b><?= e($titulo ?? '') ?></b></div>
+            <div class="crumbs"><?= e(config('NOMBRE_CLINICA', 'Nova Salud')) ?> / <b><?= e($titulo ?? '') ?></b></div>
             <div class="spacer"></div>
             <span class="faint no-print" style="font-size:13px;font-weight:600"><?= e(fecha_larga(hoy())) ?></span>
             <button class="btn btn-ghost btn-icon" data-tema aria-label="Cambiar tema claro/oscuro" title="Cambiar tema"><?= icono('luna', 19) ?></button>

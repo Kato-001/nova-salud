@@ -24,7 +24,7 @@ $titulo = 'Ingresar';
 
         <div class="brand anim" style="padding:0;--i:0">
             <div class="brand-logo"><?= icono('cruz', 22) ?></div>
-            <div><strong style="color:#fff">NovaSol Salud</strong><small style="color:rgba(255,255,255,.6)"><?= e(config('NOMBRE_CLINICA', 'Clínica Vida Salud')) ?></small></div>
+            <div><strong style="color:#fff">Nova Salud</strong><small style="color:rgba(255,255,255,.6)"><?= e(config('NOMBRE_CLINICA', 'Clínica Vida Salud')) ?></small></div>
         </div>
 
         <div>
@@ -47,7 +47,7 @@ $titulo = 'Ingresar';
             <a href="/" class="faint" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;margin-bottom:18px"><?= icono('izquierda', 14) ?> Volver al inicio</a>
             <div class="brand" style="padding:0">
                 <div class="brand-logo"><?= icono('cruz', 22) ?></div>
-                <div><strong>NovaSol Salud</strong><small>Sistema de gestión de citas médicas</small></div>
+                <div><strong>Nova Salud</strong><small>Sistema de gestión de citas médicas</small></div>
             </div>
             <h1>Bienvenido de nuevo</h1>
             <p>Ingrese con su usuario o correo electrónico y su contraseña.</p>

@@ -1,5 +1,5 @@
 -- =====================================================================
--- NovaSol Salud · 06 · Procedimientos almacenados y disparadores
+-- Nova Salud · 06 · Procedimientos almacenados y disparadores
 -- ---------------------------------------------------------------------
 -- Complementa a 02_reglas_negocio.sql (trigger validar_cita y proteger_rol).
 -- Se ejecuta después de los scripts 01 a 04.

@@ -1,0 +1,50 @@
+@startuml 62_impl_p1
+!include estilo.iuml
+title Implementación de la arquitectura del subsistema P1 Seguridad y acceso
+skinparam nodesep 20
+skinparam ranksep 55
+package "Interfaz (Frontend/views)" {
+  component "login.php" as v0 <<form>>
+  component "recuperar.php\nrecuperar_codigo.php" as v1 <<form>>
+  component "usuarios/index.php\nusuarios/form.php" as v2 <<form>>
+  component "roles/index.php" as v3 <<form>>
+  component "configuracion/index.php" as v4 <<form>>
+  component "bitacora/index.php" as v5 <<report>>
+}
+package "Lógica (Bakend/app)" {
+  component "AuthController" as c_AuthController <<class>>
+  component "RecuperacionController" as c_RecuperacionController <<class>>
+  component "UsuarioController" as c_UsuarioController <<class>>
+  component "RolController" as c_RolController <<class>>
+  component "ConfiguracionController" as c_ConfiguracionController <<class>>
+  component "BitacoraController" as c_BitacoraController <<class>>
+}
+package "Datos (PostgreSQL · esquema clinica)" {
+  component "usuario" as t_usuario <<table>>
+  component "sesion" as t_sesion <<table>>
+  component "bitacora" as t_bitacora <<table>>
+  component "recuperacion" as t_recuperacion <<table>>
+  component "rol" as t_rol <<table>>
+  component "permiso" as t_permiso <<table>>
+  component "rolpermiso" as t_rolpermiso <<table>>
+  component "configuracion" as t_configuracion <<table>>
+}
+v0 ..> c_AuthController
+c_AuthController ..> t_usuario
+c_AuthController ..> t_sesion
+c_AuthController ..> t_bitacora
+v1 ..> c_RecuperacionController
+c_RecuperacionController ..> t_recuperacion
+c_RecuperacionController ..> t_usuario
+v2 ..> c_UsuarioController
+c_UsuarioController ..> t_usuario
+c_UsuarioController ..> t_rol
+v3 ..> c_RolController
+c_RolController ..> t_rol
+c_RolController ..> t_permiso
+c_RolController ..> t_rolpermiso
+v4 ..> c_ConfiguracionController
+c_ConfiguracionController ..> t_configuracion
+v5 ..> c_BitacoraController
+c_BitacoraController ..> t_bitacora
+@enduml

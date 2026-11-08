@@ -1,6 +1,6 @@
 <div align="center">
 
-# NovaSol Salud · Sistema Web de Gestión de Citas Médicas
+# Nova Salud · Sistema Web de Gestión de Citas Médicas
 
 **Proyecto de Examen Parcial II** — Desarrollo web con PHP y PostgreSQL
 Caso de estudio: *Clínica Vida Salud*
@@ -8,9 +8,9 @@ Caso de estudio: *Clínica Vida Salud*
 [![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?logo=php&logoColor=white)](#tecnologías)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-4169E1?logo=postgresql&logoColor=white)](#base-de-datos)
 [![PDO](https://img.shields.io/badge/PDO-pdo__pgsql-0d9488)](#seguridad)
-[![Vercel](https://img.shields.io/badge/Demo-Vercel-000?logo=vercel)](https://novasol-salud.vercel.app)
+[![Vercel](https://img.shields.io/badge/Demo-Vercel-000?logo=vercel)](https://nova-salud-clinica.vercel.app)
 
-**Demo en línea:** https://novasol-salud.vercel.app · **Repositorio:** https://github.com/Kato-001/novasol-salud
+**Demo en línea:** https://nova-salud-clinica.vercel.app · **Repositorio:** https://github.com/Kato-001/nova-salud
 
 | Repositorio | Demo |
 |:-:|:-:|
@@ -35,11 +35,13 @@ Caso de estudio: *Clínica Vida Salud*
 
 | Documento | Contenido |
 |---|---|
-| [📘 Informe final (PDF)](Docs/Informe_NovaSolSalud_Grupo20.pdf) · [Word](Docs/Informe_NovaSolSalud_Grupo20.docx) | Informe final en formato APA 7, con el Ciclo I (CU1–CU7) y el Ciclo II (CU8–CU20) separados: perfil, elementos del sistema, tecnología, costos, beneficios, clientes, modelo de dominio y de negocio, marco teórico, método de Ishikawa, captura de requisitos, análisis, diseño, diseño de datos (mapeo, normalización, tabla de volumen, 30 consultas SQL, procedimientos almacenados y triggers), implementación, conclusiones, bibliografía y anexos. 270 páginas, con tablas y fichas rediseñadas, diccionario de datos por tabla y el análisis por paquete y por caso de uso. |
+| [📘 Informe del Examen Parcial II (PDF)](Docs/Informe_NovaSalud_Grupo20.pdf) · [Word](Docs/Informe_NovaSalud_Grupo20.docx) | **Informe vigente**, con la tabla de contenido del Examen Parcial II: perfil (con requisitos funcionales y no funcionales), marco teórico, modelo de negocio, flujos de trabajo de captura de requisitos, análisis, diseño (arquitectura, diagramas de secuencia y diseño de datos), implementación (herramientas y diagramas de componentes del sistema y de cada subsistema), pruebas de caja negra de los casos de uso (33 de 33 correctas), conclusión, recomendación, bibliografía, publicación del código (URL + QR) y anexos. 294 páginas en formato APA 7. Se regenera con [`Docs/informe/armar_informe.py`](Docs/informe). |
+| [📗 Informe anterior (PDF)](Docs/Informe_NovaSolSalud_Grupo20.pdf) · [Word](Docs/Informe_NovaSolSalud_Grupo20.docx) | Versión anterior del informe (con el nombre NovaSol Salud), que se conserva como referencia. |
+| [🧪 Pruebas de caja negra](Docs/pruebas) | `pruebas_caja_negra.py` ejecuta las 33 pruebas de los casos de uso (interfaz, entrada, condición, salida y procedimiento) y guarda el resultado en `resultados.json`. |
 | [🎤 Guion de presentación (HTML)](Docs/Guion_Presentacion.html) | Guion paso a paso para la defensa, las 10 pruebas del enunciado, preguntas probables con sus respuestas y qué hacer si algo falla. Descargar y abrir en el navegador. |
-| [🧩 Modelo en Enterprise Architect](Docs/EA) | Proyecto `NovaSol_Salud.qea` (Enterprise Architect 17.2) con el modelo de dominio, actores y casos de uso por ciclo y paquete, paquetes de análisis y clases persistentes. Se regenera con `extraer_modelo.py` y `crear_modelo_ea.ps1`. |
-| [📐 Diagramas UML](Docs/diagramas) | Figuras con la notación y el estilo de Enterprise Architect (`python renderizar_ea.py`). 145 diagramas: negocio, Ishikawa por etapas, árbol de problemas, modelo de dominio, casos de uso (general, por ciclo y por paquete), prototipos, diagrama de casos de uso, comunicación, clases de análisis y secuencia de cada uno de los 20 CU, paquetes de análisis (relación con sus CU y vista con actores), clases de análisis por ciclo, estados, despliegue, paquetes, componentes (principal y por paquete), clases persistentes, modelo relacional y trazabilidad. Fuente `.puml` e imagen `.png`. |
-| [🖼️ Capturas de pantalla](Docs/capturas) | 53 pantallas del sistema funcionando, de cada rol. |
+| [🧩 Modelo en Enterprise Architect](Docs/EA) | Proyecto `Nova_Salud.qea` (Enterprise Architect 17.2) con el modelo de dominio, actores y casos de uso por ciclo y paquete, paquetes de análisis y clases persistentes. Se regenera con `extraer_modelo.py` y `crear_modelo_ea.ps1`. |
+| [📐 Diagramas UML](Docs/diagramas) | Figuras con la notación y el estilo de Enterprise Architect (`python renderizar_ea.py`). 149 diagramas: negocio, Ishikawa por etapas, árbol de problemas, modelo de dominio, casos de uso (general, por ciclo y por paquete), prototipos, diagrama de casos de uso, comunicación, clases de análisis y secuencia de cada uno de los 20 CU, paquetes de análisis (relación con sus CU y vista con actores), clases de análisis por ciclo, estados, despliegue, paquetes, componentes (principal y por paquete), implementación de la arquitectura del sistema y de cada subsistema (estereotipos «main», «file», «library», «engine», «script», «table», «form», «report», «class», «PDF» y «Excel»), clases persistentes, modelo relacional y trazabilidad. Fuente `.puml` e imagen `.png`. |
+| [🖼️ Capturas de pantalla](Docs/capturas) | 57 pantallas del sistema funcionando, de cada rol. Se toman con `tomar_capturas.js`. |
 | [📝 Diagrama de clases original](Docs/Diagrama%20de%20Clinica.svg) | Diagrama de clases del que parte la base de datos. |
 
 ---
@@ -74,7 +76,7 @@ Caso de estudio: *Clínica Vida Salud*
 
 La Clínica Vida Salud administraba sus citas con cuadernos, llamadas y hojas de cálculo, lo que provocaba citas duplicadas, datos de pacientes perdidos, desconocimiento de los horarios disponibles y falta de reportes.
 
-**NovaSol Salud** centraliza esa información en una aplicación web: registra pacientes, médicos, especialidades y horarios, **programa citas mostrando solo los horarios realmente libres** y controla sus estados (programada, confirmada, atendida, cancelada, inasistencia). Incluye agenda médica, historial por paciente, atención médica con tratamientos, reportes administrativos y un portal donde el paciente reserva y sigue sus propias citas.
+**Nova Salud** centraliza esa información en una aplicación web: registra pacientes, médicos, especialidades y horarios, **programa citas mostrando solo los horarios realmente libres** y controla sus estados (programada, confirmada, atendida, cancelada, inasistencia). Incluye agenda médica, historial por paciente, atención médica con tratamientos, reportes administrativos y un portal donde el paciente reserva y sigue sus propias citas.
 
 ## ¿Para quién es el sistema?
 
@@ -157,7 +159,7 @@ Los permisos se asignan por rol desde **Administración → Roles y permisos** (
 
 Los artefactos siguen los flujos de trabajo del Proceso Unificado y describen **el sistema tal como está construido**. Cada diagrama se corresponde con archivos reales del repositorio (ver [Trazabilidad](#trazabilidad-trace)). Los diagramas de esta sección están escritos en Mermaid, que GitHub dibuja automáticamente.
 
-> **Versión UML completa:** los 145 diagramas en notación UML estándar (PlantUML) están en [`Docs/diagramas`](Docs/diagramas) y en el [informe final](Docs/Informe_NovaSolSalud_Grupo20.pdf). Incluyen la descripción, el diagrama de comunicación y el diagrama de secuencia de **los 20 casos de uso**.
+> **Versión UML completa:** los 149 diagramas en notación UML estándar (PlantUML) están en [`Docs/diagramas`](Docs/diagramas) y en el [informe](Docs/Informe_NovaSalud_Grupo20.pdf). Incluyen la descripción, el diagrama de comunicación y el diagrama de secuencia de **los 20 casos de uso**.
 
 ### 1. Captura de requisitos
 
@@ -832,17 +834,17 @@ Navegador ──HTTP──▶ api/index.php (controlador frontal + rutas)
 
 1. **Clonar el repositorio**
    ```bash
-   git clone https://github.com/Kato-001/novasol-salud.git && cd novasol-salud
+   git clone https://github.com/Kato-001/nova-salud.git && cd nova-salud
    ```
 2. **Crear la base de datos.** En PostgreSQL local, por ejemplo con pgAdmin:
    ```sql
-   CREATE DATABASE novasol_salud;
+   CREATE DATABASE nova_salud;
    ```
    Luego ejecute en orden `01_esquema.sql`, `02_reglas_negocio.sql`, `03_datos_iniciales.sql` y `04_usuario_app.sql` (cambie `CAMBIAR_CLAVE` por su contraseña). Los scripts funcionan igual en PostgreSQL local y en Supabase.
 3. **Configurar el entorno**
    ```bash
    cp .env.example .env
-   # DATABASE_URL=postgresql://headsalud_app:SU_CLAVE@localhost:5432/novasol_salud?sslmode=disable
+   # DATABASE_URL=postgresql://headsalud_app:SU_CLAVE@localhost:5432/nova_salud?sslmode=disable
    ```
 4. **Ejecutar**, con una de estas dos opciones:
    - **Servidor integrado de PHP:**
@@ -874,9 +876,9 @@ npx vercel deploy --prod
 
 ## Cuentas de prueba
 
-Página pública: **https://novasol-salud.vercel.app** (especialidades, médicos con sus horarios y botón para reservar; al reservar se pide iniciar sesión como paciente y luego se vuelve directo a la reserva con el médico ya elegido).
+Página pública: **https://nova-salud-clinica.vercel.app** (especialidades, médicos con sus horarios y botón para reservar; al reservar se pide iniciar sesión como paciente y luego se vuelve directo a la reserva con el médico ya elegido).
 
-Página de ingreso: **https://novasol-salud.vercel.app/login**. Se puede entrar con el **usuario** o con el **correo**; los pacientes también pueden usar su **CI**.
+Página de ingreso: **https://nova-salud-clinica.vercel.app/login**. Se puede entrar con el **usuario** o con el **correo**; los pacientes también pueden usar su **CI**.
 
 **Contraseña de todas las cuentas: `HeadSalud2026`**
 
@@ -936,7 +938,7 @@ Pruebas mínimas del enunciado, ejecutadas contra el sistema:
 ## Estructura del proyecto
 
 ```
-novasol-salud/
+nova-salud/
 ├── Bakend/                    # Lo que el usuario NO ve
 │   ├── app/
 │   │   ├── bootstrap.php      # Arranque: entorno, errores, carga de clases, sesión

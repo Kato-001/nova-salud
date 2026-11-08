@@ -1,5 +1,5 @@
 """
-Genera los diagramas de secuencia (diseño) de los 20 casos de uso de NovaSol Salud.
+Genera los diagramas de secuencia (diseño) de los 20 casos de uso de Nova Salud.
 Los participantes y mensajes corresponden a las clases reales de app/.
 Uso:  python generar_secuencias.py
 """

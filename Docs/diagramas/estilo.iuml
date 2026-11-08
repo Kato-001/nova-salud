@@ -1,4 +1,4 @@
-' Estilo común de los diagramas de NovaSol Salud
+' Estilo común de los diagramas de Nova Salud
 skinparam shadowing false
 skinparam defaultFontName "Segoe UI"
 skinparam defaultFontSize 13

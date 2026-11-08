@@ -1,0 +1,83 @@
+@startuml 61_impl_sistema
+!include estilo.iuml
+title Implementación de la arquitectura del sistema · Nova Salud
+skinparam nodesep 25
+skinparam ranksep 45
+package "P1 Seguridad y acceso" as P1 {
+}
+package "P2 Gestión médica" as P2 {
+}
+package "P3 Gestión de pacientes" as P3 {
+}
+package "P4 Gestión de citas" as P4 {
+}
+package "P5 Atención médica" as P5 {
+}
+package "P6 Reportes" as P6 {
+}
+package "Portal del paciente" as PO {
+}
+component "Sistema Web\nNova Salud\n(api/index.php)" as MAIN <<main>>
+package "Configuración" {
+  component ".env\n(variables de entorno)" as fEnv <<file>>
+  component "vercel.json · .htaccess\n· router.php" as fRut <<file>>
+}
+package "Librerías" {
+  component "PDO\n(pdo_pgsql)" as lPdo <<library>>
+  component "Mailer\n(SMTP Gmail)" as lMail <<library>>
+  component "app.js · citas.js\napp.css" as lJs <<library>>
+}
+package "B.D" {
+  component "PostgreSQL 17\n(Supabase)" as eng <<engine>>
+  component "01_esquema.sql … 06_procedimientos\n_triggers.sql" as scr <<script>>
+  component "usuario" as t_usuario <<table>>
+  component "rol" as t_rol <<table>>
+  component "paciente" as t_paciente <<table>>
+  component "medico" as t_medico <<table>>
+  component "especialidad" as t_especialidad <<table>>
+  component "horario" as t_horario <<table>>
+  component "cita" as t_cita <<table>>
+  component "historialcita" as t_historialcita <<table>>
+  component "consulta" as t_consulta <<table>>
+  component "tratamiento" as t_tratamiento <<table>>
+  component "estudio" as t_estudio <<table>>
+  component "bitacora" as t_bitacora <<table>>
+}
+package "Reporte" {
+  component "Reporte impreso\n(.pdf)" as rPdf <<PDF>>
+  component "Reporte exportado\n(.csv · Excel)" as rCsv <<Excel>>
+  component "P6_Reportes/index.php" as rVis <<file>>
+  component "ReporteController.php\nmodels/Reporte.php" as rCtl <<file>>
+}
+MAIN .up.> P1
+MAIN .up.> P2
+MAIN .up.> P3
+MAIN .up.> P4
+MAIN .up.> P5
+MAIN .up.> P6
+MAIN .up.> PO
+MAIN .left.> fEnv
+fRut .right.> MAIN
+MAIN .right.> lPdo
+MAIN .right.> lMail
+MAIN .right.> lJs
+lPdo ..> eng : pdo_pgsql
+MAIN ..> scr
+scr ..> eng
+eng ..> t_usuario
+eng ..> t_rol
+eng ..> t_paciente
+eng ..> t_medico
+eng ..> t_especialidad
+eng ..> t_horario
+t_usuario -[hidden]down- t_cita
+t_rol -[hidden]down- t_historialcita
+t_paciente -[hidden]down- t_consulta
+t_medico -[hidden]down- t_tratamiento
+t_especialidad -[hidden]down- t_estudio
+t_horario -[hidden]down- t_bitacora
+MAIN ..> rVis
+rVis ..> rPdf : imprimir
+rVis ..> rCtl
+rCtl ..> rCsv : exportar
+@enduml

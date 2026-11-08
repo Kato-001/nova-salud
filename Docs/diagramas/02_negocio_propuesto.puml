@@ -1,6 +1,6 @@
 @startuml 02_negocio_propuesto
 !include estilo.iuml
-title Modelo de negocio · Proceso PROPUESTO con NovaSol Salud
+title Modelo de negocio · Proceso PROPUESTO con Nova Salud
 
 |Paciente|
 start
@@ -12,12 +12,12 @@ else (no)
   :Busca al paciente por CI\n(o lo registra con CI único);
   :Elige especialidad y médico;
 endif
-|Sistema NovaSol Salud|
+|Sistema Nova Salud|
 :Calcula los horarios disponibles\n(horario del médico - citas - bloqueos);
 :Muestra **solo** los bloques libres;
 |Paciente|
 :Elige fecha y hora;
-|Sistema NovaSol Salud|
+|Sistema Nova Salud|
 :Verifica de nuevo la disponibilidad\nen una transacción (sin cruces);
 :Registra la cita con código único\ny programa el recordatorio;
 |Paciente|
@@ -27,7 +27,7 @@ endif
 |Médico|
 :Consulta su agenda del día;
 :Atiende y registra consulta,\ntratamiento y estudios;
-|Sistema NovaSol Salud|
+|Sistema Nova Salud|
 :Cambia la cita a ATENDIDA\ny actualiza el historial clínico;
 |Recepcionista|
 :Genera reportes por fecha,\nmédico, especialidad y estado;

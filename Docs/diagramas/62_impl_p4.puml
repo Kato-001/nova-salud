@@ -1,0 +1,34 @@
+@startuml 62_impl_p4
+!include estilo.iuml
+title Implementación de la arquitectura del subsistema P4 Gestión de citas
+skinparam nodesep 20
+skinparam ranksep 55
+package "Interfaz (Frontend/views)" {
+  component "citas/nueva.php\n+ citas.js" as v0 <<form>>
+  component "citas/reprogramar.php" as v1 <<form>>
+  component "citas/ver.php" as v2 <<form>>
+  component "agenda/index.php" as v3 <<report>>
+}
+package "Lógica (Bakend/app)" {
+  component "CitaController" as c_CitaController <<class>>
+  component "AgendaController" as c_AgendaController <<class>>
+}
+package "Datos (PostgreSQL · esquema clinica)" {
+  component "cita" as t_cita <<table>>
+  component "horario" as t_horario <<table>>
+  component "bloqueoagenda" as t_bloqueoagenda <<table>>
+  component "historialcita" as t_historialcita <<table>>
+  component "notificacion" as t_notificacion <<table>>
+}
+v0 ..> c_CitaController
+c_CitaController ..> t_cita
+c_CitaController ..> t_horario
+c_CitaController ..> t_bloqueoagenda
+v1 ..> c_CitaController
+c_CitaController ..> t_historialcita
+v2 ..> c_CitaController
+c_CitaController ..> t_notificacion
+v3 ..> c_AgendaController
+c_AgendaController ..> t_cita
+c_AgendaController ..> t_horario
+@enduml

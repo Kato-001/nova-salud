@@ -1,5 +1,5 @@
 """
-Genera los diagramas de comunicación (análisis) de los 20 casos de uso de NovaSol Salud.
+Genera los diagramas de comunicación (análisis) de los 20 casos de uso de Nova Salud.
 Cada CU se describe con sus objetos de análisis (boundary, control, entity) y los
 mensajes numerados que intercambian. Uso:  python generar_cu.py
 """

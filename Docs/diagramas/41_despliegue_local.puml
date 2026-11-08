@@ -11,7 +11,7 @@ node "Servidor local\n<<Windows / Linux>>" {
     artifact ".htaccess\n(reescritura de URL)" as HT
     artifact "api/index.php + Bakend/ + Frontend/" as APP
   }
-  database "PostgreSQL 14+\nbase novasol_salud" as DB
+  database "PostgreSQL 14+\nbase nova_salud" as DB
 }
 NAV -- AP : HTTP :80
 HT ..> APP

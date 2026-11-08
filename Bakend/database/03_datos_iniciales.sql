@@ -1,5 +1,5 @@
 -- =====================================================================
--- NovaSol Salud · 03 · Datos iniciales y de demostración
+-- Nova Salud · 03 · Datos iniciales y de demostración
 -- ---------------------------------------------------------------------
 -- Contraseña de todas las cuentas de ejemplo: HeadSalud2026
 -- (hash generado con password_hash() de PHP; cámbiela al ingresar)

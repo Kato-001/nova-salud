@@ -1,0 +1,23 @@
+@startuml 62_impl_p6
+!include estilo.iuml
+title Implementación de la arquitectura del subsistema P6 Reportes
+skinparam nodesep 20
+skinparam ranksep 55
+package "Interfaz (Frontend/views)" {
+  component "P6_Reportes/index.php" as v0 <<report>>
+}
+package "Lógica (Bakend/app)" {
+  component "ReporteController" as c_ReporteController <<class>>
+}
+package "Datos (PostgreSQL · esquema clinica)" {
+  component "cita" as t_cita <<table>>
+  component "paciente" as t_paciente <<table>>
+  component "medico" as t_medico <<table>>
+  component "especialidad" as t_especialidad <<table>>
+}
+v0 ..> c_ReporteController
+c_ReporteController ..> t_cita
+c_ReporteController ..> t_paciente
+c_ReporteController ..> t_medico
+c_ReporteController ..> t_especialidad
+@enduml

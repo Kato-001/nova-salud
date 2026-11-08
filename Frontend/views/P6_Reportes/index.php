@@ -21,7 +21,7 @@ $colEstados = ['PROGRAMADA' => 'var(--info)', 'CONFIRMADA' => 'var(--accent)', '
 </div>
 
 <div class="report-head">
-    <strong><?= e(config('NOMBRE_CLINICA', 'NovaSol Salud')) ?></strong> · <?= e($tipos[$tipo]) ?> · Generado el <?= date('d/m/Y H:i') ?> por <?= e(Auth::usuario()['nombre']) ?>
+    <strong><?= e(config('NOMBRE_CLINICA', 'Nova Salud')) ?></strong> · <?= e($tipos[$tipo]) ?> · Generado el <?= date('d/m/Y H:i') ?> por <?= e(Auth::usuario()['nombre']) ?>
 </div>
 
 <nav class="tabs no-print">

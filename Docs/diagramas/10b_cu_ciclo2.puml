@@ -7,7 +7,7 @@ actor "Paciente" as PAC
 actor "Recepcionista" as REC
 actor "Médico" as MED
 actor "Administrador" as ADM
-rectangle "NovaSol Salud" {
+rectangle "Nova Salud" {
   package "P3 Gestión de pacientes" {
     usecase "CU8 Registrarse como paciente" as CU8
   }

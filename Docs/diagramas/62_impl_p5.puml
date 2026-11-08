@@ -1,0 +1,32 @@
+@startuml 62_impl_p5
+!include estilo.iuml
+title Implementación de la arquitectura del subsistema P5 Atención médica
+skinparam nodesep 20
+skinparam ranksep 55
+package "Interfaz (Frontend/views)" {
+  component "consulta.php" as v0 <<form>>
+  component "estudios/index.php\nestudios/resultado.php" as v1 <<form>>
+  component "estudios/catalogo.php" as v2 <<form>>
+}
+package "Lógica (Bakend/app)" {
+  component "AtencionController" as c_AtencionController <<class>>
+  component "EstudioController" as c_EstudioController <<class>>
+}
+package "Datos (PostgreSQL · esquema clinica)" {
+  component "consulta" as t_consulta <<table>>
+  component "tratamiento" as t_tratamiento <<table>>
+  component "medicamento" as t_medicamento <<table>>
+  component "estudio" as t_estudio <<table>>
+  component "notificacion" as t_notificacion <<table>>
+  component "catalogoestudio" as t_catalogoestudio <<table>>
+}
+v0 ..> c_AtencionController
+c_AtencionController ..> t_consulta
+c_AtencionController ..> t_tratamiento
+c_AtencionController ..> t_medicamento
+v1 ..> c_EstudioController
+c_EstudioController ..> t_estudio
+c_EstudioController ..> t_notificacion
+v2 ..> c_EstudioController
+c_EstudioController ..> t_catalogoestudio
+@enduml

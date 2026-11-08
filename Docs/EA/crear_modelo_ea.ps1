@@ -1,10 +1,10 @@
-# Crea el modelo UML de NovaSol Salud en Enterprise Architect (NovaSol_Salud.qea)
+# Crea el modelo UML de Nova Salud en Enterprise Architect (Nova_Salud.qea)
 # a partir de modelo.json (generado por extraer_modelo.py), usando la API COM de EA.
 # Uso: powershell -ExecutionPolicy Bypass -File crear_modelo_ea.ps1
 $ErrorActionPreference = 'Stop'
 $dir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $m = Get-Content (Join-Path $dir 'modelo.json') -Raw -Encoding UTF8 | ConvertFrom-Json
-$archivo = Join-Path $dir 'NovaSol_Salud.qea'
+$archivo = Join-Path $dir 'Nova_Salud.qea'
 $base = Get-ChildItem 'C:\Program Files\Sparx Systems\*\EABase.qea' | Select-Object -First 1
 Copy-Item $base.FullName $archivo -Force
 
@@ -61,7 +61,7 @@ function DiagramaCU($paquete, $nombre, $actores, $casos) {
 }
 $proj = $proy
 
-$raiz = $r.Models.GetAt(0); $raiz.Name = 'NovaSol Salud'; [void]$raiz.Update()
+$raiz = $r.Models.GetAt(0); $raiz.Name = 'Nova Salud'; [void]$raiz.Update()
 
 # ---------------------------------------------------------------- 1. Modelo de dominio
 $pDom = Paquete $raiz '01 Modelo de dominio' 'Conceptos del negocio de la Clínica Vida Salud y sus relaciones.'

@@ -92,7 +92,7 @@ final class Recuperacion
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f7fb;padding:32px 12px"><tr><td align="center">
 <table width="480" cellpadding="0" cellspacing="0" style="max-width:480px;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e3e8f0">
 <tr><td style="background:linear-gradient(135deg,#14b8a6,#0ea5e9,#4f46e5);background-color:#0d9488;padding:24px 28px;color:#ffffff">
-<div style="font-size:20px;font-weight:800">✚ NovaSol Salud</div><div style="font-size:13px;opacity:.85">{$marca}</div></td></tr>
+<div style="font-size:20px;font-weight:800">✚ Nova Salud</div><div style="font-size:13px;opacity:.85">{$marca}</div></td></tr>
 <tr><td style="padding:28px">
 <p style="margin:0 0 12px;font-size:16px">Hola, <strong>{$nombre}</strong>:</p>
 <p style="margin:0 0 20px;font-size:15px;color:#475569">Recibimos una solicitud para restablecer tu contraseña. Usa este código de verificación:</p>
@@ -101,7 +101,7 @@ final class Recuperacion
 <p style="margin:0;font-size:13px;color:#94a3b8">Si no solicitaste este cambio, ignora este mensaje: tu contraseña seguirá siendo la misma. Nunca compartas este código.</p>
 </td></tr></table></td></tr></table></body></html>
 HTML;
-        $texto = "Hola, {$nombre}:\n\nTu código para restablecer la contraseña de NovaSol Salud es: {$codigo}\n\n"
+        $texto = "Hola, {$nombre}:\n\nTu código para restablecer la contraseña de Nova Salud es: {$codigo}\n\n"
             . "Vence en {$min} minutos y solo se puede usar una vez. Si no lo solicitaste, ignora este mensaje.";
         return [$html, $texto];
     }

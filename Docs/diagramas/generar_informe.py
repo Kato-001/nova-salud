@@ -117,7 +117,7 @@ def cu_ciclo(nombre, titulo, ids, actores, enlaces):
         paquetes.setdefault(CU[i][1], []).append(i)
     cuerpo = [f'title {titulo}', 'left to right direction', 'skinparam packageStyle rectangle']
     cuerpo += [f'actor "{a}" as {k}' for k, a in actores]
-    cuerpo.append('rectangle "NovaSol Salud" {')
+    cuerpo.append('rectangle "Nova Salud" {')
     for p, lista in paquetes.items():
         cuerpo.append(f'  package "{PAQ[p]}" {{')
         cuerpo += [f'    usecase "CU{i} {CU[i][0]}" as CU{i}' for i in lista]

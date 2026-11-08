@@ -44,7 +44,8 @@ final class Disponibilidad
             ['m' => $idmedico, 'd' => (int) $d->format('N')]
         );
         if (!$horarios) {
-            return $res('El médico no atiende los ' . mb_strtolower(DIAS_SEMANA[(int) $d->format('N')]) . '.');
+            $plural = [1 => 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábados', 'domingos'][(int) $d->format('N')];
+            return $res("El médico no atiende los $plural.");
         }
 
         $bloqueos = Database::filas('select horainicio, horafin, motivo, tipo from bloqueoagenda where idmedico = :m and fecha = :f',

@@ -1,6 +1,6 @@
 <?php
 /**
- * NovaSol Salud · Controlador frontal
+ * Nova Salud · Controlador frontal
  * ---------------------------------------------------------------------
  * Todas las peticiones llegan aquí (Vercel: vercel.json · Apache: .htaccess ·
  * servidor de PHP: router.php) y se envían al controlador correspondiente.

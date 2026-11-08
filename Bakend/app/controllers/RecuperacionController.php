@@ -38,7 +38,7 @@ final class RecuperacionController extends Controlador
             redirect('/recuperar');
         }
         if (!Mailer::configurado()) {
-            error_log('[NovaSol] Recuperación solicitada pero SMTP no está configurado');
+            error_log('[Nova Salud] Recuperación solicitada pero SMTP no está configurado');
             flash('error', 'El envío de correos no está configurado. Solicite al administrador que restablezca su contraseña.');
             redirect('/recuperar');
         }
@@ -56,7 +56,7 @@ final class RecuperacionController extends Controlador
                 Mailer::enviar($u['email'], 'Tu código de verificación: ' . $codigo, $html, $texto);
                 Bitacora::registrar('RECUPERAR_SOLICITUD', 'SEGURIDAD', 'usuario', (int) $u['idusuario'], 'Código de recuperación enviado al correo', (int) $u['idusuario']);
             } catch (Throwable $e) {
-                error_log('[NovaSol] No se pudo enviar el correo de recuperación: ' . $e->getMessage());
+                error_log('[Nova Salud] No se pudo enviar el correo de recuperación: ' . $e->getMessage());
                 if ($r = Recuperacion::vigente((int) $u['idusuario'])) {
                     Recuperacion::anular((int) $r['idrecuperacion']);
                 }

@@ -1,0 +1,31 @@
+@startuml 62_impl_p3
+!include estilo.iuml
+title Implementación de la arquitectura del subsistema P3 Gestión de pacientes
+skinparam nodesep 20
+skinparam ranksep 55
+package "Interfaz (Frontend/views)" {
+  component "pacientes/index.php\npacientes/form.php" as v0 <<form>>
+  component "pacientes/ver.php" as v1 <<report>>
+  component "registro.php" as v2 <<form>>
+}
+package "Lógica (Bakend/app)" {
+  component "PacienteController" as c_PacienteController <<class>>
+  component "AuthController" as c_AuthController <<class>>
+}
+package "Datos (PostgreSQL · esquema clinica)" {
+  component "paciente" as t_paciente <<table>>
+  component "historiaclinica" as t_historiaclinica <<table>>
+  component "contactoemergencia" as t_contactoemergencia <<table>>
+  component "cita" as t_cita <<table>>
+  component "usuario" as t_usuario <<table>>
+}
+v0 ..> c_PacienteController
+c_PacienteController ..> t_paciente
+c_PacienteController ..> t_historiaclinica
+v1 ..> c_PacienteController
+c_PacienteController ..> t_contactoemergencia
+c_PacienteController ..> t_cita
+v2 ..> c_AuthController
+c_AuthController ..> t_usuario
+c_AuthController ..> t_paciente
+@enduml

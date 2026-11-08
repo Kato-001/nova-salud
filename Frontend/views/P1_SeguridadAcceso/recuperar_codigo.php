@@ -12,7 +12,7 @@ $oculto = mb_substr($local, 0, 2) . str_repeat('•', max(2, mb_strlen($local) -
     <div class="card card-pad auth-tarjeta anim">
         <a href="/login" class="brand" style="padding:0 0 22px">
             <span class="brand-logo"><?= icono('cruz', 22) ?></span>
-            <span><strong>NovaSol Salud</strong><small><?= e(config('NOMBRE_CLINICA', 'Clínica Vida Salud')) ?></small></span>
+            <span><strong>Nova Salud</strong><small><?= e(config('NOMBRE_CLINICA', 'Clínica Vida Salud')) ?></small></span>
         </a>
         <div class="pasos-rec"><span class="ok"><?= icono('check', 14) ?></span><i class="on"></i><span class="on">2</span></div>
         <h1 style="font-size:26px;font-weight:800">Revisa tu correo</h1>

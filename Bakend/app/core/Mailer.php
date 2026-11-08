@@ -28,7 +28,7 @@ final class Mailer
         $port = (int) (getenv('SMTP_PORT') ?: 465);
         $user = (string) getenv('SMTP_USER');
         $pass = str_replace(' ', '', (string) getenv('SMTP_PASS'));   // la clave de Gmail se copia con espacios
-        $nombre = getenv('SMTP_FROM_NAME') ?: 'NovaSol Salud';
+        $nombre = getenv('SMTP_FROM_NAME') ?: 'Nova Salud';
 
         $seguro = getenv('SMTP_SECURE') ?: ($port === 465 ? 'ssl' : 'tls');
         $destino = ($seguro === 'ssl' ? 'ssl://' : 'tcp://') . $host . ':' . $port;
@@ -41,13 +41,13 @@ final class Mailer
 
         try {
             self::esperar($s, 220);
-            self::comando($s, 'EHLO novasol-salud', 250);
+            self::comando($s, 'EHLO nova-salud', 250);
             if ($seguro === 'tls') {
                 self::comando($s, 'STARTTLS', 220);
                 if (!stream_socket_enable_crypto($s, true, STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT | STREAM_CRYPTO_METHOD_TLSv1_3_CLIENT)) {
                     throw new RuntimeException('No se pudo iniciar TLS');
                 }
-                self::comando($s, 'EHLO novasol-salud', 250);
+                self::comando($s, 'EHLO nova-salud', 250);
             }
             self::comando($s, 'AUTH LOGIN', 334);
             self::comando($s, base64_encode($user), 334);
@@ -62,7 +62,7 @@ final class Mailer
                 'To: <' . self::limpiar($para) . '>',
                 'Subject: ' . self::codificar($asunto),
                 'Date: ' . date('r'),
-                'Message-ID: <' . bin2hex(random_bytes(12)) . '@novasol-salud>',
+                'Message-ID: <' . bin2hex(random_bytes(12)) . '@nova-salud>',
                 'MIME-Version: 1.0',
                 "Content-Type: multipart/alternative; boundary=\"$limite\"",
             ];

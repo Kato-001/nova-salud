@@ -7,7 +7,7 @@ actor "Administrador" as ADM
 actor "Recepcionista" as REC
 actor "Médico" as MED
 actor "Paciente" as PAC
-rectangle "NovaSol Salud" {
+rectangle "Nova Salud" {
   package "P1 Seguridad y acceso" {
     usecase "CU1 Iniciar sesión" as CU1
     usecase "CU2 Gestionar roles y permisos" as CU2

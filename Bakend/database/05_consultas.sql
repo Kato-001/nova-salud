@@ -1,5 +1,5 @@
 -- =====================================================================
--- NovaSol Salud · 05 · Consultas SQL (diseño físico de datos)
+-- Nova Salud · 05 · Consultas SQL (diseño físico de datos)
 -- ---------------------------------------------------------------------
 -- 30 consultas de ejemplo sobre el esquema "clinica":
 --   C01–C10 consultas simples · C11–C20 consultas múltiples (JOIN)

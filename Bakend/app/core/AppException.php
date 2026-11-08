@@ -32,7 +32,7 @@ final class AppException extends RuntimeException
         };
 
         if ($mensaje === null) {
-            error_log('[NovaSol Salud] PDO ' . $estado . ': ' . $texto);
+            error_log('[Nova Salud] PDO ' . $estado . ': ' . $texto);
             $mensaje = 'No se pudo completar la operación. Intente nuevamente.';
         }
         return new self($mensaje);
