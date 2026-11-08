@@ -29,7 +29,7 @@ La división más habitual con el Proceso Unificado es construir primero la base
   - Requerimientos funcionales RF01–RF05 y no funcionales (seguridad, usabilidad, rendimiento).
 - **FT Análisis:** diagramas de colaboración o comunicación, y el diagrama de paquetes (P1…P6).
 - **FT Diseño:**
-  - Diagrama de clases (está en `Docs/Diagrama de Clinica.svg`).
+  - Diagrama de clases (está en `Docs/informe/base_de_datos/Diagrama de Clinica.svg`).
   - Modelo lógico y físico de la base de datos.
   - Diagramas de secuencia de *Iniciar sesión* y *Registrar paciente*.
   - Arquitectura lógica (MVC) y física (navegador → Vercel → Supabase).

@@ -3,7 +3,7 @@
 -- 01 · Esquema de la base de datos (PostgreSQL)
 -- ---------------------------------------------------------------------
 -- Todo vive en el esquema "clinica" (no expuesto por la API pública de Supabase).
--- Implementa el diagrama de clases (Docs/Diagrama de Clinica.svg) más
+-- Implementa el diagrama de clases (Docs/informe/base_de_datos/Diagrama de Clinica.svg) más
 -- tres tablas de soporte: PERMISO y ROLPERMISO (permisos por rol) y
 -- SESION (sesiones PHP persistentes, necesarias en Vercel).
 -- =====================================================================

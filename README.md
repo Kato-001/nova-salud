@@ -35,14 +35,12 @@ Caso de estudio: *Clínica Vida Salud*
 
 | Documento | Contenido |
 |---|---|
-| [📘 Informe del Examen Parcial II (PDF)](Docs/Informe_NovaSalud_Grupo20.pdf) · [Word](Docs/Informe_NovaSalud_Grupo20.docx) | **Informe vigente**, con la tabla de contenido del Examen Parcial II: perfil (con requisitos funcionales y no funcionales), marco teórico, modelo de negocio, flujos de trabajo de captura de requisitos, análisis, diseño (arquitectura, diagramas de secuencia y diseño de datos), implementación (herramientas y diagramas de componentes del sistema y de cada subsistema), pruebas de caja negra de los casos de uso (33 de 33 correctas), conclusión, recomendación, bibliografía, publicación del código (URL + QR) y anexos. 294 páginas en formato APA 7. Se regenera con [`Docs/informe/armar_informe.py`](Docs/informe). |
-| [📗 Informe anterior (PDF)](Docs/Informe_NovaSolSalud_Grupo20.pdf) · [Word](Docs/Informe_NovaSolSalud_Grupo20.docx) | Versión anterior del informe (con el nombre NovaSol Salud), que se conserva como referencia. |
+| [📘 Informe del Examen Parcial II (PDF)](Docs/informe/Informe_NovaSalud_Grupo20.pdf) · [Word](Docs/informe/Informe_NovaSalud_Grupo20.docx) | **Informe vigente**, con la tabla de contenido del Examen Parcial II: perfil (con requisitos funcionales y no funcionales), marco teórico, modelo de negocio, flujos de trabajo de captura de requisitos, análisis, diseño (arquitectura, diagramas de secuencia y diseño de datos), implementación (herramientas y diagramas de componentes del sistema y de cada subsistema), pruebas de caja negra de los casos de uso (33 de 33 correctas), conclusión, recomendación, bibliografía, publicación del código (URL + QR) y anexos. 294 páginas en formato APA 7. |
 | [🧪 Pruebas de caja negra](Docs/pruebas) | `pruebas_caja_negra.py` ejecuta las 33 pruebas de los casos de uso (interfaz, entrada, condición, salida y procedimiento) y guarda el resultado en `resultados.json`. |
 | [🎤 Guion de presentación (HTML)](Docs/Guion_Presentacion.html) | Guion paso a paso para la defensa, las 10 pruebas del enunciado, preguntas probables con sus respuestas y qué hacer si algo falla. Descargar y abrir en el navegador. |
-| [🧩 Modelo en Enterprise Architect](Docs/EA) | Proyecto `Nova_Salud.qea` (Enterprise Architect 17.2) con el modelo de dominio, actores y casos de uso por ciclo y paquete, paquetes de análisis y clases persistentes. Se regenera con `extraer_modelo.py` y `crear_modelo_ea.ps1`. |
-| [📐 Diagramas UML](Docs/diagramas) | Figuras con la notación y el estilo de Enterprise Architect (`python renderizar_ea.py`). 149 diagramas: negocio, Ishikawa por etapas, árbol de problemas, modelo de dominio, casos de uso (general, por ciclo y por paquete), prototipos, diagrama de casos de uso, comunicación, clases de análisis y secuencia de cada uno de los 20 CU, paquetes de análisis (relación con sus CU y vista con actores), clases de análisis por ciclo, estados, despliegue, paquetes, componentes (principal y por paquete), implementación de la arquitectura del sistema y de cada subsistema (estereotipos «main», «file», «library», «engine», «script», «table», «form», «report», «class», «PDF» y «Excel»), clases persistentes, modelo relacional y trazabilidad. Fuente `.puml` e imagen `.png`. |
+| [📐 Diagramas UML](Docs/diagramas) | 153 figuras con la notación y el estilo de Enterprise Architect, ordenadas por etapa: `1 Modelo de negocio`, `2 Casos de Uso` (`Casos de Uso 1 (Ciclo I)`, `Casos de Uso 2 (Ciclo II)` y prototipos), `3 Análisis`, `4 Diseño` y `5 Implementación`. Incluyen: negocio, Ishikawa por etapas, árbol de problemas, modelo de dominio, casos de uso (general, por ciclo y por paquete), prototipos, diagrama de casos de uso, comunicación, clases de análisis y secuencia de cada uno de los 20 CU, paquetes de análisis (relación con sus CU y vista con actores), clases de análisis por ciclo, estados, despliegue, paquetes, componentes (principal y por paquete), implementación de la arquitectura del sistema y de cada subsistema (estereotipos «main», «file», «library», «engine», «script», «table», «form», «report», «class», «PDF» y «Excel»), clases persistentes, modelo relacional y trazabilidad. Las fuentes `.puml` y los scripts que las dibujan están en `fuentes/` (`python renderizar_ea.py`). |
 | [🖼️ Capturas de pantalla](Docs/capturas) | 57 pantallas del sistema funcionando, de cada rol. Se toman con `tomar_capturas.js`. |
-| [📝 Diagrama de clases original](Docs/Diagrama%20de%20Clinica.svg) | Diagrama de clases del que parte la base de datos. |
+| [📝 Diagrama de clases original](Docs/informe/base_de_datos/Diagrama%20de%20Clinica.svg) | Diagrama de clases del que parte la base de datos. |
 
 ---
 
@@ -159,7 +157,7 @@ Los permisos se asignan por rol desde **Administración → Roles y permisos** (
 
 Los artefactos siguen los flujos de trabajo del Proceso Unificado y describen **el sistema tal como está construido**. Cada diagrama se corresponde con archivos reales del repositorio (ver [Trazabilidad](#trazabilidad-trace)). Los diagramas de esta sección están escritos en Mermaid, que GitHub dibuja automáticamente.
 
-> **Versión UML completa:** los 149 diagramas en notación UML estándar (PlantUML) están en [`Docs/diagramas`](Docs/diagramas) y en el [informe](Docs/Informe_NovaSalud_Grupo20.pdf). Incluyen la descripción, el diagrama de comunicación y el diagrama de secuencia de **los 20 casos de uso**.
+> **Versión UML completa:** los 153 diagramas en notación UML están en [`Docs/diagramas`](Docs/diagramas), ordenados por etapa y por ciclo, y en el [informe](Docs/informe/Informe_NovaSalud_Grupo20.pdf). Incluyen la descripción, el diagrama de comunicación y el diagrama de secuencia de **los 20 casos de uso**.
 
 ### 1. Captura de requisitos
 
@@ -656,7 +654,7 @@ sequenceDiagram
 
 #### 3.3 Diseño de datos
 
-- **Modelo lógico:** el diagrama de clases [`Docs/Diagrama de Clinica.svg`](Docs/Diagrama%20de%20Clinica.svg).
+- **Modelo lógico:** el diagrama de clases [`Docs/informe/base_de_datos/Diagrama de Clinica.svg`](Docs/informe/base_de_datos/Diagrama%20de%20Clinica.svg).
 - **Modelo físico:** [`Bakend/database/01_esquema.sql`](Bakend/database/01_esquema.sql).
 - **Relaciones principales del núcleo de citas:**
 
@@ -763,7 +761,7 @@ Navegador ──HTTP──▶ api/index.php (controlador frontal + rutas)
 
 ## Base de datos
 
-- **Diagrama de clases:** [`Docs/Diagrama de Clinica.svg`](Docs/Diagrama%20de%20Clinica.svg)
+- **Diagrama de clases:** [`Docs/informe/base_de_datos/Diagrama de Clinica.svg`](Docs/informe/base_de_datos/Diagrama%20de%20Clinica.svg)
 - **Scripts:** en [`Bakend/database/`](Bakend/database). Se ejecutan en orden:
 
 | Script | Contenido |
@@ -950,7 +948,7 @@ nova-salud/
 ├── Frontend/                  # Lo que el usuario SÍ ve
 │   ├── views/                 # Pantallas: Publico, P1_SeguridadAcceso … P6_Reportes, Portal, layouts, partials
 │   └── public/                # Lo que el navegador descarga tal cual: CSS, JS e ícono
-├── Docs/                      # Informe Word/PDF, diagramas UML, capturas, QR y guion de presentación
+├── Docs/                      # informe/ (Word, PDF y diagramas de la base), diagramas/ (por etapa y ciclo), capturas/, pruebas/, QR y guion
 ├── api/index.php              # Entrada de todas las peticiones y tabla de rutas (Vercel exige api/ en la raíz)
 ├── router.php                 # Servidor local `php -S` (solo sirve Frontend/public)
 ├── .htaccess                  # Apache (XAMPP/Laragon): bloquea Bakend, Docs y Frontend/views

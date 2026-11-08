@@ -116,6 +116,8 @@
   <div class="dato"><b>30 min</b><span>duración de cada cita</span></div>
   <div class="dato"><b>PHP 8.3</b><span>sin framework (MVC propio)</span></div>
   <div class="dato"><b>PostgreSQL 17</b><span>en Supabase, conexión con PDO</span></div>
+  <div class="dato"><b>33 / 33</b><span>pruebas de caja negra correctas</span></div>
+  <div class="dato"><b>19 + 20</b><span>clases de dominio + persistentes</span></div>
 </div>
 <div class="tarjeta">
   <b>Ciclo I</b> (base del sistema): P1 Seguridad y acceso (CU1 Iniciar sesión, CU2 Roles y permisos, CU3 Usuarios), P2 Gestión médica (CU4 Especialidades, CU5 Médicos, CU6 Horarios), P3 Pacientes (CU7 Gestionar pacientes).<br>
@@ -221,7 +223,7 @@
   <h3>Paso 8 · Base de datos <span class="tiempo">1 min</span></h3>
   <ol class="pasos">
     <li>En GitHub, abrir <code>Bakend/database</code>: scripts 01 (tablas), 02 (reglas), 03 (datos), 04 (usuario), 05 (30 consultas) y 06 (procedimientos y triggers).</li>
-    <li>Mostrar en el informe el diagrama relacional y la normalización.</li>
+    <li>Mostrar en el informe el diagrama relacional, la normalización y el diccionario de datos (las 25 tablas, igual que en la base publicada).</li>
   </ol>
   <div class="decir">«La aplicación valida todo, pero la base de datos es la última línea de defensa: aunque alguien inserte datos directamente con SQL, los triggers y las restricciones impiden citas en el pasado, fuera de horario, superpuestas o con transiciones de estado inválidas.»</div>
 </div>
@@ -266,6 +268,10 @@ Son los estereotipos de las clases de análisis. <b>Boundary</b> (interfaz) son 
 Para ordenar las causas del problema «programación deficiente de las citas» en 6 categorías: métodos y procesos, personal, tecnología, información y datos, pacientes y gestión administrativa. Mostró que la causa raíz es la falta de un sistema centralizado, y de cada causa salió una alternativa que se convirtió en un módulo del sistema.</details>
 <details><summary>¿Qué diferencia hay entre el modelo de dominio y el diagrama de clases?</summary>
 El modelo de dominio muestra los conceptos del negocio y sus relaciones, sin tipos de datos ni métodos. El diagrama de clases persistentes ya es de diseño: tiene atributos con tipos, multiplicidades y se mapea a las tablas.</details>
+<details><summary>¿Con qué herramientas hicieron los diagramas?</summary>
+Con <b>Enterprise Architect</b> y <b>PlantUML</b>, en notación UML (así lo dice el informe en la tabla de herramientas). Son 153 diagramas ordenados por etapa del Proceso Unificado: modelo de negocio, casos de uso (Ciclo I y Ciclo II), análisis, diseño e implementación. Las 20 clases persistentes del diseño de datos se convierten en las tablas del esquema <code>clinica</code>; las demás tablas (permiso, rolpermiso, sesion, recuperacion…) son de soporte.</details>
+<details><summary>¿Cómo probaron el sistema?</summary>
+Con <b>33 pruebas de caja negra</b> (Docs/pruebas/pruebas_caja_negra.py) que usan el sistema como un navegador, incluso saltándose la validación de JavaScript para comprobar que el servidor también valida. Cada prueba indica interfaz, entrada, condición, salida esperada y procedimiento. Resultado: 33 de 33 correctas.</details>
 
 <h3>Base de datos</h3>
 <details><summary>¿Cómo evitan que se registren dos citas a la misma hora?</summary>
@@ -291,7 +297,7 @@ Es una arquitectura <b>MVC en PHP</b> organizada en tres carpetas principales:
 <ul>
   <li><code>Bakend/</code>: lo que el usuario <b>no ve</b>. En <code>Bakend/app</code> están los controladores, modelos, servicios y el núcleo de seguridad (sesiones, permisos, CSRF, conexión PDO); en <code>Bakend/database</code>, los scripts SQL 01 a 06.</li>
   <li><code>Frontend/</code>: lo que el usuario <b>sí ve</b>. En <code>Frontend/views</code> están las pantallas por paquete (Publico, P1 a P6 y Portal); en <code>Frontend/public</code>, el CSS, el JavaScript y el ícono.</li>
-  <li><code>Docs/</code>: el informe, los diagramas, las capturas y este guion.</li>
+  <li><code>Docs/</code>: el informe, los diagramas, las capturas, las pruebas y este guion (no forma parte de la página).</li>
   <li>En la raíz quedan <code>api/index.php</code> (la puerta de entrada; Vercel exige la carpeta <code>api</code>), <code>router.php</code>, <code>.htaccess</code> y <code>vercel.json</code>, que hacen arrancar la página en local, en XAMPP y en la nube.</li>
 </ul>
 <b>Bakend</b> decide <i>qué</i> pasa (permisos, reglas y base de datos) y <b>Frontend</b> decide <i>cómo se ve</i>. <code>Frontend/public</code> es la única carpeta que el navegador puede abrir directamente; las demás están protegidas. Los casos de uso no son una carpeta: cada uno se reparte entre su controlador y sus pantallas.</details>

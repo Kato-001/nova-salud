@@ -12,5 +12,3 @@ Thumbs.db
 !.env.example
 .vscode/
 
-# Vistas previas de Enterprise Architect (versión de prueba, con marca de agua)
-Docs/EA/vista_previa/
